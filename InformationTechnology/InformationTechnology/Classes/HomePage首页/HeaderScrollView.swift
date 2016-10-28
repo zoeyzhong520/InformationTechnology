@@ -1,22 +1,34 @@
 //
 //  HeaderScrollView.swift
-//  CustomCell-XIB
+//  InformationTechnology
 //
-//  Created by 沈家林 on 16/9/14.
-//  Copyright © 2016年 沈家林. All rights reserved.
+//  Created by zzj on 16/10/27.
+//  Copyright © 2016年 zzj. All rights reserved.
 //
 
 import UIKit
 
 class HeaderScrollView: UIView,UIScrollViewDelegate{
-    var scollView:UIScrollView!
+    
+    var scrollView:UIScrollView!
     var pageControl:UIPageControl!
+    //轮播页图片数组
     var imageArray:[String]!
+    //轮播页标题数组
+    var titlesArray:[String]!
+    //装载label、pageControl的view
+    var bottomView:UIView!
+    //轮播页标题的label
+    var label:UILabel!
     var timer:NSTimer!
+    //上一页
     var preImageView:UIImageView!
-    var nextImageView:UIImageView!
+    //当前页
     var currentImageView:UIImageView!
+    //下一页
+    var nextImageView:UIImageView!
     var curentPage:Int=0
+    
     var viewWidth:CGFloat{
         return self.frame.size.width
     }
@@ -24,9 +36,10 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         return self.frame.size.height
     }
     
-    init(frame: CGRect,imageNames:[String]) {
+    init(frame: CGRect,imageNames:[String],titleArray:[String]) {
         super.init(frame: frame)
-        imageArray=imageNames
+        self.imageArray=imageNames
+        self.titlesArray = titleArray
         configView()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -37,77 +50,99 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         super.init(frame: frame)
     }
     
-    func imageNameArray(array:[String]){
-        imageArray=array
-        configView()
+    //给imageArray、titles赋上传递过来的值
+    func NameArray(array:[String], array2:[String]){
+        imageArray = array
+        titlesArray = array2
+        configView()//搭建界面
     }
     
-    func configView(){
-        if imageArray.count<=1{
-            return
-        }
-        scollView=UIScrollView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight))
-        scollView.showsHorizontalScrollIndicator=false
-        scollView.showsVerticalScrollIndicator=false
-        scollView.bounces=false
-        scollView.pagingEnabled=true
-        self.addSubview(scollView)
-        
-        preImageView=UIImageView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight))
-        scollView.addSubview(preImageView)
-        
-        currentImageView=UIImageView(frame: CGRect(x: viewWidth, y: 0, width: viewWidth, height: viewHeight))
-        scollView.addSubview(currentImageView)
-        
-        nextImageView=UIImageView(frame: CGRect(x: 2*viewWidth, y: 0, width: viewWidth, height: viewHeight))
-        scollView.addSubview(nextImageView)
-        
-        scollView.contentSize=CGSize(width: 3*viewWidth, height: viewHeight)
-        scollView.contentOffset=CGPoint(x: viewWidth, y: 0)
-        scollView.delegate=self
-        
-        pageControl=UIPageControl(frame: CGRect(x: 0, y: viewHeight-30, width: viewWidth, height: 30))
-        pageControl.currentPageIndicatorTintColor = UIColor.redColor()
-        pageControl.numberOfPages=imageArray.count
-        self.addSubview(pageControl)
-        
-        timer=NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(timeRun), userInfo: nil, repeats: false)
-        
-        curentPage=0
-        preImageView.image=UIImage(named: imageArray[imageArray.count-1])
-        currentImageView.image=UIImage(named: imageArray[0])
-        nextImageView.image=UIImage(named: imageArray[1])
-        pageControl.currentPage=curentPage
-        
-    }
-    
+    //添加定时器方法
     func timeRun(){
         UIView.animateWithDuration(0.3, animations: {[unowned self] in
-            self.scollView.contentOffset=CGPointMake(self.viewWidth*2, 0)
-            }) {[unowned self] (b) in
-               self.scrollViewDidEndDecelerating(self.scollView)
+            self.scrollView.contentOffset=CGPointMake(self.viewWidth*2, 0)
+        }) {[unowned self] (b) in
+            self.scrollViewDidEndDecelerating(self.scrollView)
         }
     }
     
+    //搭建界面
+    func configView(){
+        if imageArray.count <= 1{
+            return
+        }
+        //初始化scollView
+        scrollView=UIScrollView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight))
+        scrollView.contentSize=CGSize(width: 3*viewWidth, height: viewHeight)
+        scrollView.contentOffset=CGPoint(x: viewWidth, y: 0)
+        scrollView.delegate=self
+        scrollView.showsHorizontalScrollIndicator=false
+        scrollView.showsVerticalScrollIndicator=false
+        scrollView.bounces=false
+        scrollView.pagingEnabled=true
+        self.addSubview(scrollView)
+        
+        //上一页
+        preImageView=UIImageView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight))
+        scrollView.addSubview(preImageView)
+        
+        //当前页
+        currentImageView=UIImageView(frame: CGRect(x: viewWidth, y: 0, width: viewWidth, height: viewHeight))
+        scrollView.addSubview(currentImageView)
+        
+        //下一页
+        nextImageView=UIImageView(frame: CGRect(x: 2*viewWidth, y: 0, width: viewWidth, height: viewHeight))
+        scrollView.addSubview(nextImageView)
     
+        //定时器
+        timer=NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(timeRun), userInfo: nil, repeats: false)
+        
+        //赋值
+        curentPage=0
+        preImageView.kf_setImageWithURL(NSURL(string: imageArray[0]),placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        currentImageView.kf_setImageWithURL(NSURL(string: imageArray[0]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        nextImageView.kf_setImageWithURL(NSURL(string: imageArray[1]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+
+        //装载label、pageControl的view
+        bottomView = UIView(frame: CGRect(x: 0, y: viewHeight-30, width: viewWidth, height: 30))
+        bottomView.backgroundColor = UIColor.blackColor()
+        bottomView.layer.opacity = 0.6
+        self.addSubview(bottomView)
+        
+        //轮播页标题的label
+        label = UILabel(frame: CGRect(x: 0, y: viewHeight-60, width: viewWidth, height: 30))
+        label.textColor = UIColor.whiteColor()
+        label.text = titlesArray[curentPage]
+        self.addSubview(label)
+        
+        pageControl=UIPageControl(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 30))
+        pageControl.numberOfPages=imageArray.count
+        bottomView.addSubview(pageControl)
+    
+    }
+    
+    //MARK:scrollView的代理方法
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         timer.invalidate()
         timer=NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(timeRun), userInfo: nil, repeats: false)
-        if scollView.contentOffset.x==2*viewWidth{
-            //朝⬅️边滑动
+        if scrollView.contentOffset.x==2*viewWidth{
+            //朝右边滑动
             curentPage=(curentPage+1)%imageArray.count
-        }else if scollView.contentOffset.x==0{
-            //朝➡️边滑动
+        }else if scrollView.contentOffset.x==0{
+            //朝左边滑动
         curentPage=(curentPage-1+imageArray.count)%imageArray.count
         }
         
         //设置网络图片
-        preImageView.kf_setImageWithURL(NSURL(string: imageArray[(curentPage-1+imageArray.count)%imageArray.count]))
-        currentImageView.kf_setImageWithURL(NSURL(string: imageArray[curentPage]))
-        nextImageView.kf_setImageWithURL(NSURL(string: imageArray[(curentPage+1)%4]))
+        preImageView.kf_setImageWithURL(NSURL(string: imageArray[(curentPage-1+imageArray.count)%imageArray.count]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+
+        currentImageView.kf_setImageWithURL(NSURL(string: imageArray[curentPage]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        
+        nextImageView.kf_setImageWithURL(NSURL(string: imageArray[(curentPage+1)%4]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         
         pageControl.currentPage=curentPage
-        scollView.contentOffset=CGPoint(x: viewWidth, y: 0)
+        label.text = titlesArray[curentPage]
+        scrollView.contentOffset=CGPoint(x: viewWidth, y: 0)
     }
     
 }

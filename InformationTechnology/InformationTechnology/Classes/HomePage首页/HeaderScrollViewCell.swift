@@ -1,19 +1,19 @@
 //
 //  HeaderScrollViewCell.swift
-//  CustomCell-XIB
+//  InformationTechnology
 //
-//  Created by 沈家林 on 16/9/14.
-//  Copyright © 2016年 沈家林. All rights reserved.
+//  Created by zzj on 16/10/27.
+//  Copyright © 2016年 zzj. All rights reserved.
 //
 
 import UIKit
 
 class HeaderScrollViewCell: UITableViewCell {
-    var jlScrollView:HeaderScrollView!
+    var scrollView:HeaderScrollView!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        jlScrollView=HeaderScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 200))
-        contentView.addSubview(jlScrollView)
+        scrollView = HeaderScrollView(frame: CGRect(x: 0, y: 30, width: screenW, height: 200))
+        contentView.addSubview(scrollView)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

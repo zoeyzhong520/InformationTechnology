@@ -65,10 +65,14 @@ public let screenH = UIScreen.mainScreen().bounds.size.height
 let newestHeaderUrl = "http://api.ithome.com/xml/slide/slide.xml?r="
 let newestUrl = "http://api.ithome.com/xml/newslist/news.xml?r="
 
+//苹果
+let appleUrl = "http://api.ithome.com/xml/newslist/ios.xml?r="
 
+//手机
+let mobileUrl = "http://api.ithome.com/xml/newslist/news.xml?r="
 
-
-
+//排行
+let rankUrl = "http://api.ithome.com/xml/newslist/rank.xml?r="
 
 
 
