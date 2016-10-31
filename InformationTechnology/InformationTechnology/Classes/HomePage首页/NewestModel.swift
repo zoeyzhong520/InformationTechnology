@@ -14,6 +14,7 @@ class NewestModel: NSObject {
     var title:String?
     var url:String?
     var postdate:String?
+    var commentcount:String?
     var image:String?
     var description1:String?
     

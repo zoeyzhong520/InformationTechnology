@@ -1,5 +1,5 @@
 //
-//  DiscoveryViewController.swift
+//  RecommendViewController.swift
 //  InformationTechnology
 //
 //  Created by qianfeng on 16/10/24.
@@ -8,11 +8,15 @@
 
 import UIKit
 
-class DiscoveryViewController: UIViewController {
+class RecommendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.yellowColor()
+        
+        //栏目页
+        let vc = RecommendTableView()
+        vc.urlString = recommendUrl
+        vc.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

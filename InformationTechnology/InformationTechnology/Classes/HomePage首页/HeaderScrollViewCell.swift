@@ -12,7 +12,7 @@ class HeaderScrollViewCell: UITableViewCell {
     var scrollView:HeaderScrollView!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        scrollView = HeaderScrollView(frame: CGRect(x: 0, y: 30, width: screenW, height: 200))
+        scrollView = HeaderScrollView(frame: CGRect(x: 0, y: 0, width: screenW, height: 200))
         contentView.addSubview(scrollView)
     }
     required init?(coder aDecoder: NSCoder) {

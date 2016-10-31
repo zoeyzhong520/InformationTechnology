@@ -16,6 +16,9 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     //定义界面数据数组
     var dataArray:[NewestModel] = []
     
+    //slide头部数据数组
+    var headerDataArray:[NewestHeaderModel] = []
+    
     //定义头部图片数组
     var newestHeaderImageArray:[String] = []
     
@@ -24,8 +27,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     
     //设置网络接口刷新页
     var currentPage:Int = 1
-    var headerUrlString:String = newestHeaderUrl
-    var UrlString:String = newestUrl
+    var headerUrlString:String?
+    var UrlString:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     func configUI() {
         
         //注册头部轮播页
-        tableView.registerClass(HeaderScrollViewCell.classForCoder(), forCellReuseIdentifier: "newestADCellId")
+        tableView.registerClass(HeaderScrollViewCell.classForCoder(), forCellReuseIdentifier: "advertisementCellId")
         
         //注册界面cell
         let nib = UINib(nibName: "NewestCell", bundle: nil)
@@ -47,36 +50,42 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
         addRefresh({ [unowned self] in
             self.currentPage = 1
             self.DownloadData()
-            }) { [unowned self] in
-                self.currentPage += 1
-                self.DownloadData()
+        }) { [unowned self] in
+            self.currentPage += 1
+            self.DownloadData()
         }
+        
     }
     
     //头部轮播页
     func HeaderDownloadData() {
         
-        //下载头部轮播页数据
-        Alamofire.request(.GET, headerUrlString+"\(currentPage)").responseData { [unowned self] (response) in
-            let xml = XML.parse(response.result.value!)
-            if response.result.error == nil {
-                let items = xml["rss"]["channel"]["item"]
-                for item in items {
-                    let model = NewestHeaderModel()
-                    model.title = item["title"].text
-                    model.image = item["image"].text
-                    model.link = item["link"].text
-    
-                    if model.link != "262983" {
-                        //头部图片数组
-                        self.newestHeaderImageArray.append(model.image!)
-                        //头部图片标题数组
-                        self.newestTitleArray.append(model.title!)
+        if headerUrlString != nil {
+            
+            //下载头部轮播页数据
+            Alamofire.request(.GET, String(format: headerUrlString!, currentPage)).responseData { [unowned self] (response) in
+                let xml = XML.parse(response.result.value!)
+                if response.result.error == nil {
+                    let items = xml["rss"]["channel"]["item"]
+                    for item in items {
+                        let model = NewestHeaderModel()
+                        model.title = item["title"].text
+                        model.image = item["image"].text
+                        model.link = item["link"].text
+                        if model.link != "262983" {
+                            //头部图片数组
+                            self.newestHeaderImageArray.append(model.image!)
+                            //头部图片标题数组
+                            self.newestTitleArray.append(model.title!)
+                            //头部数据数组
+                            self.headerDataArray.append(model)
+                        }
                     }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
         }
+        
     }
     
     //添加提示等待加载功能
@@ -95,29 +104,34 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     
     //界面
     func DownloadData() {
- 
-        //下载界面数据
-        Alamofire.request(.GET, UrlString+"\(currentPage)").responseData { [unowned self] (response) in
-            self.tableView.mj_header.endRefreshing()
-            self.tableView.mj_footer.endRefreshing()
-            if self.currentPage == 1 {
-                self.dataArray.removeAll()
-            }
-            let xml = XML.parse(response.result.value!)
-            if response.result.error == nil {
-                let items = xml["rss"]["channel"]["item"]
-                for item in items {
-                    let model = NewestModel()
-                    model.title = item["title"].text
-                    model.image = item["image"].text
-                    model.postdate = item["description"].text
-                    model.description1 = item["description"].text
-                    model.url = item["url"].text
-                    self.dataArray.append(model)
+        
+        if UrlString != nil {
+            
+            //下载界面数据
+            Alamofire.request(.GET, String(format: UrlString!, currentPage)).responseData { [unowned self] (response) in
+                self.tableView.mj_header.endRefreshing()
+                self.tableView.mj_footer.endRefreshing()
+                if self.currentPage == 1 {
+                    self.dataArray.removeAll()
                 }
-                self.tableView.reloadData()
+                let xml = XML.parse(response.result.value!)
+                if response.result.error == nil {
+                    let items = xml["rss"]["channel"]["item"]
+                    for item in items {
+                        let model = NewestModel()
+                        model.title = item["title"].text
+                        model.image = item["image"].text
+                        model.postdate = item["postdate"].text
+                        model.commentcount = item["commentcount"].text
+                        model.description1 = item["description"].text
+                        model.url = item["url"].text
+                        self.dataArray.append(model)
+                    }
+                    self.tableView.reloadData()
+                }
             }
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -129,37 +143,111 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //广告的section显示一行
-        return dataArray.count+1
+        if headerUrlString != nil {
+            //广告的section显示一行
+            return dataArray.count+1
+        }else{
+            return dataArray.count
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
+        if headerUrlString != nil && indexPath.row == 0 {
             //广告高度为200
-            return 230
+            return 200
         }
-        return 90
+        return 120
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        if headerUrlString != nil && indexPath.row == 0 {
             //广告
-            let cell = tableView.dequeueReusableCellWithIdentifier("newestADCellId", forIndexPath: indexPath) as? HeaderScrollViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("advertisementCellId", forIndexPath: indexPath) as? HeaderScrollViewCell
             cell?.scrollView.NameArray(newestHeaderImageArray, array2: newestTitleArray)
             return cell!
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("newestCellId", forIndexPath: indexPath) as! NewestCell
-        let model = dataArray[indexPath.row-1]
-        cell.TitleLabel.text = model.title
-        cell.DateLabel.text = model.postdate
-        if model.image != nil {
-            let url = NSURL(string: model.image!)
-            cell.DescImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        if headerUrlString != nil {
+            
+            let model = dataArray[indexPath.row-1]
+            //标题
+            cell.TitleLabel.text = model.title
+            //详细介绍
+            cell.DescLabel.text = model.description1
+            //发布时间
+            //2016-10-30 17:14:07
+            //截取时间
+            let str = model.postdate
+            let str1 = str?.substringWithRange((str?.startIndex.advancedBy(11))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
+            cell.PostDataLabel.text = str1
+            //阅读数
+            cell.CommentCountLabel.text = model.commentcount
+            //icon图片
+            if model.image != nil {
+                let url = NSURL(string: model.image!)
+                cell.DescImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+            }
+            return cell
+        }else{
+            
+            let model = dataArray[indexPath.row]
+            //标题
+            cell.TitleLabel.text = model.title
+            //详细介绍
+            cell.DescLabel.text = model.description1
+            //发布时间
+            //2016-10-30 17:14:07
+            //截取时间
+            let str = model.postdate
+            let str1 = str?.substringWithRange((str?.startIndex.advancedBy(11))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
+            cell.PostDataLabel.text = str1
+            //阅读数
+            cell.CommentCountLabel.text = model.commentcount
+            //icon图片
+            if model.image != nil {
+                let url = NSURL(string: model.image!)
+                cell.DescImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+            }
+            return cell
         }
-        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //详情页面
+        let vc = DetailView()
+        
+        if indexPath.row == 0 && headerUrlString != nil {
+            //广告详情
+            let model = headerDataArray[indexPath.row]
+            if model.link != nil {
+                
+                vc.url = NSURL(string: headerDetailUrl+"\(model.link!)")
+                navigationController?.pushViewController(vc, animated: true)
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        }
+        
+        if headerUrlString != nil {
+            //界面详情
+            let model = dataArray[indexPath.row-1]
+            if model.url != nil {
+                vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
+                navigationController?.pushViewController(vc, animated: true)
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        }else{
+            //界面详情
+            let model = dataArray[indexPath.row]
+            if model.url != nil {
+                vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
+                navigationController?.pushViewController(vc, animated: true)
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        }
     }
 }
 

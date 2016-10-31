@@ -21,55 +21,75 @@ class HomepageViewController: UIViewController {
     
     
     var v1 = HomePageTableView()
-    var v2 = UIViewController()
-    var v3 = UIViewController()
-    var v4 = UIViewController()
-    var v5 = UIViewController()
-    var v6 = UIViewController()
-    var v7 = UIViewController()
-    var v8 = UIViewController()
-    var v9 = UIViewController()
-    var v10 = UIViewController()
-    var v11 = UIViewController()
-    var v12 = UIViewController()
-    var v13 = UIViewController()
-    var v14 = UIViewController()
-    var v15 = UIViewController()
+    var v2 = HomePageTableView()
+    var v3 = HomePageTableView()
+    var v4 = HomePageTableView()
+    var v5 = HomePageTableView()
+    var v6 = HomePageTableView()
+    var v7 = HomePageTableView()
+    var v8 = HomePageTableView()
+    var v9 = HomePageTableView()
+    var v10 = HomePageTableView()
+    var v11 = HomePageTableView()
+    var v12 = HomePageTableView()
+    var v13 = HomePageTableView()
+    var v14 = HomePageTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        v1.title = "测试1"
-        v1.view.backgroundColor = UIColor.cyanColor()
-        v2.title = "测试2"
-        v2.view.backgroundColor = UIColor.redColor()
-        v3.title = "测试3"
-        v3.view.backgroundColor = UIColor.grayColor()
-        v4.title = "测试4"
-        v4.view.backgroundColor = UIColor.yellowColor()
-        v5.title = "测试5"
-        v5.view.backgroundColor = UIColor.lightGrayColor()
-        v6.title = "测试6"
-        v6.view.backgroundColor = UIColor.lightTextColor()
-        v7.title = "测试7"
-        v7.view.backgroundColor = UIColor.blueColor()
-        v8.title = "测试8"
-        v8.view.backgroundColor = UIColor.greenColor()
-        v9.title = "测试9"
-        v9.view.backgroundColor = UIColor.cyanColor()
-        v10.title = "测试10"
-        v10.view.backgroundColor = UIColor.redColor()
-        v11.title = "测试11"
-        v11.view.backgroundColor = UIColor.grayColor()
-        v12.title = "测试12"
-        v12.view.backgroundColor = UIColor.yellowColor()
-        v13.title = "测试13"
-        v13.view.backgroundColor = UIColor.greenColor()
-        v14.title = "测试14"
-        v14.view.backgroundColor = UIColor.blueColor()
-        v15.title = "测试15"
-        v15.view.backgroundColor = UIColor.cyanColor()
         
-        let skScNavC = SKScNavViewController(subViewControllers: [v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15])
+        //更新界面数据接口，并reloadData()
+        v1.title = "最新"
+        v1.headerUrlString = newestHeaderUrl
+        v1.UrlString = newestUrl
+        v1.tableView.reloadData()
+        
+        v2.title = "手机"
+        v2.UrlString = mobileUrl
+        v2.tableView.reloadData()
+        
+        v3.title = "VR"
+        v3.UrlString = vrUrl
+        v3.tableView.reloadData()
+        
+        v4.title = "Windows"
+        v4.headerUrlString = winHeaderUrl
+        v4.UrlString = winUrl
+        v4.tableView.reloadData()
+        
+        v5.title = "苹果"
+        v5.headerUrlString = appleHeaderUrl
+        v5.UrlString = appleUrl
+        
+        v6.title = "智能汽车"
+        v6.UrlString = autoCarUrl
+        
+        v7.title = "安卓"
+        v7.headerUrlString = androidHeaderUrl
+        v7.UrlString = androidUrl
+    
+        v8.title = "游戏电竞"
+        v8.UrlString = gameUrl
+        
+        v9.title = "电脑"
+        v9.UrlString = pcUrl
+        
+        v10.title = "数码"
+        v10.UrlString = digiUrl
+        
+        v11.title = "行业前沿"
+        v11.UrlString = industryUrl
+        
+        v12.title = "评测室"
+        v12.UrlString = labsUrl
+        
+        v13.title = "科普"
+        v13.UrlString = discoveryUrl
+        
+        v14.title = "网络焦点"
+        v14.UrlString = internetUrl
+        
+        let skScNavC = SKScNavViewController(subViewControllers: [v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14])
         skScNavC.addParentController(self)
         
     }

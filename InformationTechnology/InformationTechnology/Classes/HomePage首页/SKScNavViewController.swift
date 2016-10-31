@@ -97,7 +97,7 @@ class SKScNavViewController: UIViewController, SKScNavBarDelegate, UIScrollViewD
      viewController 父视图控制器
      */
     func addParentController(viewcontroller:UIViewController) {
-        if viewcontroller.respondsToSelector("edgesForExtendedLayout") {
+        if viewcontroller.respondsToSelector(Selector("edgesForExtendedLayout")) {
             viewcontroller.edgesForExtendedLayout = UIRectEdge.None
         }
         

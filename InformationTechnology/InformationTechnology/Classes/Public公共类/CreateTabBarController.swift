@@ -21,9 +21,9 @@ class CreateTabBarController: UITabBarController {
     func createViewControllers() {
 
         var ViewControllers:[UIViewController] = []
-        let vcNames = ["InformationTechnology.HomepageViewController","InformationTechnology.CollectionViewController","InformationTechnology.DiscoveryViewController","InformationTechnology.MineViewController"]
-        let imageNames = ["dog house@2x","Neutron@2x","Target@2x","Cookie Man@2x"]
-        let titles = ["首页","精选","发现","我的"]
+        let vcNames = ["InformationTechnology.HomepageViewController","InformationTechnology.RecommendViewController","InformationTechnology.CollectionViewController","InformationTechnology.MineViewController"]
+        let imageNames = ["dog house@2x","list 2@2x","Neutron@2x","user 2@2x"]
+        let titles = ["首页","推荐","精选","我的"]
         for i in 0..<vcNames.count {
             let vcClasss = NSClassFromString(vcNames[i]) as! UIViewController.Type
             let vc = vcClasss.init()

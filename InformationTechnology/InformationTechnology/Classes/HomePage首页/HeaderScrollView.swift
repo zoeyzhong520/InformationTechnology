@@ -73,6 +73,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         }
         //初始化scollView
         scrollView=UIScrollView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight))
+        scrollView.userInteractionEnabled = true
         scrollView.contentSize=CGSize(width: 3*viewWidth, height: viewHeight)
         scrollView.contentOffset=CGPoint(x: viewWidth, y: 0)
         scrollView.delegate=self
@@ -110,12 +111,14 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         self.addSubview(bottomView)
         
         //轮播页标题的label
-        label = UILabel(frame: CGRect(x: 0, y: viewHeight-60, width: viewWidth, height: 30))
+        label = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 30))
+        label.font = UIFont.systemFontOfSize(13)
+        label.textAlignment = .Right
         label.textColor = UIColor.whiteColor()
         label.text = titlesArray[curentPage]
-        self.addSubview(label)
+        bottomView.addSubview(label)
         
-        pageControl=UIPageControl(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 30))
+        pageControl=UIPageControl(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         pageControl.numberOfPages=imageArray.count
         bottomView.addSubview(pageControl)
     
@@ -124,7 +127,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
     //MARK:scrollView的代理方法
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         timer.invalidate()
-        timer=NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(timeRun), userInfo: nil, repeats: false)
+        timer=NSTimer.scheduledTimerWithTimeInterval(9, target: self, selector: #selector(timeRun), userInfo: nil, repeats: false)
         if scrollView.contentOffset.x==2*viewWidth{
             //朝右边滑动
             curentPage=(curentPage+1)%imageArray.count
@@ -138,7 +141,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
 
         currentImageView.kf_setImageWithURL(NSURL(string: imageArray[curentPage]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         
-        nextImageView.kf_setImageWithURL(NSURL(string: imageArray[(curentPage+1)%4]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        nextImageView.kf_setImageWithURL(NSURL(string: imageArray[(curentPage+1)%imageArray.count]), placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
         
         pageControl.currentPage=curentPage
         label.text = titlesArray[curentPage]

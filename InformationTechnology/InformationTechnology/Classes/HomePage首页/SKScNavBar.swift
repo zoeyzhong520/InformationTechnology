@@ -70,7 +70,7 @@ class SKScNavBar: UIView, SKLaunchMenuDelegate {
                 self.line.frame = CGRectMake(itemBtn.frame.origin.x + 2, self.line.frame.origin.y, lineWidth - 4.0, self.line.frame.size.height)
                 for btn in self.items {
                     let tempBtn = btn as! UIButton
-                    tempBtn.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+                    tempBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
                     tempBtn.titleLabel?.font = UIFont.systemFontOfSize(14)
                 }
                 itemBtn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
@@ -148,7 +148,7 @@ class SKScNavBar: UIView, SKLaunchMenuDelegate {
             
             //setShadowForView(arrowBtnImageView, shadowRadius: 10.0, shadowOpacity: 10.0)
             
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "arrowBtnTapGesAction")
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SKScNavBar.arrowBtnTapGesAction))
             arrowBtnImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         scNavBar = UIScrollView(frame: CGRectMake(0, 0, frameX, kScNavBarHeight))
@@ -161,13 +161,13 @@ class SKScNavBar: UIView, SKLaunchMenuDelegate {
     //MARK: -- 往导航栏上添加ItemButton
     private func getScNavContentAddScNavBarItemsWithItemsWidth(widths:NSArray) -> CGFloat {
         var buttonX:CGFloat = 0
-        for var index = 0; index < itemsTitles.count; index++ {
+        for index in 0 ..< itemsTitles.count {
             let button = UIButton(type: UIButtonType.Custom)
             button.frame = CGRectMake(buttonX, 0, widths[index] as! CGFloat, kScNavBarHeight)
             button.setTitle((itemsTitles[index] as! String), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.titleLabel?.font = UIFont.systemFontOfSize(14)
-            button.addTarget(self, action: "itemsBtnAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(SKScNavBar.itemsBtnAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             scNavBar.addSubview(button)
             
             items.addObject(button)

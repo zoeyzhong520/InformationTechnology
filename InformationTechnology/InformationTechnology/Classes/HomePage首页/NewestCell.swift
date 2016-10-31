@@ -12,7 +12,13 @@ class NewestCell: UITableViewCell {
 
     @IBOutlet weak var TitleLabel: UILabel!
     
-    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var DescLabel: UILabel!
+    
+    @IBOutlet weak var PostDataLabel: UILabel!
+    
+    @IBOutlet weak var CommentCountLabel: UILabel!
+    
+    @IBOutlet weak var ReplayImageView: UIImageView!
     
     @IBOutlet weak var DescImageView: UIImageView!
     
