@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		549EEFBCCDB5948BA6AED4CB /* Pods_InformationTechnology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F8859C445243B31310323F /* Pods_InformationTechnology.framework */; };
-		BC6739721DC38D5400C5719B /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6739711DC38D5400C5719B /* HomepageView.swift */; };
+		BC10116B1DC6CFFA000D0394 /* SKScNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10116A1DC6CFFA000D0394 /* SKScNavViewController.swift */; };
+		BC10116E1DC6D002000D0394 /* SKMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC10116C1DC6D002000D0394 /* SKMacros.swift */; };
+		BC10116F1DC6D002000D0394 /* arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC10116D1DC6D002000D0394 /* arrow@3x.png */; };
+		BC1011731DC6D009000D0394 /* SKScNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1011701DC6D009000D0394 /* SKScNavBar.swift */; };
+		BC1011741DC6D009000D0394 /* SKLaunchMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1011711DC6D009000D0394 /* SKLaunchMenu.swift */; };
+		BC1011751DC6D009000D0394 /* SKLaunchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1011721DC6D009000D0394 /* SKLaunchMenuItem.swift */; };
+		BC1011771DC6D052000D0394 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1011761DC6D052000D0394 /* HomepageViewController.swift */; };
 		BC94BAAA1DC1F4CC0096EEAD /* sdefaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC94BAA91DC1F4CC0096EEAD /* sdefaultImage.png */; };
 		BC94BAAD1DC1FBD10096EEAD /* NewestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94BAAB1DC1FBD10096EEAD /* NewestCell.swift */; };
 		BC94BAAE1DC1FBD10096EEAD /* NewestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94BAAC1DC1FBD10096EEAD /* NewestCell.xib */; };
 		BC94BAB01DC233980096EEAD /* addReFreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */; };
-		BCC45F4B1DC0B12B009BC6EC /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F4A1DC0B12B009BC6EC /* HomePageViewController.swift */; };
-		BCC45F4D1DC0B191009BC6EC /* RanklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F4C1DC0B191009BC6EC /* RanklistViewController.swift */; };
+		BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */; };
 		BCC45F511DC0CC0C009BC6EC /* NewestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F501DC0CC0C009BC6EC /* NewestModel.swift */; };
 		BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */; };
 		BCC45F611DC0F27E009BC6EC /* HeaderScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F601DC0F27E009BC6EC /* HeaderScrollViewCell.swift */; };
@@ -61,13 +66,18 @@
 /* Begin PBXFileReference section */
 		3B2652D980B4E197F5BC11FC /* Pods-InformationTechnology.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InformationTechnology.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InformationTechnology/Pods-InformationTechnology.debug.xcconfig"; sourceTree = "<group>"; };
 		63DEF65D8D04F76275F2E6F6 /* Pods-InformationTechnology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InformationTechnology.release.xcconfig"; path = "Pods/Target Support Files/Pods-InformationTechnology/Pods-InformationTechnology.release.xcconfig"; sourceTree = "<group>"; };
-		BC6739711DC38D5400C5719B /* HomepageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		BC10116A1DC6CFFA000D0394 /* SKScNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKScNavViewController.swift; sourceTree = "<group>"; };
+		BC10116C1DC6D002000D0394 /* SKMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMacros.swift; sourceTree = "<group>"; };
+		BC10116D1DC6D002000D0394 /* arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@3x.png"; sourceTree = "<group>"; };
+		BC1011701DC6D009000D0394 /* SKScNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKScNavBar.swift; sourceTree = "<group>"; };
+		BC1011711DC6D009000D0394 /* SKLaunchMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLaunchMenu.swift; sourceTree = "<group>"; };
+		BC1011721DC6D009000D0394 /* SKLaunchMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLaunchMenuItem.swift; sourceTree = "<group>"; };
+		BC1011761DC6D052000D0394 /* HomepageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		BC94BAA91DC1F4CC0096EEAD /* sdefaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sdefaultImage.png; sourceTree = "<group>"; };
 		BC94BAAB1DC1FBD10096EEAD /* NewestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestCell.swift; sourceTree = "<group>"; };
 		BC94BAAC1DC1FBD10096EEAD /* NewestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewestCell.xib; sourceTree = "<group>"; };
 		BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addReFreshProtocol.swift; sourceTree = "<group>"; };
-		BCC45F4A1DC0B12B009BC6EC /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		BCC45F4C1DC0B191009BC6EC /* RanklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RanklistViewController.swift; sourceTree = "<group>"; };
+		BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTableView.swift; sourceTree = "<group>"; };
 		BCC45F501DC0CC0C009BC6EC /* NewestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestModel.swift; sourceTree = "<group>"; };
 		BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestHeaderModel.swift; sourceTree = "<group>"; };
 		BCC45F601DC0F27E009BC6EC /* HeaderScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderScrollViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +154,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC1011661DC6CFA2000D0394 /* 顶部滑动导航栏 */ = {
+			isa = PBXGroup;
+			children = (
+				BC1011691DC6CFF0000D0394 /* Controller */,
+				BC1011681DC6CFE1000D0394 /* Const */,
+				BC1011671DC6CFC0000D0394 /* View */,
+			);
+			name = "顶部滑动导航栏";
+			sourceTree = "<group>";
+		};
+		BC1011671DC6CFC0000D0394 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC1011701DC6D009000D0394 /* SKScNavBar.swift */,
+				BC1011711DC6D009000D0394 /* SKLaunchMenu.swift */,
+				BC1011721DC6D009000D0394 /* SKLaunchMenuItem.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BC1011681DC6CFE1000D0394 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				BC10116C1DC6D002000D0394 /* SKMacros.swift */,
+				BC10116D1DC6D002000D0394 /* arrow@3x.png */,
+			);
+			name = Const;
+			sourceTree = "<group>";
+		};
+		BC1011691DC6CFF0000D0394 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC10116A1DC6CFFA000D0394 /* SKScNavViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BCC45F3D1DC0AEDC009BC6EC /* Main主要模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,42 +201,10 @@
 			name = "Main主要模块";
 			sourceTree = "<group>";
 		};
-		BCC45F3E1DC0AF0D009BC6EC /* Ranklist排行 */ = {
-			isa = PBXGroup;
-			children = (
-				BCC45F441DC0AFDB009BC6EC /* Controller */,
-				BCC45F431DC0AFD0009BC6EC /* Model */,
-				BCC45F421DC0AFC9009BC6EC /* View */,
-			);
-			name = "Ranklist排行";
-			sourceTree = "<group>";
-		};
-		BCC45F421DC0AFC9009BC6EC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		BCC45F431DC0AFD0009BC6EC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		BCC45F441DC0AFDB009BC6EC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				BCC45F4C1DC0B191009BC6EC /* RanklistViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		BCC45F451DC0AFE4009BC6EC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC6739711DC38D5400C5719B /* HomepageView.swift */,
+				BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */,
 				BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */,
 				BCC45F621DC0F296009BC6EC /* HeaderScrollView.swift */,
 				BCC45F601DC0F27E009BC6EC /* HeaderScrollViewCell.swift */,
@@ -211,7 +226,7 @@
 		BCC45F471DC0AFEF009BC6EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BCC45F4A1DC0B12B009BC6EC /* HomePageViewController.swift */,
+				BC1011761DC6D052000D0394 /* HomepageViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -350,7 +365,7 @@
 		BCF254B41DBE355600ABD6A7 /* HomePage首页 */ = {
 			isa = PBXGroup;
 			children = (
-				BCC45F3E1DC0AF0D009BC6EC /* Ranklist排行 */,
+				BC1011661DC6CFA2000D0394 /* 顶部滑动导航栏 */,
 				BCC45F3D1DC0AEDC009BC6EC /* Main主要模块 */,
 			);
 			path = "HomePage首页";
@@ -595,6 +610,7 @@
 				BCF254E91DBE57DE00ABD6A7 /* Target@2x.png in Resources */,
 				BCF254E61DBE57DE00ABD6A7 /* dog house@3x.png in Resources */,
 				BCF254851DBE31F200ABD6A7 /* Assets.xcassets in Resources */,
+				BC10116F1DC6D002000D0394 /* arrow@3x.png in Resources */,
 				BCF254E71DBE57DE00ABD6A7 /* Neutron@2x.png in Resources */,
 				BCF254831DBE31F200ABD6A7 /* Main.storyboard in Resources */,
 			);
@@ -671,19 +687,23 @@
 			files = (
 				BCF254D41DBE4F3000ABD6A7 /* CollectionViewController.swift in Sources */,
 				BCF254D81DBE4F6300ABD6A7 /* MineViewController.swift in Sources */,
-				BCC45F4B1DC0B12B009BC6EC /* HomePageViewController.swift in Sources */,
+				BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */,
 				BCC45F511DC0CC0C009BC6EC /* NewestModel.swift in Sources */,
 				BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */,
 				BCF254801DBE31F200ABD6A7 /* ViewController.swift in Sources */,
+				BC1011731DC6D009000D0394 /* SKScNavBar.swift in Sources */,
+				BC1011741DC6D009000D0394 /* SKLaunchMenu.swift in Sources */,
 				BCF254DA1DBE50CB00ABD6A7 /* CreateTabBarController.swift in Sources */,
 				BCF2547E1DBE31F200ABD6A7 /* AppDelegate.swift in Sources */,
+				BC10116E1DC6D002000D0394 /* SKMacros.swift in Sources */,
 				BCF254CC1DBE49A700ABD6A7 /* Const.swift in Sources */,
-				BC6739721DC38D5400C5719B /* HomepageView.swift in Sources */,
-				BCC45F4D1DC0B191009BC6EC /* RanklistViewController.swift in Sources */,
 				BC94BAB01DC233980096EEAD /* addReFreshProtocol.swift in Sources */,
 				BCC45F631DC0F296009BC6EC /* HeaderScrollView.swift in Sources */,
 				BC94BAAD1DC1FBD10096EEAD /* NewestCell.swift in Sources */,
+				BC10116B1DC6CFFA000D0394 /* SKScNavViewController.swift in Sources */,
 				BCF254D61DBE4F5000ABD6A7 /* DiscoveryViewController.swift in Sources */,
+				BC1011771DC6D052000D0394 /* HomepageViewController.swift in Sources */,
+				BC1011751DC6D009000D0394 /* SKLaunchMenuItem.swift in Sources */,
 				BCC45F611DC0F27E009BC6EC /* HeaderScrollViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
