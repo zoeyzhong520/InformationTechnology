@@ -157,7 +157,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             //广告高度为200
             return 200
         }
-        return 120
+        return 110
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -180,9 +180,10 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             //发布时间
             //2016-10-30 17:14:07
             //截取时间
-            let str = model.postdate
-            let str1 = str?.substringWithRange((str?.startIndex.advancedBy(11))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
-            cell.PostDataLabel.text = str1
+            var str = model.postdate
+            str?.removeRange((str?.startIndex)!...(str?.startIndex.advancedBy(9))!)
+            //let str1 = str?.substringWithRange((str?.startIndex.advancedBy(9))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
+            cell.PostDataLabel.text = str
             //阅读数
             cell.CommentCountLabel.text = model.commentcount
             //icon图片
@@ -202,8 +203,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             //2016-10-30 17:14:07
             //截取时间
             let str = model.postdate
-            let str1 = str?.substringWithRange((str?.startIndex.advancedBy(11))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
-            cell.PostDataLabel.text = str1
+            //let str1 = str?.substringWithRange((str?.startIndex.advancedBy(11))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
+            cell.PostDataLabel.text = str
             //阅读数
             cell.CommentCountLabel.text = model.commentcount
             //icon图片

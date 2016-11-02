@@ -31,12 +31,20 @@
 		BC1011C21DC77E2A000D0394 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1011BE1DC77E2A000D0394 /* back@2x.png */; };
 		BC1011C31DC77E2A000D0394 /* back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1011BF1DC77E2A000D0394 /* back@3x.png */; };
 		BC1011C71DC785F1000D0394 /* arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1011C61DC785F1000D0394 /* arrow@3x.png */; };
-		BC1011C91DC787E6000D0394 /* RecommendTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1011C81DC787E6000D0394 /* RecommendTableView.swift */; };
-		BC1011CB1DC78B0C000D0394 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1011CA1DC78B0C000D0394 /* RecommendModel.swift */; };
+		BC6C13851DC8590400C744BD /* KTCSegCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C13841DC8590400C744BD /* KTCSegCtrl.swift */; };
+		BC6C13871DC85B0C00C744BD /* UIView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C13861DC85B0C00C744BD /* UIView+Common.swift */; };
+		BC6C13891DC85DE200C744BD /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C13881DC85DE200C744BD /* RecommendView.swift */; };
+		BC6C194E1DC8876800C744BD /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C194D1DC8876800C744BD /* RecommendModel.swift */; };
+		BC6C19561DC8B97900C744BD /* RecommendScienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C19541DC8B97900C744BD /* RecommendScienceCell.swift */; };
+		BC6C19571DC8B97900C744BD /* RecommendScienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6C19551DC8B97900C744BD /* RecommendScienceCell.xib */; };
 		BC94BAAA1DC1F4CC0096EEAD /* sdefaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC94BAA91DC1F4CC0096EEAD /* sdefaultImage.png */; };
 		BC94BAAD1DC1FBD10096EEAD /* NewestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94BAAB1DC1FBD10096EEAD /* NewestCell.swift */; };
 		BC94BAAE1DC1FBD10096EEAD /* NewestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC94BAAC1DC1FBD10096EEAD /* NewestCell.xib */; };
 		BC94BAB01DC233980096EEAD /* addReFreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */; };
+		BCB3A9F61DCA0D4600A076B0 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB3A9F21DCA0D4600A076B0 /* clock@2x.png */; };
+		BCB3A9F71DCA0D4600A076B0 /* clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB3A9F31DCA0D4600A076B0 /* clock@3x.png */; };
+		BCB3A9FC1DCA140C00A076B0 /* newspaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB3A9FA1DCA140C00A076B0 /* newspaper@2x.png */; };
+		BCB3A9FD1DCA140C00A076B0 /* newspaper@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB3A9FB1DCA140C00A076B0 /* newspaper@3x.png */; };
 		BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */; };
 		BCC45F511DC0CC0C009BC6EC /* NewestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F501DC0CC0C009BC6EC /* NewestModel.swift */; };
 		BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */; };
@@ -103,12 +111,20 @@
 		BC1011BE1DC77E2A000D0394 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		BC1011BF1DC77E2A000D0394 /* back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@3x.png"; sourceTree = "<group>"; };
 		BC1011C61DC785F1000D0394 /* arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@3x.png"; sourceTree = "<group>"; };
-		BC1011C81DC787E6000D0394 /* RecommendTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendTableView.swift; sourceTree = "<group>"; };
-		BC1011CA1DC78B0C000D0394 /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		BC6C13841DC8590400C744BD /* KTCSegCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCSegCtrl.swift; sourceTree = "<group>"; };
+		BC6C13861DC85B0C00C744BD /* UIView+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Common.swift"; sourceTree = "<group>"; };
+		BC6C13881DC85DE200C744BD /* RecommendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		BC6C194D1DC8876800C744BD /* RecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		BC6C19541DC8B97900C744BD /* RecommendScienceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendScienceCell.swift; sourceTree = "<group>"; };
+		BC6C19551DC8B97900C744BD /* RecommendScienceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendScienceCell.xib; sourceTree = "<group>"; };
 		BC94BAA91DC1F4CC0096EEAD /* sdefaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sdefaultImage.png; sourceTree = "<group>"; };
 		BC94BAAB1DC1FBD10096EEAD /* NewestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestCell.swift; sourceTree = "<group>"; };
 		BC94BAAC1DC1FBD10096EEAD /* NewestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewestCell.xib; sourceTree = "<group>"; };
-		BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addReFreshProtocol.swift; sourceTree = "<group>"; };
+		BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = addReFreshProtocol.swift; path = "../HomePage首页/addReFreshProtocol.swift"; sourceTree = "<group>"; };
+		BCB3A9F21DCA0D4600A076B0 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@2x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/clock@2x.png"; sourceTree = SOURCE_ROOT; };
+		BCB3A9F31DCA0D4600A076B0 /* clock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@3x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/clock@3x.png"; sourceTree = SOURCE_ROOT; };
+		BCB3A9FA1DCA140C00A076B0 /* newspaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "newspaper@2x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/newspaper@2x.png"; sourceTree = SOURCE_ROOT; };
+		BCB3A9FB1DCA140C00A076B0 /* newspaper@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "newspaper@3x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/newspaper@3x.png"; sourceTree = SOURCE_ROOT; };
 		BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTableView.swift; sourceTree = "<group>"; };
 		BCC45F501DC0CC0C009BC6EC /* NewestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestModel.swift; sourceTree = "<group>"; };
 		BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestHeaderModel.swift; sourceTree = "<group>"; };
@@ -218,6 +234,49 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		BC6C194F1DC8B8DE00C744BD /* Main主要模块 */ = {
+			isa = PBXGroup;
+			children = (
+				BCF254B11DBE355600ABD6A7 /* Controller */,
+				BCF254B21DBE355600ABD6A7 /* Model */,
+				BCF254B31DBE355600ABD6A7 /* View */,
+			);
+			name = "Main主要模块";
+			sourceTree = "<group>";
+		};
+		BC6C19501DC8B90A00C744BD /* Science科技 */ = {
+			isa = PBXGroup;
+			children = (
+				BC6C19531DC8B93700C744BD /* Controller */,
+				BC6C19521DC8B92E00C744BD /* Model */,
+				BC6C19511DC8B92600C744BD /* View */,
+			);
+			name = "Science科技";
+			sourceTree = "<group>";
+		};
+		BC6C19511DC8B92600C744BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC6C19541DC8B97900C744BD /* RecommendScienceCell.swift */,
+				BC6C19551DC8B97900C744BD /* RecommendScienceCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BC6C19521DC8B92E00C744BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BC6C19531DC8B93700C744BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		BCC45F3D1DC0AEDC009BC6EC /* Main主要模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */,
-				BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */,
 				BCC45F621DC0F296009BC6EC /* HeaderScrollView.swift */,
 				BCC45F601DC0F27E009BC6EC /* HeaderScrollViewCell.swift */,
 				BC94BAAB1DC1FBD10096EEAD /* NewestCell.swift */,
@@ -361,9 +419,8 @@
 		BCF254B01DBE355600ABD6A7 /* Recommend推荐 */ = {
 			isa = PBXGroup;
 			children = (
-				BCF254B11DBE355600ABD6A7 /* Controller */,
-				BCF254B21DBE355600ABD6A7 /* Model */,
-				BCF254B31DBE355600ABD6A7 /* View */,
+				BC6C19501DC8B90A00C744BD /* Science科技 */,
+				BC6C194F1DC8B8DE00C744BD /* Main主要模块 */,
 			);
 			name = "Recommend推荐";
 			path = "Discovery发现";
@@ -380,7 +437,7 @@
 		BCF254B21DBE355600ABD6A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC1011CA1DC78B0C000D0394 /* RecommendModel.swift */,
+				BC6C194D1DC8876800C744BD /* RecommendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -388,7 +445,7 @@
 		BCF254B31DBE355600ABD6A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC1011C81DC787E6000D0394 /* RecommendTableView.swift */,
+				BC6C13881DC85DE200C744BD /* RecommendView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -440,6 +497,9 @@
 				BC1011AC1DC7716C000D0394 /* navigationBarProtocol.swift */,
 				BCF254CB1DBE49A700ABD6A7 /* Const.swift */,
 				BCF254D91DBE50CB00ABD6A7 /* CreateTabBarController.swift */,
+				BC6C13841DC8590400C744BD /* KTCSegCtrl.swift */,
+				BC6C13861DC85B0C00C744BD /* UIView+Common.swift */,
+				BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */,
 			);
 			path = "Public公共类";
 			sourceTree = "<group>";
@@ -448,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				BCF254BF1DBE363200ABD6A7 /* 公共 */,
-				BCF254C01DBE363200ABD6A7 /* 发现 */,
+				BCF254C01DBE363200ABD6A7 /* 推荐 */,
 				BCF254C11DBE363200ABD6A7 /* 图标和启动界面 */,
 				BCF254C21DBE363200ABD6A7 /* 导航 */,
 				BCF254C31DBE363200ABD6A7 /* 我的 */,
@@ -467,10 +527,15 @@
 			path = "公共";
 			sourceTree = "<group>";
 		};
-		BCF254C01DBE363200ABD6A7 /* 发现 */ = {
+		BCF254C01DBE363200ABD6A7 /* 推荐 */ = {
 			isa = PBXGroup;
 			children = (
+				BCB3A9FA1DCA140C00A076B0 /* newspaper@2x.png */,
+				BCB3A9FB1DCA140C00A076B0 /* newspaper@3x.png */,
+				BCB3A9F21DCA0D4600A076B0 /* clock@2x.png */,
+				BCB3A9F31DCA0D4600A076B0 /* clock@3x.png */,
 			);
+			name = "推荐";
 			path = "发现";
 			sourceTree = "<group>";
 		};
@@ -643,13 +708,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC1011C31DC77E2A000D0394 /* back@3x.png in Resources */,
+				BCB3A9F61DCA0D4600A076B0 /* clock@2x.png in Resources */,
+				BC6C19571DC8B97900C744BD /* RecommendScienceCell.xib in Resources */,
 				BC1011A61DC75D9B000D0394 /* message empty@2x.png in Resources */,
 				BC1011B51DC775CB000D0394 /* list 2@3x.png in Resources */,
 				BC1011A01DC73427000D0394 /* replay1@2x.png in Resources */,
 				BC1011A81DC75D9B000D0394 /* timer@2x.png in Resources */,
 				BC1011C71DC785F1000D0394 /* arrow@3x.png in Resources */,
 				BC1011B81DC77687000D0394 /* user 2@2x.png in Resources */,
+				BCB3A9FD1DCA140C00A076B0 /* newspaper@3x.png in Resources */,
 				BC10119E1DC73427000D0394 /* replay@2x.png in Resources */,
+				BCB3A9FC1DCA140C00A076B0 /* newspaper@2x.png in Resources */,
 				BCF254E51DBE57DE00ABD6A7 /* dog house@2x.png in Resources */,
 				BC1011A11DC73427000D0394 /* replay1@3x.png in Resources */,
 				BC94BAAA1DC1F4CC0096EEAD /* sdefaultImage.png in Resources */,
@@ -664,6 +733,7 @@
 				BCF254851DBE31F200ABD6A7 /* Assets.xcassets in Resources */,
 				BCF254E71DBE57DE00ABD6A7 /* Neutron@2x.png in Resources */,
 				BC1011B91DC77687000D0394 /* user 2@3x.png in Resources */,
+				BCB3A9F71DCA0D4600A076B0 /* clock@3x.png in Resources */,
 				BC1011B41DC775CB000D0394 /* list 2@2x.png in Resources */,
 				BCF254831DBE31F200ABD6A7 /* Main.storyboard in Resources */,
 			);
@@ -739,13 +809,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF254D41DBE4F3000ABD6A7 /* CollectionViewController.swift in Sources */,
+				BC6C13891DC85DE200C744BD /* RecommendView.swift in Sources */,
 				BCF254D81DBE4F6300ABD6A7 /* MineViewController.swift in Sources */,
+				BC6C19561DC8B97900C744BD /* RecommendScienceCell.swift in Sources */,
 				BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */,
-				BC1011CB1DC78B0C000D0394 /* RecommendModel.swift in Sources */,
+				BC6C13851DC8590400C744BD /* KTCSegCtrl.swift in Sources */,
 				BCC45F511DC0CC0C009BC6EC /* NewestModel.swift in Sources */,
 				BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */,
 				BCF254801DBE31F200ABD6A7 /* ViewController.swift in Sources */,
 				BC1011731DC6D009000D0394 /* SKScNavBar.swift in Sources */,
+				BC6C13871DC85B0C00C744BD /* UIView+Common.swift in Sources */,
+				BC6C194E1DC8876800C744BD /* RecommendModel.swift in Sources */,
 				BC1011741DC6D009000D0394 /* SKLaunchMenu.swift in Sources */,
 				BCF254DA1DBE50CB00ABD6A7 /* CreateTabBarController.swift in Sources */,
 				BCF2547E1DBE31F200ABD6A7 /* AppDelegate.swift in Sources */,
@@ -759,7 +833,6 @@
 				BC10116B1DC6CFFA000D0394 /* SKScNavViewController.swift in Sources */,
 				BCF254D61DBE4F5000ABD6A7 /* RecommendViewController.swift in Sources */,
 				BC1011771DC6D052000D0394 /* HomepageViewController.swift in Sources */,
-				BC1011C91DC787E6000D0394 /* RecommendTableView.swift in Sources */,
 				BC1011751DC6D009000D0394 /* SKLaunchMenuItem.swift in Sources */,
 				BCC45F611DC0F27E009BC6EC /* HeaderScrollViewCell.swift in Sources */,
 			);

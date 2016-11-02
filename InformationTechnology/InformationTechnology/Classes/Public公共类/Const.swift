@@ -117,10 +117,13 @@ let cellDetailUrl = "http:www.ithome.com"
 /*
  =============================推荐===============================*/
 
-let recommendUrl = "http://apinews6-front.newsrep.cn/flow/GetItems?packageId=19&articleId=0&social=1&version=600&bottomArticleId=0&handsetName=iPhone9%2C2&premium=0&mood=-1&tags=-54&regionId=10&userId=103bc6e4-a202-4a53-ae95-17acb4f7cb6a&videoOnly=0&edito=1&sortBy=1&onefeed=0&pageSize="
+//科技
+let scienceUrl = "http://api.iclient.ifeng.com/ClientNews?id=KJ123,FOCUSKJ123&gv=5.3.0&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
+//时尚
+let fashionHeaderurl = "http://api.iclient.ifeng.com/ipadtestdoc?aid=cmpp_020210040182940&gv=5.3.0&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
-
+let fashionUrl = "http://api.iclient.ifeng.com/ClientNews?id=SS78,FOCUSSS78&gv=5.3.0&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
 
 

@@ -182,7 +182,7 @@ class SKScNavViewController: UIViewController, SKScNavBarDelegate, UIScrollViewD
     
     //MARK: -- SKScNavBarDelegate 中的方法
     func didSelectedWithIndex(index: Int) {
-        mainView.setContentOffset(CGPointMake(CGFloat(index) * kScreenWidth, 0), animated: false)
+        mainView.setContentOffset(CGPointMake(CGFloat(index) * kScreenWidth, 0), animated: true)
     }
     
     func isShowScNavBarItemMenu(show: Bool, height: CGFloat) {
