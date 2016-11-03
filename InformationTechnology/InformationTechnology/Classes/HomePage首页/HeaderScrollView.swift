@@ -66,6 +66,12 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         }
     }
     
+    //点击事件
+    func tapAction(g:UIGestureRecognizer) {
+        
+        
+    }
+    
     //搭建界面
     func configView(){
         if imageArray.count <= 1{
@@ -121,6 +127,14 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         pageControl=UIPageControl(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         pageControl.numberOfPages=imageArray.count
         bottomView.addSubview(pageControl)
+        
+        //设置tag
+        preImageView.tag = 100
+        currentImageView.tag = 101
+        nextImageView.tag = 102
+        //点击事件
+        let g = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+        addGestureRecognizer(g)
     
     }
     
@@ -146,6 +160,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         pageControl.currentPage=curentPage
         label.text = titlesArray[curentPage]
         scrollView.contentOffset=CGPoint(x: viewWidth, y: 0)
+        
     }
     
 }

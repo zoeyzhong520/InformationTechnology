@@ -64,28 +64,30 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             
             //下载头部轮播页数据
             Alamofire.request(.GET, String(format: headerUrlString!, currentPage)).responseData { [unowned self] (response) in
-                let xml = XML.parse(response.result.value!)
-                if response.result.error == nil {
-                    let items = xml["rss"]["channel"]["item"]
-                    for item in items {
-                        let model = NewestHeaderModel()
-                        model.title = item["title"].text
-                        model.image = item["image"].text
-                        model.link = item["link"].text
-                        if model.link != "262983" {
-                            //头部图片数组
-                            self.newestHeaderImageArray.append(model.image!)
-                            //头部图片标题数组
-                            self.newestTitleArray.append(model.title!)
-                            //头部数据数组
-                            self.headerDataArray.append(model)
+                
+                if response.result.value != nil {
+                    let xml = XML.parse(response.result.value!)
+                    if response.result.error == nil {
+                        let items = xml["rss"]["channel"]["item"]
+                        for item in items {
+                            let model = NewestHeaderModel()
+                            model.title = item["title"].text
+                            model.image = item["image"].text
+                            model.link = item["link"].text
+                            if model.link != "262983" {
+                                //头部图片数组
+                                self.newestHeaderImageArray.append(model.image!)
+                                //头部图片标题数组
+                                self.newestTitleArray.append(model.title!)
+                                //头部数据数组
+                                self.headerDataArray.append(model)
+                            }
                         }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
                 }
             }
         }
-        
     }
     
     //添加提示等待加载功能
@@ -114,24 +116,25 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
                 if self.currentPage == 1 {
                     self.dataArray.removeAll()
                 }
-                let xml = XML.parse(response.result.value!)
-                if response.result.error == nil {
-                    let items = xml["rss"]["channel"]["item"]
-                    for item in items {
-                        let model = NewestModel()
-                        model.title = item["title"].text
-                        model.image = item["image"].text
-                        model.postdate = item["postdate"].text
-                        model.commentcount = item["commentcount"].text
-                        model.description1 = item["description"].text
-                        model.url = item["url"].text
-                        self.dataArray.append(model)
+                if response.result.value != nil {
+                    let xml = XML.parse(response.result.value!)
+                    if response.result.error == nil {
+                        let items = xml["rss"]["channel"]["item"]
+                        for item in items {
+                            let model = NewestModel()
+                            model.title = item["title"].text
+                            model.image = item["image"].text
+                            model.postdate = item["postdate"].text
+                            model.commentcount = item["commentcount"].text
+                            model.description1 = item["description"].text
+                            model.url = item["url"].text
+                            self.dataArray.append(model)
+                        }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
                 }
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -154,8 +157,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if headerUrlString != nil && indexPath.row == 0 {
-            //广告高度为200
-            return 200
+            //广告高度为180
+            return 180
         }
         return 110
     }
@@ -175,15 +178,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             let model = dataArray[indexPath.row-1]
             //标题
             cell.TitleLabel.text = model.title
-            //详细介绍
-            cell.DescLabel.text = model.description1
             //发布时间
-            //2016-10-30 17:14:07
-            //截取时间
-            var str = model.postdate
-            str?.removeRange((str?.startIndex)!...(str?.startIndex.advancedBy(9))!)
-            //let str1 = str?.substringWithRange((str?.startIndex.advancedBy(9))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
-            cell.PostDataLabel.text = str
+            cell.PostDataLabel.text = model.postdate
             //阅读数
             cell.CommentCountLabel.text = model.commentcount
             //icon图片
@@ -197,14 +193,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             let model = dataArray[indexPath.row]
             //标题
             cell.TitleLabel.text = model.title
-            //详细介绍
-            cell.DescLabel.text = model.description1
             //发布时间
-            //2016-10-30 17:14:07
-            //截取时间
-            let str = model.postdate
-            //let str1 = str?.substringWithRange((str?.startIndex.advancedBy(11))!...(str?.endIndex.predecessor().predecessor().predecessor().predecessor())!)
-            cell.PostDataLabel.text = str
+            cell.PostDataLabel.text = model.postdate
             //阅读数
             cell.CommentCountLabel.text = model.commentcount
             //icon图片
@@ -223,7 +213,10 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
         
         if indexPath.row == 0 && headerUrlString != nil {
             //广告详情
-            let model = headerDataArray[indexPath.row]
+            let model = headerDataArray[0]
+            
+            print(model.link)
+            
             if model.link != nil {
                 
                 vc.url = NSURL(string: headerDetailUrl+"\(model.link!)")
@@ -235,6 +228,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
         if headerUrlString != nil {
             //界面详情
             let model = dataArray[indexPath.row-1]
+            
             if model.url != nil {
                 vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
                 navigationController?.pushViewController(vc, animated: true)

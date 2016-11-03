@@ -15,10 +15,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oZZ-Dh-Mm9" userLabel="DescImageView">
-                        <rect key="frame" x="274" y="10" width="130" height="89"/>
+                        <rect key="frame" x="274" y="10" width="130" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="0U6-xJ-Xg6"/>
-                            <constraint firstAttribute="width" constant="130" id="8F0-9J-6A5"/>
+                            <constraint firstAttribute="width" constant="130" id="HgO-t2-ZCY"/>
+                            <constraint firstAttribute="height" constant="80" id="q0u-Cr-sYw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -29,28 +30,44 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rES-B2-UCe" userLabel="TitleLabel">
                         <rect key="frame" x="10" y="10" width="254" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="cIy-48-gp8"/>
+                            <constraint firstAttribute="height" constant="40" id="v84-Sy-18h"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns4-t3-TG1" userLabel="DescLabel">
-                        <rect key="frame" x="10" y="60" width="38" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYX-6h-UJS" userLabel="CommentCountLabel">
+                        <rect key="frame" x="234" y="81" width="40" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="KoN-dF-mIc"/>
+                            <constraint firstAttribute="height" constant="20" id="CLX-D9-r7x"/>
+                            <constraint firstAttribute="width" constant="40" id="KVl-o0-rrw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like.png" translatesAutoresizingMaskIntoConstraints="NO" id="JVs-nz-rs3" userLabel="ReplayImageView">
+                        <rect key="frame" x="215" y="84" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="aX1-3U-C4K"/>
+                            <constraint firstAttribute="width" constant="15" id="qIS-9M-3zP"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0U-r6-6ur">
+                        <rect key="frame" x="10" y="84" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="5KF-tc-5E5"/>
+                            <constraint firstAttribute="height" constant="15" id="Ux9-nL-3ii"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPp-a3-IRn" userLabel="PostDataLabel">
-                        <rect key="frame" x="10" y="90" width="195" height="20"/>
+                        <rect key="frame" x="29" y="81" width="176" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="180" id="2GR-y1-Hwb"/>
-                            <constraint firstAttribute="height" constant="20" id="MmZ-pU-ccS"/>
+                            <constraint firstAttribute="height" constant="20" id="Nf4-A3-BuQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -58,46 +75,27 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYX-6h-UJS" userLabel="CommentCountLabel">
-                        <rect key="frame" x="234" y="90" width="40" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="G72-lg-BOa"/>
-                            <constraint firstAttribute="height" constant="20" id="s16-M8-dvz"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="JVs-nz-rs3" userLabel="ReplayImageView">
-                        <rect key="frame" x="215" y="94" width="15" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="RZl-EF-DTK"/>
-                            <constraint firstAttribute="width" constant="15" id="kqV-1k-0li"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ns4-t3-TG1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="50C-Pa-iJw"/>
-                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ns4-t3-TG1" secondAttribute="trailing" constant="10" id="7W5-gH-EBI"/>
-                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" secondItem="CYX-6h-UJS" secondAttribute="trailing" id="A7Z-yi-RFk"/>
-                    <constraint firstItem="GPp-a3-IRn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="CJm-Tc-ght"/>
-                    <constraint firstAttribute="bottom" secondItem="oZZ-Dh-Mm9" secondAttribute="bottom" constant="10" id="Klq-ft-Ysh"/>
-                    <constraint firstItem="ns4-t3-TG1" firstAttribute="top" secondItem="rES-B2-UCe" secondAttribute="bottom" constant="10" id="NYY-m6-X4t"/>
-                    <constraint firstAttribute="bottom" secondItem="JVs-nz-rs3" secondAttribute="bottom" id="TQX-WI-txz"/>
-                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" secondItem="rES-B2-UCe" secondAttribute="trailing" constant="10" id="ZZr-cg-FNb"/>
-                    <constraint firstItem="rES-B2-UCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="eVW-cX-T1t"/>
-                    <constraint firstItem="rES-B2-UCe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nSX-pZ-aF6"/>
-                    <constraint firstAttribute="trailing" secondItem="oZZ-Dh-Mm9" secondAttribute="trailing" constant="10" id="pxv-fk-cev"/>
-                    <constraint firstItem="GPp-a3-IRn" firstAttribute="top" secondItem="ns4-t3-TG1" secondAttribute="bottom" constant="10" id="r9O-Il-EP0"/>
-                    <constraint firstItem="CYX-6h-UJS" firstAttribute="leading" secondItem="JVs-nz-rs3" secondAttribute="trailing" constant="4" id="sOT-1S-aJ6"/>
-                    <constraint firstItem="JVs-nz-rs3" firstAttribute="leading" secondItem="GPp-a3-IRn" secondAttribute="trailing" constant="10" id="tkR-8Z-fPb"/>
-                    <constraint firstItem="CYX-6h-UJS" firstAttribute="top" secondItem="ns4-t3-TG1" secondAttribute="bottom" constant="10" id="u2B-eJ-2m2"/>
-                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uqW-b7-Ly5"/>
+                    <constraint firstAttribute="bottom" secondItem="JVs-nz-rs3" secondAttribute="bottom" constant="10" id="5u0-AY-cFA"/>
+                    <constraint firstItem="g0U-r6-6ur" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9Xa-Pv-xwi"/>
+                    <constraint firstItem="rES-B2-UCe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="IOP-nw-yVQ"/>
+                    <constraint firstItem="JVs-nz-rs3" firstAttribute="leading" secondItem="GPp-a3-IRn" secondAttribute="trailing" constant="10" id="QzT-6s-ehe"/>
+                    <constraint firstItem="GPp-a3-IRn" firstAttribute="leading" secondItem="g0U-r6-6ur" secondAttribute="trailing" constant="4" id="WsS-jq-p30"/>
+                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZXu-1g-xF4"/>
+                    <constraint firstAttribute="bottom" secondItem="CYX-6h-UJS" secondAttribute="bottom" constant="8" id="ZcN-Fh-noM"/>
+                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" secondItem="rES-B2-UCe" secondAttribute="trailing" constant="10" id="avS-II-jTo"/>
+                    <constraint firstItem="CYX-6h-UJS" firstAttribute="leading" secondItem="JVs-nz-rs3" secondAttribute="trailing" constant="4" id="fU7-PD-mCF"/>
+                    <constraint firstAttribute="trailing" secondItem="oZZ-Dh-Mm9" secondAttribute="trailing" constant="10" id="jDd-ZY-x7m"/>
+                    <constraint firstAttribute="bottom" secondItem="g0U-r6-6ur" secondAttribute="bottom" constant="10" id="pR4-HS-wVl"/>
+                    <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" secondItem="CYX-6h-UJS" secondAttribute="trailing" id="sX8-iZ-uMX"/>
+                    <constraint firstItem="rES-B2-UCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vqb-9u-c9p"/>
+                    <constraint firstAttribute="bottom" secondItem="GPp-a3-IRn" secondAttribute="bottom" constant="8" id="vur-J5-uiy"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="CommentCountLabel" destination="CYX-6h-UJS" id="9GD-37-Yhm"/>
                 <outlet property="DescImageView" destination="oZZ-Dh-Mm9" id="yMx-83-L2c"/>
-                <outlet property="DescLabel" destination="ns4-t3-TG1" id="mVt-bE-Cuj"/>
                 <outlet property="PostDataLabel" destination="GPp-a3-IRn" id="5vS-XO-vln"/>
                 <outlet property="ReplayImageView" destination="JVs-nz-rs3" id="Z40-sN-0pX"/>
                 <outlet property="TitleLabel" destination="rES-B2-UCe" id="tiZ-RG-M2Q"/>
@@ -106,6 +104,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="message empty.png" width="20" height="20"/>
+        <image name="clock.png" width="22" height="22"/>
+        <image name="like.png" width="25" height="25"/>
     </resources>
 </document>

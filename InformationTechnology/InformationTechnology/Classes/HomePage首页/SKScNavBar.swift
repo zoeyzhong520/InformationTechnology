@@ -153,9 +153,14 @@ class SKScNavBar: UIView, SKLaunchMenuDelegate {
         }
         scNavBar = UIScrollView(frame: CGRectMake(0, 0, frameX, kScNavBarHeight))
         scNavBar.showsHorizontalScrollIndicator = false
+        
+        //设置透明色
+        scNavBar.backgroundColor = UIColor.clearColor()
+//        scNavBar.layer.opacity = 0.6
+        
         self.addSubview(scNavBar)
         //调用给视图设置阴影的方法
-        setShadowForView(self, shadowRadius: 10.0, shadowOpacity: 10.0)
+//        setShadowForView(self, shadowRadius: 10.0, shadowOpacity: 10.0)
     }
     
     //MARK: -- 往导航栏上添加ItemButton

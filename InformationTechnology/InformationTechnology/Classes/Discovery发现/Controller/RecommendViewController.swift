@@ -28,41 +28,58 @@ class RecommendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.redColor()
+        view.backgroundColor = UIColor.whiteColor()
         
         //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距,我们要取消这个间距
         automaticallyAdjustsScrollViewInsets = false
         
         //下载科技界面的数据
-        downloadData0()
+        downloadScienceData()
         
         //下载时尚界面的数据
-        downloadData1()
+        downloadFashionData()
         
         //导航
         createNav()
         
         //创建首页视图
         createHomePage()
-        
     }
     
     //下载科技界面的数据
-    func downloadData0() {
+    func downloadScienceData() {
         
         let aurlLimitList = String(format: scienceUrl, currentPage)
         Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
-                if let tmpData = response.data {
-                    let model = RecommendModel.parseData(tmpData)
+            
+            if let tmpData = response.data {
+                let model = RecommendModel.parseData(tmpData)
+                
+                //json解析
+                self.scienceView?.model = model.RecommendValue0
+                self.scienceView?.adModel = model.RecommendValue1
+                
+                //点击事件
+                self.scienceView?.jumpClosure = {  jumpUrl in
+                    print(jumpUrl)
                     
-                    //json解析
-                    self.scienceView?.model = model.RecommendValue0
+                    //跳转到详情页
+                    if jumpUrl.hasPrefix("http://") {
+                        
+                        let vc = adDetailViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        
+                        let vc = ScienceDetailViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
                 }
             }
         }
+    }
     
     //下载时尚界面的数据
-    func downloadData1() {
+    func downloadFashionData() {
         
         let aurlLimitList = String(format: fashionUrl, currentPage)
         Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
@@ -71,7 +88,23 @@ class RecommendViewController: UIViewController {
                 
                 //json解析
                 self.fashionView?.model = model.RecommendValue0
+                self.fashionView?.adModel = model.RecommendValue1
                 
+                //点击事件
+                self.fashionView?.jumpClosure = {  jumpUrl in
+                    print(jumpUrl)
+                    
+                    //跳转到详情页
+                    if jumpUrl.hasPrefix("http://") {
+                        
+                        let vc = adDetailViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        
+                        let vc = ScienceDetailViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
             }
         }
     }
@@ -100,7 +133,7 @@ class RecommendViewController: UIViewController {
         }
         
         //添加子视图
-        //1.资讯视图
+        //1.科技视图
         scienceView = RecommendView()
         containerView.addSubview(scienceView!)
         scienceView?.snp_makeConstraints(closure: { (make) in
@@ -146,7 +179,6 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController:KTCSegCtrlDelegate {
     
     func segCtrl(segCtrl: KTCSegCtrl, didClickBtnAtIndex index: Int) {
-        
         scrollView?.setContentOffset(CGPointMake(CGFloat(index)*screenW, 0), animated: true)
     }
 }

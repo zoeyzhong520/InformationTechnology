@@ -16,12 +16,13 @@ protocol AddReFreshProtocol:NSObjectProtocol {
 
 extension AddReFreshProtocol where Self:UITableViewController {
     func addRefresh(header:(()->())?,footer:(()->())?) {
+        
         if header != nil {
-            tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: header)
+            tableView!.mj_header = MJRefreshNormalHeader(refreshingBlock: header)
         }
         
         if footer != nil {
-            tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: footer)
+            tableView!.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: footer)
         }
     }
 }

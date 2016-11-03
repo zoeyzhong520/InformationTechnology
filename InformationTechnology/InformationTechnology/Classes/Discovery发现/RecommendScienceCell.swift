@@ -10,6 +10,9 @@ import UIKit
 
 class RecommendScienceCell: UITableViewCell {
     
+    //点击事件
+    var jumpClosure:RecommendJumpClosure?
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -36,33 +39,65 @@ class RecommendScienceCell: UITableViewCell {
     //显示数据
     func showData() {
         
-        if itemArray?.count > 0 {
-            
-            //标题
-            let tmpTitle = itemArray![0]
-            titleLabel.text = tmpTitle.title
-            
-            //更新时间
-            let tmpTimeLabel = itemArray![0]
-            timeLabel.text = tmpTimeLabel.updateTime
-            
-            //图片
-            let tmpImage = itemArray![0]
-            if tmpImage.thumbnail != nil {
+        let cnt = itemArray?.count
+        for i in 0..<cnt! {
+            if itemArray?.count > 0 {
                 
-                let url = NSURL(string: (tmpImage.thumbnail)!)
-                newsImageView.kf_setImageWithURL(url!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+                //标题
+                let tmpTitle = itemArray![i]
+                titleLabel.text = tmpTitle.title
+                
+                //更新时间
+                let tmpTimeLabel = itemArray![i]
+                timeLabel.text = tmpTimeLabel.updateTime
+                
+                //图片
+                let model = itemArray![i]
+                //创建图片
+                if model.thumbnail != nil {
+                    
+                    let url = NSURL(string: (model.thumbnail)!)
+                    if model.thumbnail != nil {
+                        newsImageView.kf_setImageWithURL(url!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+                    }
+                }
+                
+                //添加点击事件
+                contentView.tag = 200+i
+                let g = UITapGestureRecognizer(target: self, action: #selector(tapImage(_:)))
+                contentView.addGestureRecognizer(g)
+                
+                //阅读数
+                let tmpSallLabel = itemArray![i]
+                if tmpSallLabel.commentsall == nil {
+                    commentSallLabel.text = "0"
+                }else{
+                    commentSallLabel.text = tmpSallLabel.commentsall
+                }
+                
+                //来源
+                let tmpSourceLabel = itemArray![i]
+                if tmpSourceLabel.source == nil {
+                    sourceLabel.text = "敬请期待"
+                }else{
+                    sourceLabel.text = tmpSourceLabel.source
+                }
             }
-            
-            //阅读数
-            let tmpSallLabel = itemArray![0]
-            commentSallLabel.text = tmpSallLabel.commentsall
-            
-            //来源
-            let tmpSourceLabel = itemArray![0]
-            sourceLabel.text = tmpSourceLabel.source
+        }
+        
+    }
+    
+    func tapImage(g: UIGestureRecognizer) {
+        
+        let index = (g.view?.tag)! - 200
+        //获取点击的数据
+        let item = itemArray![index]
+        
+        if jumpClosure != nil  && item.documentId != nil {
+            jumpClosure!(item.documentId!)
         }
     }
+
     
     //创建cell的方法
     class func createScienceCellFor(tableView:UITableView, atIndexPath indexPath:NSIndexPath, itemArray:Array<RecommendValueZeroItem>?) -> RecommendScienceCell {

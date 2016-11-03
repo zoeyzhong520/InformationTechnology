@@ -12,8 +12,6 @@ class NewestCell: UITableViewCell {
 
     @IBOutlet weak var TitleLabel: UILabel!
     
-    @IBOutlet weak var DescLabel: UILabel!
-    
     @IBOutlet weak var PostDataLabel: UILabel!
     
     @IBOutlet weak var CommentCountLabel: UILabel!
