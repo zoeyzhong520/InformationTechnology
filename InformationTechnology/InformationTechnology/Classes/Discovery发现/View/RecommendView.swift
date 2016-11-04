@@ -11,11 +11,21 @@ import Alamofire
 
 class RecommendView: UIView {
     
+    //点击事件
+    var jumpClosure:RecommendJumpClosure?
+    
     //数据
     var model:RecommendValueZero? {
         didSet {
             
             //set方法调用之后会调用这里的方法
+            tableView?.reloadData()
+        }
+    }
+    
+    //广告数据
+    var adModel:RecommendValueOne? {
+        didSet {
             tableView?.reloadData()
         }
     }
@@ -52,21 +62,42 @@ extension RecommendView:UITableViewDelegate,UITableViewDataSource {
         
         var row = 0
         if model?.item?.count > 0 {
-            row = (model?.item?.count)!
+            row = (model?.item?.count)!+1
         }
         return row
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 110
+        
+        var height:CGFloat = 0
+        if indexPath.row == 0 {
+            height = 180
+        }else{
+            height = 110
+        }
+        return height
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let itemModel = model?.item![indexPath.row]
-        let cell = RecommendScienceCell.createScienceCellFor(tableView, atIndexPath: indexPath, itemArray: [itemModel!])
-        return cell
-        
+        if indexPath.row == 0 {
+            //广告
+            let cell = RecommendHeaderCell.createHeaderCellFor(tableView, atIndexPath: indexPath, itemArray: adModel?.item)
+            
+            //点击事件的响应代码
+            cell.jumpClosure = jumpClosure
+            
+            return cell
+        }else{
+            //新闻部分
+            let itemModel = model?.item![indexPath.row-1]
+            let cell = RecommendScienceCell.createScienceCellFor(tableView, atIndexPath: indexPath, itemArray: [itemModel!])
+            
+            //点击事件的响应代码
+            cell.jumpClosure = jumpClosure
+            
+            return cell
+        }
     }
 }
 
