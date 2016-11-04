@@ -117,9 +117,9 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         self.addSubview(bottomView)
         
         //轮播页标题的label
-        label = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 30))
-        label.font = UIFont.systemFontOfSize(13)
-        label.textAlignment = .Right
+        label = UILabel(frame: CGRect(x: 100, y: 0, width: viewWidth-100, height: 30))
+        label.font = UIFont.systemFontOfSize(14)
+        label.textAlignment = .Center
         label.textColor = UIColor.whiteColor()
         label.text = titlesArray[curentPage]
         bottomView.addSubview(label)

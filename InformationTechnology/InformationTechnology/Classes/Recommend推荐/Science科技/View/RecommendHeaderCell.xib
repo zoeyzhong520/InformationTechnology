@@ -27,23 +27,23 @@
                                     <constraint firstAttribute="height" constant="30" id="Xhy-m3-Uhx"/>
                                 </constraints>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC6-Uj-fdy" userLabel="titleLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edZ-pa-zEV">
                                 <rect key="frame" x="110" y="0.0" width="304" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DCz-dM-bEy"/>
+                                    <constraint firstAttribute="height" constant="30" id="YK8-Bp-lcp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XC6-Uj-fdy" secondAttribute="bottom" id="JQE-Qd-5jB"/>
-                            <constraint firstItem="XC6-Uj-fdy" firstAttribute="leading" secondItem="4PF-qK-d5X" secondAttribute="trailing" constant="10" id="Maa-nr-fhg"/>
-                            <constraint firstAttribute="trailing" secondItem="XC6-Uj-fdy" secondAttribute="trailing" id="PYt-uJ-Tts"/>
+                            <constraint firstItem="edZ-pa-zEV" firstAttribute="leading" secondItem="4PF-qK-d5X" secondAttribute="trailing" constant="10" id="IcO-WZ-t3n"/>
+                            <constraint firstAttribute="trailing" secondItem="edZ-pa-zEV" secondAttribute="trailing" id="lEU-gQ-q1w"/>
                             <constraint firstAttribute="bottom" secondItem="4PF-qK-d5X" secondAttribute="bottom" id="q3y-gD-CJ4"/>
                             <constraint firstAttribute="height" constant="30" id="qWX-Z7-82N"/>
+                            <constraint firstAttribute="bottom" secondItem="edZ-pa-zEV" secondAttribute="bottom" id="udj-b2-Hej"/>
                             <constraint firstItem="4PF-qK-d5X" firstAttribute="leading" secondItem="yIb-Nc-1Ar" secondAttribute="leading" id="wa9-nk-2id"/>
                         </constraints>
                     </view>
@@ -61,7 +61,7 @@
             <connections>
                 <outlet property="pageControl" destination="4PF-qK-d5X" id="reJ-cY-nID"/>
                 <outlet property="scrollView" destination="Oqr-IC-EWH" id="eba-gr-a7x"/>
-                <outlet property="titleLabel" destination="XC6-Uj-fdy" id="4de-ay-fIp"/>
+                <outlet property="titleLabel" destination="edZ-pa-zEV" id="3kU-qw-3gF"/>
             </connections>
         </tableViewCell>
     </objects>

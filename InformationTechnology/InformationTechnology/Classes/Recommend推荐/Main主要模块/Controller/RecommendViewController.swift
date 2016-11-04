@@ -55,22 +55,26 @@ class RecommendViewController: UIViewController {
             if let tmpData = response.data {
                 let model = RecommendModel.parseData(tmpData)
                 
+//                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
+//                print(str!)
+                
                 //json解析
                 self.scienceView?.model = model.RecommendValue0
                 self.scienceView?.adModel = model.RecommendValue1
                 
                 //点击事件
                 self.scienceView?.jumpClosure = {  jumpUrl in
-                    print(jumpUrl)
+//                    print(jumpUrl)
                     
                     //跳转到详情页
                     if jumpUrl.hasPrefix("http://") {
                         
-                        let vc = adDetailViewController()
+                        let vc = AdDetailViewController()
+                        vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
                     }else{
                         
-                        let vc = ScienceDetailViewController()
+                        let vc = CellDetailViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
@@ -92,16 +96,17 @@ class RecommendViewController: UIViewController {
                 
                 //点击事件
                 self.fashionView?.jumpClosure = {  jumpUrl in
-                    print(jumpUrl)
+//                    print(jumpUrl)
                     
                     //跳转到详情页
                     if jumpUrl.hasPrefix("http://") {
                         
-                        let vc = adDetailViewController()
+                        let vc = AdDetailViewController()
+                        vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
                     }else{
                         
-                        let vc = ScienceDetailViewController()
+                        let vc = CellDetailViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }

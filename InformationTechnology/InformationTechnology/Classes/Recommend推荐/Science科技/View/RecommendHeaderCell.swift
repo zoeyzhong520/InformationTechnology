@@ -17,9 +17,9 @@ class RecommendHeaderCell: UITableViewCell {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     //显示数据
     var itemArray:Array<RecommendValueOneItem>? {
@@ -82,7 +82,9 @@ class RecommendHeaderCell: UITableViewCell {
                 lastView = tmpImageView
                 
                 //显示title文字
-                titleLabel.text = model.title
+                if model.title != nil {
+                    titleLabel.text = itemArray![pageControl.currentPage].title
+                }
             }
             
             //3.修改container的宽度
@@ -139,6 +141,9 @@ extension RecommendHeaderCell:UIScrollViewDelegate {
         
         let index = scrollView.contentOffset.x/scrollView.bounds.size.width
         pageControl.currentPage = Int(index)
+        
+        //显示title文字
+        titleLabel.text = itemArray![pageControl.currentPage].title
     }
 }
 

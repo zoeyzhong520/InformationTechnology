@@ -1,18 +1,18 @@
 //
-//  adDetailViewController.swift
+//  CellDetailViewController.swift
 //  InformationTechnology
 //
-//  Created by qianfeng on 16/11/3.
+//  Created by qianfeng on 16/11/4.
 //  Copyright © 2016年 zzj. All rights reserved.
 //
 
 import UIKit
 
-class adDetailViewController: UIViewController {
+class CellDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.greenColor()
+        view.backgroundColor = UIColor.blueColor()
         // Do any additional setup after loading the view.
     }
 
