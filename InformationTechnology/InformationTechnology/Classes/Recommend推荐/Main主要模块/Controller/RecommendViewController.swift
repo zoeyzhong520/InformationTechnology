@@ -55,8 +55,8 @@ class RecommendViewController: UIViewController {
             if let tmpData = response.data {
                 let model = RecommendModel.parseData(tmpData)
                 
-//                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
-//                print(str!)
+                //                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
+                //                print(str!)
                 
                 //json解析
                 self.scienceView?.model = model.RecommendValue0
@@ -64,17 +64,16 @@ class RecommendViewController: UIViewController {
                 
                 //点击事件
                 self.scienceView?.jumpClosure = {  jumpUrl in
-//                    print(jumpUrl)
+                    //print(jumpUrl.characters.count)
                     
                     //跳转到详情页
-                    if jumpUrl.hasPrefix("http://") {
-                        
+                    if jumpUrl.characters.count == 65 {
                         let vc = AdDetailViewController()
                         vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
                     }else{
-                        
                         let vc = CellDetailViewController()
+                        vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
@@ -96,17 +95,16 @@ class RecommendViewController: UIViewController {
                 
                 //点击事件
                 self.fashionView?.jumpClosure = {  jumpUrl in
-//                    print(jumpUrl)
+                    print(jumpUrl.characters.count)
                     
                     //跳转到详情页
-                    if jumpUrl.hasPrefix("http://") {
-                        
+                    if jumpUrl.characters.count == 65 {
                         let vc = AdDetailViewController()
                         vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
-                    }else{
-                        
+                    }else if jumpUrl.characters.count == 121 {
                         let vc = CellDetailViewController()
+                        vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
@@ -167,7 +165,7 @@ class RecommendViewController: UIViewController {
         
         //选择控件
         let frame = CGRectMake(80, 0, screenW-80*2, 44)
-        segCtrl = KTCSegCtrl(frame: frame, titleArray: ["科技","时尚"])
+        segCtrl = KTCSegCtrl(frame: frame, titleArray: ["科技","FUN"])
         segCtrl!.delegate = self
         navigationItem.titleView = segCtrl
     }

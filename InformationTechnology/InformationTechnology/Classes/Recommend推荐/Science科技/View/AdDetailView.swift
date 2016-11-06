@@ -56,17 +56,16 @@ extension AdDetailView:UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        var height:CGFloat = 0
-        if indexPath.row == 0 {
-            height = 736
-        }
-        return height
+        return 800
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
             let cell = AdDetailCell.createAdSlidesForCell(tableView, atIndexPath: indexPath, slideArray: model?.body?.slides)
+            
+            //设置选中样式
+            cell.selectionStyle = .None
             return cell
         }
         return UITableViewCell()

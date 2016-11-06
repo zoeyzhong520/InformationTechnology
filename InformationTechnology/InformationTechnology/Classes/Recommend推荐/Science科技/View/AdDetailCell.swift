@@ -19,7 +19,7 @@ class AdDetailCell: UITableViewCell {
     @IBOutlet weak var pageLabel: UILabel!
     
     @IBOutlet weak var pageControl: UIPageControl!
-    
+        
     //显示数据
     var slideArray:Array<AdDetailBodySlides>? {
         didSet {

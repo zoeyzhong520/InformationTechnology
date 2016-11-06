@@ -93,8 +93,9 @@ class RecommendScienceCell: UITableViewCell {
         //获取点击的数据
         let item = itemArray![index]
         
-        if jumpClosure != nil  && item.documentId != nil {
-            jumpClosure!(item.documentId!)
+        if jumpClosure != nil  && item.documentId != nil && item.id != nil {
+            jumpClosure!("\(item.id!)"+"\(item.documentId!)")
+//            print("\(item.id!)"+"\(item.documentId!)")
         }
     }
 
