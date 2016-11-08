@@ -74,8 +74,8 @@ let cellDetailUrl = "http:www.ithome.com"
 //科技
 let scienceUrl = "http://api.iclient.ifeng.com/ClientNews?id=KJ123,FOCUSKJ123&gv=5.3.0&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
-//时尚
-let fashionUrl = "http://api.iclient.ifeng.com/ClientNews?id=SS78,FOCUSSS78&gv=5.3.0&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
+//FUN
+let funUrl = "http://api.iclient.ifeng.com/ClientNews?id=DZPD,FOCUSDZPD&gv=5.3.1&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
 //详情页面 "id"+"documentId"
 /*例如id ＝ http://api.iclient.ifeng.com/ipadtestdoc?aid=cmpp_040620044484900&channelKey=Y21wcF8xNzAwN183MTlfOSA=
@@ -84,5 +84,6 @@ let fashionUrl = "http://api.iclient.ifeng.com/ClientNews?id=SS78,FOCUSSS78&gv=5
 //详情页
 let scienceDetailUrl = "http://api.iclient.ifeng.com/ipadtestdoc?aid=cmpp_040620044484900&channelKey=Y21wcF8xNzAwN183MTlfOSA="
 
-
-
+/*
+ =============================精选===============================*/
+let collectUrl = "http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=20&platformType=iPhone&protocol=1.0.0&requireTime="

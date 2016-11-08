@@ -21,6 +21,9 @@ class DetailView: UIViewController,navigationBarProtocol {
 
     func configUI() {
         
+        //响应用户操作
+        self.view.userInteractionEnabled = true
+        
         //点击跳转页面
         self.automaticallyAdjustsScrollViewInsets = false
         webView = UIWebView(frame: CGRect(x: 0, y: 64, width: screenW, height: screenH-64))

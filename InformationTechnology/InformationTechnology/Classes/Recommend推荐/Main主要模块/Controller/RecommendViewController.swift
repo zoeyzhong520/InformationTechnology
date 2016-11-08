@@ -21,7 +21,7 @@ class RecommendViewController: UIViewController {
     private var scienceView:RecommendView?
     
     //时尚视图
-    private var fashionView:RecommendView?
+    private var funView:RecommendView?
     
     //导航上面的选择控件
     private var segCtrl: KTCSegCtrl?
@@ -64,7 +64,7 @@ class RecommendViewController: UIViewController {
                 
                 //点击事件
                 self.scienceView?.jumpClosure = {  jumpUrl in
-                    //print(jumpUrl.characters.count)
+                    print(jumpUrl)
                     
                     //跳转到详情页
                     if jumpUrl.characters.count == 65 {
@@ -84,25 +84,25 @@ class RecommendViewController: UIViewController {
     //下载时尚界面的数据
     func downloadFashionData() {
         
-        let aurlLimitList = String(format: fashionUrl, currentPage)
+        let aurlLimitList = String(format: funUrl, currentPage)
         Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
             if let tmpData = response.data {
                 let model = RecommendModel.parseData(tmpData)
                 
                 //json解析
-                self.fashionView?.model = model.RecommendValue0
-                self.fashionView?.adModel = model.RecommendValue1
+                self.funView?.model = model.RecommendValue0
+                self.funView?.adModel = model.RecommendValue1
                 
                 //点击事件
-                self.fashionView?.jumpClosure = {  jumpUrl in
-                    print(jumpUrl.characters.count)
+                self.funView?.jumpClosure = {  jumpUrl in
+                    print(jumpUrl)
                     
                     //跳转到详情页
                     if jumpUrl.characters.count == 65 {
                         let vc = AdDetailViewController()
                         vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
-                    }else if jumpUrl.characters.count == 121 {
+                    }else{
                         let vc = CellDetailViewController()
                         vc.urlString = jumpUrl
                         self.navigationController?.pushViewController(vc, animated: true)
@@ -145,9 +145,9 @@ class RecommendViewController: UIViewController {
         })
         
         //2.时尚视图
-        fashionView = RecommendView()
-        containerView.addSubview(fashionView!)
-        fashionView?.snp_makeConstraints(closure: { (make) in
+        funView = RecommendView()
+        containerView.addSubview(funView!)
+        funView?.snp_makeConstraints(closure: { (make) in
             make.top.bottom.equalTo(containerView)
             make.width.equalTo(screenW)
             make.left.equalTo((scienceView?.snp_right)!)
@@ -155,7 +155,7 @@ class RecommendViewController: UIViewController {
         
         //修改容器视图的大小
         containerView.snp_makeConstraints { (make) in
-            make.right.equalTo(fashionView!)
+            make.right.equalTo(funView!)
         }
         
     }

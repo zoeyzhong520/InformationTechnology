@@ -34,6 +34,24 @@ class CreateTabBarController: UITabBarController {
             ViewControllers.append(nav)
         }
         viewControllers = ViewControllers
+        
+        //自定制TabBar
+        //自定制
+        
+    }
+    
+    //显示tabbar
+    func showTabBar() {
+        UIView.animateWithDuration(0.25) {
+            self.bgView?.hidden = false
+        }
+    }
+    
+    //隐藏tabbar
+    func hideTabBar() {
+        UIView.animateWithDuration(0.25) {
+            self.bgView?.hidden = true
+        }
     }
     
     override func didReceiveMemoryWarning() {

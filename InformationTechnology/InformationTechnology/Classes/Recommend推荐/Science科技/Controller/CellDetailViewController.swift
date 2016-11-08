@@ -9,37 +9,47 @@
 import UIKit
 import Alamofire
 
-class CellDetailViewController: UIViewController {
+class CellDetailViewController: KTCTabViewController {
+    
+    //定义webView
+    var webView:UIWebView?
+    
+    //网络上html数据
+    var html:String?
+    
+    //数据
+    var webModel:CellDetailModel?
     
     //定义数据刷新页码
-    var currentPage = 1
+    private var currentPage = 1
     
     //cell数据接口
     var urlString:String?
     
-    //cell详情视图
-    var cellDetailView:CellDetailView?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blueColor()
-        
-        //创建视图
-        createView()
         
         //下载视图的数据
         downloadCellData()
+        
+        //创建视图
+        configUI()
     }
     
-    //创建视图
-    func createView() {
+    func configUI() {
         
-        //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距,我们要取消这个间距
+        //webView
+        webView = UIWebView(frame: view.bounds)
         automaticallyAdjustsScrollViewInsets = false
+        webView?.userInteractionEnabled = true
+        webView?.tintColor = UIColor.redColor()
+        webView?.scalesPageToFit = true
+        webView?.delegate = self
+        self.view.addSubview(webView!)
+        webView!.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'")
         
-        cellDetailView = CellDetailView(frame: CGRectZero)
-        view.addSubview(cellDetailView!)
-        cellDetailView?.snp_makeConstraints(closure: { (make) in
+        //约束
+        webView?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
         })
     }
@@ -53,11 +63,12 @@ class CellDetailViewController: UIViewController {
             if let tmpData = response.data {
                 let model = CellDetailModel.parseData(tmpData)
                 
-//                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
-//                print(str!)
-                
                 //json解析
-                self.cellDetailView?.model = model
+                self.webModel = model
+                print(self.webModel?.body?.text)
+                if self.webModel?.body?.text != nil {
+                    self.webView?.loadHTMLString((self.webModel?.body?.text)!, baseURL: nil)
+                }
             }
         }
     }
@@ -66,16 +77,27 @@ class CellDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
+
+extension CellDetailViewController:UIWebViewDelegate {
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+        //字体大小
+        webView.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '250%'")
+        
+        //图片大小
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
