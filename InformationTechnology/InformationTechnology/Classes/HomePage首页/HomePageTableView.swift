@@ -32,8 +32,12 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.whiteColor()
+        
         configUI()//搭建界面
+        
         DownloadData()//下载界面数据
+        
         HeaderDownloadData()//下载头部轮播页数据
     }
     

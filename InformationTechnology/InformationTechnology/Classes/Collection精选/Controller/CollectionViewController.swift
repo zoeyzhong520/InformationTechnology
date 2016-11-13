@@ -22,7 +22,7 @@ class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.whiteColor()
         automaticallyAdjustsScrollViewInsets = false
         
         //下载界面的数据

@@ -22,7 +22,8 @@ class CreateTabBarController: UITabBarController {
 
         var ViewControllers:[UIViewController] = []
         let vcNames = ["InformationTechnology.HomepageViewController","InformationTechnology.RecommendViewController","InformationTechnology.CollectionViewController","InformationTechnology.MineViewController"]
-        let imageNames = ["dog house@2x","list 2@2x","Neutron@2x","user 2@2x"]
+        let imageNames = ["tabbar_news","tabbar_discover","tabbar_vision","tabbar_my"]
+        let selectImages = ["tabbar_news_selected","tabbar_discover_selected","tabbar_vision_selected","tabbar_my_selected"]
         let titles = ["首页","推荐","精选","我的"]
         for i in 0..<vcNames.count {
             let vcClasss = NSClassFromString(vcNames[i]) as! UIViewController.Type
@@ -30,11 +31,12 @@ class CreateTabBarController: UITabBarController {
             vc.title = titles[i]
             let nav = UINavigationController(rootViewController: vc)
             nav.tabBarItem.image = UIImage(named: imageNames[i])
+            nav.tabBarItem.selectedImage = UIImage(named: selectImages[i])
             nav.title = titles[i]
             ViewControllers.append(nav)
         }
         viewControllers = ViewControllers
-        
+        navigationController?.toolbar.tintColor = UIColor.greenColor()
         //自定制TabBar
         //自定制
         
