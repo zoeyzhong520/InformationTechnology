@@ -49,7 +49,12 @@ class CollectCoolPlayView: UIView {
         })
         
         //注册nib
-        //collecView?.registerNib(UINib(nibName: "CoolPlaySlideCell",bundle: nil), forCellWithReuseIdentifier: "coolPlaySlideCellId")
+        collecView?.registerNib(UINib(nibName: "CoolPlaySlideCell",bundle: nil), forCellWithReuseIdentifier: "coolPlaySlideCellId")
+        
+        collecView?.registerNib(UINib(nibName: "CoolPlayCell",bundle: nil), forCellWithReuseIdentifier: "coolPlayCellId")
+        
+        //注册header
+        collecView?.registerClass(HeaderReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         
     }
     
@@ -63,23 +68,80 @@ class CollectCoolPlayView: UIView {
 extension CollectCoolPlayView:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        
+        if model?.channel_page_modules?.count != nil {
+            return (model?.channel_page_modules?.count)!+1
+        }
+        return 0
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 1
+        var num = 0
+        if section == 0 {
+            num = 1
+        }else if section > 0 {
+            num = (model?.channel_page_modules![section-1].cards_inf?.count)!
+        }
+        return num
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSize(width: kScreenWidth, height: 180)
+        if indexPath.section == 0 {
+            return CGSize(width: kScreenWidth, height: 180)
+        }else{
+            return CGSize(width: (kScreenWidth-2*5-10)/2, height: 180)
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        if section == 0 {
+            return CGSizeMake(0, 0)
+        }else{
+            return CGSizeMake(kScreenWidth, 40)
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        if section == 0 {
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        }else{
+            return UIEdgeInsetsMake(5, 5, 5, 5)
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        //创建组的头部视图
+        if kind == UICollectionElementKindSectionHeader {
+            
+            let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as? HeaderReusableView
+            if model?.channel_page_modules![indexPath.section-1].title != nil {
+                
+                header?.headerLabel?.text = model?.channel_page_modules![indexPath.section-1].title
+            }
+            return header!
+        }
+        return HeaderReusableView()
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        if indexPath.section == 1 {
-            let cell = CoolPlaySlideCell.createHeaderCellFor(collectionView, atIndexPath: indexPath, slideArray: model?.top_slide_aera?.cards_inf)
+        if indexPath.section == 0 {
+            
+            if indexPath.row == 0 {
+                let cell = CoolPlaySlideCell.createHeaderCellFor(collectionView, atIndexPath: indexPath, slideArray: model?.top_slide_area?.cards_inf)
+                return cell
+            }
+            
+        }else if indexPath.section > 0 {
+            let cfmodel = model?.channel_page_modules?[indexPath.section-1].cards_inf![indexPath.row]
+            let cell = CoolPlayCell.createCellFor(collectionView, atIndexPath: indexPath, carsInfArray: [cfmodel!])
             return cell
         }
         

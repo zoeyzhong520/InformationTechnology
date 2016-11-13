@@ -36,7 +36,7 @@ class KTCDownloader: NSObject {
     //.GET请求数据
     func postWithUrl(urlString:String) {
         
-        Alamofire.request(.POST, urlString, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData { (response) in
+        Alamofire.request(.GET, urlString, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData { (response) in
             switch response.result {
             case .Failure(let error):
                 //出错了

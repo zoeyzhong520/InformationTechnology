@@ -46,11 +46,13 @@ class CollectionViewController: UIViewController {
     //下载CoolPlay页面的数据
     func downloadCoolPlayData(urlString:String?) {
         
-        let aurlLimitList = String(format: urlString!, currentPage)
+        createCoolPlayView()
+        
+        //let aurlLimitList = String(format: urlString!, currentPage)
         let downloader = KTCDownloader()
         downloader.delegate = self
         downloader.downloadType = .CollectionCoolPlay
-        downloader.postWithUrl(aurlLimitList)
+        downloader.postWithUrl(urlString!)
     }
     
     //下载Discover页面的数据
@@ -79,26 +81,24 @@ class CollectionViewController: UIViewController {
         segment.tintColor = UIColor.orangeColor()
         segment.layer.masksToBounds = true
         segment.layer.cornerRadius = 5
-
+        
         //默认选中下标为1的
-        segment.selectedSegmentIndex = 1
+        segment.selectedSegmentIndex = 0
         segment.addTarget(self, action: #selector(segmentChange(_:)), forControlEvents: .ValueChanged)
         navigationItem.titleView = segment
-
+        
     }
     
     //segment点击事件
     func segmentChange(segment:UISegmentedControl) {
         
-         //segemnet选择改变事件
+        //segemnet选择改变事件
         switch segment.selectedSegmentIndex {
         case 0:
-            //创建CoolPlay视图
-            createCoolPlayView()
+            downloadCoolPlayData(collectPlayUrl)
             break
         case 1:
-            //创建Discover视图
-            createDiscoverView()
+            downloadDiscoverData(collectDiscoverUrl)
             break
         default:
             return
@@ -144,7 +144,17 @@ extension CollectionViewController:KTCDownloaderProtocol {
     //下载成功
     func downloader(downloader: KTCDownloader, didFinishWithData data: NSData?) {
         
-        if downloader.downloadType == .CollectionDiscover {
+        if downloader.downloadType == .CollectionCoolPlay {
+            
+            if let tmpData = data {
+                let model = CoolPlayModel.parseData(tmpData)
+                
+                //json解析
+                self.coolPlayView?.model = model
+                
+            }
+            
+        }else if downloader.downloadType == .CollectionDiscover {
             
             if let tmpData = data {
                 let model = CollectionModel.parseData(tmpData)
@@ -160,22 +170,9 @@ extension CollectionViewController:KTCDownloaderProtocol {
                     playVideoService.playVideo(mediaUrl, onViewController: self)
                 }
             }
-        }else if downloader.downloadType == .CollectionCoolPlay {
-            if let tmpData = data {
-                let model = CoolPlayModel.parseData(tmpData)
-                
-                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
-                print(str)
-                
-                //json解析
-                self.coolPlayView?.model = model
-                
-            }
-          
         }
         
     }
-    
 }
 
 

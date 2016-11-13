@@ -125,7 +125,23 @@ class CoolPlaySlideCell: UICollectionViewCell {
 
 }
 
-
+//MARK: UIScrollView代理方法
+extension CoolPlaySlideCell:UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        let index = scrollView.contentOffset.x/scrollView.bounds.size.width
+        pageCtrl.currentPage = Int(index)
+        
+        //显示title文字
+        titleLabel.text = slideArray![pageCtrl.currentPage].title
+    }
+    
+    //点击状态栏返回顶部
+    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+        return false
+    }
+}
 
 
 

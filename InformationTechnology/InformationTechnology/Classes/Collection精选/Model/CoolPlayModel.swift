@@ -18,11 +18,12 @@ class CoolPlayModel: NSObject {
     var comment:String?
     var error:NSNumber?
     var msg:String?
-    var top_slide_aera:CoolPlayTopSlide?
+    var top_slide_area:CoolPlayTopSlide?
     
     class func parseData(data:NSData) -> CoolPlayModel {
         
         let json = JSON(data: data)
+        
         let model = CoolPlayModel()
         
         model.channel_base_inf = json["channel_base_inf"].object as? NSObject
@@ -39,7 +40,7 @@ class CoolPlayModel: NSObject {
         model.error = json["error"].number
         model.msg = json["msg"].string
         
-        model.top_slide_aera = CoolPlayTopSlide.parse(json["top_slide_aera"])
+        model.top_slide_area = CoolPlayTopSlide.parse(json["top_slide_area"])
         
         return model
     }
@@ -91,6 +92,7 @@ class CoolPlayPageModules:NSObject {
         model.skip_inf = CoolPlaySkipInf.parse(json["skip_inf"])
         
         model.sub_title = json["sub_title"].string
+        model.title = json["title"].string
         
         model.title_corner_image = json["title_corner_image"].string
         model.title_display_style = json["title_display_style"].string
