@@ -66,10 +66,11 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         }
     }
     
-    //点击事件
+    //添加手势
     func tapAction(g:UIGestureRecognizer) {
         
-        
+        let index = (g.view?.tag)!-100
+        print(index)
     }
     
     //搭建界面
@@ -79,7 +80,10 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         }
         //初始化scollView
         scrollView=UIScrollView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight))
-        scrollView.userInteractionEnabled = true
+        
+        //点击状态栏回到列表头部
+        //scrollView.scrollsToTop = false
+        
         scrollView.contentSize=CGSize(width: 3*viewWidth, height: viewHeight)
         scrollView.contentOffset=CGPoint(x: viewWidth, y: 0)
         scrollView.delegate=self
@@ -101,6 +105,17 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         nextImageView=UIImageView(frame: CGRect(x: 2*viewWidth, y: 0, width: viewWidth, height: viewHeight))
         scrollView.addSubview(nextImageView)
     
+        //MARK: 添加点击事件
+        for i in 0..<imageArray.count {
+            
+            scrollView.userInteractionEnabled = true
+            preImageView.tag = 100+i-1
+            currentImageView.tag = 100
+            nextImageView.tag = 100+i+1
+            let g = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+            scrollView.addGestureRecognizer(g)
+        }
+        
         //定时器
         timer=NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(timeRun), userInfo: nil, repeats: false)
         
@@ -127,14 +142,6 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
         pageControl=UIPageControl(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         pageControl.numberOfPages=imageArray.count
         bottomView.addSubview(pageControl)
-        
-        //设置tag
-        preImageView.tag = 100
-        currentImageView.tag = 101
-        nextImageView.tag = 102
-        //点击事件
-        let g = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
-        addGestureRecognizer(g)
     
     }
     

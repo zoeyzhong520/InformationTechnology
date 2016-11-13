@@ -15,7 +15,7 @@ class AdDetailViewController: KTCTabViewController {
     var currentPage = 1
     
     //广告数据接口
-    var urlString:String?
+    var adUrlString:String?
     
     //广告详情视图
     var adDetailView:AdDetailView?
@@ -24,8 +24,8 @@ class AdDetailViewController: KTCTabViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         
-        //下载广告视图的数据
-        downloadAdData()
+        //下载广告详情页面的数据
+        downloadData()
         
         //创建视图
         createAdView()
@@ -45,38 +45,47 @@ class AdDetailViewController: KTCTabViewController {
         })
     }
     
-    //下载广告视图的数据
-    func downloadAdData() {
+    //下载广告详情页面的数据
+    func downloadData() {
         
-        let aurlLimitList = String(format: urlString!, currentPage)
-        Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
-            
-            if let tmpData = response.data {
-                let model = AdDetailModel.parseData(tmpData)
-                
-                //                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
-                //                print(str!)
-                
-                //json解析
-                self.adDetailView?.model = model
-            }
-        }
+        let aurlLimitList = String(format: adUrlString!, currentPage)
+        
+        let downloader = KTCDownloader()
+        downloader.delegate = self
+        downloader.postWithUrl(aurlLimitList)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+//MARK:KTCDownloader的代理方法
+extension AdDetailViewController:KTCDownloaderProtocol {
     
+    //下载失败
+    func downloader(downloader: KTCDownloader, didFailWithError error: NSError) {
+        print(error)
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    //下载成功
+    func downloader(downloader: KTCDownloader, didFinishWithData data: NSData?) {
+        
+        if let tmpData = data {
+            let model = AdDetailModel.parseData(tmpData)
+            
+            //json解析
+            self.adDetailView?.model = model
+        }
+    }
     
 }
+
+
+
+
+
+
+
+

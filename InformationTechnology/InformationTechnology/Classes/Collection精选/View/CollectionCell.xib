@@ -33,7 +33,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vN-d8-wr1" userLabel="playtimeLabel">
-                        <rect key="frame" x="240" y="190" width="60" height="20"/>
+                        <rect key="frame" x="180" y="190" width="60" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="4bg-NM-ltG"/>
                             <constraint firstAttribute="width" constant="60" id="ChD-ZZ-4cV"/>
@@ -42,11 +42,11 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4f1-FP-TTH" userLabel="commentLabel">
-                        <rect key="frame" x="369" y="190" width="40" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4f1-FP-TTH" userLabel="createDateLabel">
+                        <rect key="frame" x="289" y="190" width="120" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="PY2-UY-gWU"/>
-                            <constraint firstAttribute="width" constant="40" id="icI-zo-31h"/>
+                            <constraint firstAttribute="width" constant="120" id="icI-zo-31h"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,8 +62,8 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-zS-9nk">
-                        <rect key="frame" x="350" y="193" width="15" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-zS-9nk">
+                        <rect key="frame" x="270" y="193" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="S4F-xy-KDf"/>
                             <constraint firstAttribute="height" constant="15" id="UVF-83-3Hs"/>
@@ -75,7 +75,7 @@
                             <constraint firstAttribute="height" constant="20" id="V9q-nf-B8P"/>
                             <constraint firstAttribute="width" constant="50" id="xUf-Oa-tEr"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -101,7 +101,7 @@
                 <constraint firstItem="YRC-5a-blh" firstAttribute="centerY" secondItem="wm8-Qn-BGV" secondAttribute="centerY" id="N1y-id-3Ka"/>
                 <constraint firstAttribute="trailing" secondItem="QbP-9a-AGR" secondAttribute="trailing" id="Qa8-xx-OiP"/>
                 <constraint firstItem="YRC-5a-blh" firstAttribute="leading" secondItem="wm8-Qn-BGV" secondAttribute="trailing" constant="5" id="Xam-fI-mzl"/>
-                <constraint firstItem="Gka-zS-9nk" firstAttribute="leading" secondItem="3vN-d8-wr1" secondAttribute="trailing" constant="50" id="Y5b-md-LNs"/>
+                <constraint firstItem="Gka-zS-9nk" firstAttribute="leading" secondItem="3vN-d8-wr1" secondAttribute="trailing" constant="30" id="Y5b-md-LNs"/>
                 <constraint firstAttribute="trailing" secondItem="YxH-op-9Y2" secondAttribute="trailing" id="ZEh-Of-gyv"/>
                 <constraint firstItem="4f1-FP-TTH" firstAttribute="centerY" secondItem="YRC-5a-blh" secondAttribute="centerY" id="aDw-FW-XM3"/>
                 <constraint firstItem="3vN-d8-wr1" firstAttribute="centerY" secondItem="4f1-FP-TTH" secondAttribute="centerY" id="ciS-od-KQM"/>
@@ -114,7 +114,7 @@
             </constraints>
             <connections>
                 <outlet property="bgImageView" destination="YxH-op-9Y2" id="sRv-zj-qEg"/>
-                <outlet property="commentLabel" destination="4f1-FP-TTH" id="gMi-Bu-TTv"/>
+                <outlet property="createDateLabel" destination="4f1-FP-TTH" id="Mu1-VL-hmh"/>
                 <outlet property="durationLabel" destination="39I-Re-6eo" id="nIB-Br-drw"/>
                 <outlet property="headImageView" destination="wm8-Qn-BGV" id="aN5-Mg-1sP"/>
                 <outlet property="playTimeLabel" destination="3vN-d8-wr1" id="sGY-os-m1T"/>
@@ -125,7 +125,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="like.png" width="25" height="25"/>
         <image name="play-A.png" width="50" height="50"/>
+        <image name="timer.png" width="25" height="25"/>
     </resources>
 </document>

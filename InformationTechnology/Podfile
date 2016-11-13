@@ -10,5 +10,5 @@ target 'InformationTechnology' do
     pod 'SwiftyXMLParser'
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'SwiftyJSON'
-    pod 'XWSwiftRefresh', '~> 0.1.9'
+    pod 'XWSwiftRefresh', '~> 0.1.9'   
 end

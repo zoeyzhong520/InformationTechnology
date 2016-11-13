@@ -18,8 +18,11 @@ class DetailView: UIViewController,navigationBarProtocol {
         super.viewDidLoad()
         configUI()
     }
-
+    
     func configUI() {
+        
+        //点击状态栏回到列表头部
+        
         
         //响应用户操作
         self.view.userInteractionEnabled = true

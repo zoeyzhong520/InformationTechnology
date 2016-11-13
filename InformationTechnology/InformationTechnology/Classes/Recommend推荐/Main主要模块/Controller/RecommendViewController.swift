@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MJRefresh
 
 class RecommendViewController: UIViewController {
     
@@ -33,11 +34,8 @@ class RecommendViewController: UIViewController {
         //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距,我们要取消这个间距
         automaticallyAdjustsScrollViewInsets = false
         
-        //下载科技界面的数据
-        downloadScienceData()
-        
-        //下载时尚界面的数据
-        downloadFashionData()
+        //下载推荐页的数据
+        downloadRecommendData()
         
         //导航
         createNav()
@@ -46,70 +44,36 @@ class RecommendViewController: UIViewController {
         createHomePage()
     }
     
-    //下载科技界面的数据
-    func downloadScienceData() {
+    //下载推荐页的数据
+    func downloadRecommendData() {
         
-        let aurlLimitList = String(format: scienceUrl, currentPage)
-        Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
-            
-            if let tmpData = response.data {
-                let model = RecommendModel.parseData(tmpData)
-                
-                //                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
-                //                print(str!)
-                
-                //json解析
-                self.scienceView?.model = model.RecommendValue0
-                self.scienceView?.adModel = model.RecommendValue1
-                
-                //点击事件
-                self.scienceView?.jumpClosure = {  jumpUrl in
-                    print(jumpUrl)
-                    
-                    //跳转到详情页
-                    if jumpUrl.characters.count == 65 {
-                        let vc = AdDetailViewController()
-                        vc.urlString = jumpUrl
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }else{
-                        let vc = CellDetailViewController()
-                        vc.urlString = jumpUrl
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-            }
-        }
+        //下载科技界面的数据
+        downloadRecommendScience()
+        
+        //下载Fun界面的数据
+        downloadRecommendFun()
     }
     
-    //下载时尚界面的数据
-    func downloadFashionData() {
+    //下载科技界面的数据
+    func downloadRecommendScience() {
+        
+        let aurlLimitList = String(format: scienceUrl, currentPage)
+        
+        let downloader = KTCDownloader()
+        downloader.delegate = self
+        downloader.downloadType = .RecommendScience
+        downloader.postWithUrl(aurlLimitList)
+    }
+    
+    //下载Fun界面的数据
+    func downloadRecommendFun() {
         
         let aurlLimitList = String(format: funUrl, currentPage)
-        Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
-            if let tmpData = response.data {
-                let model = RecommendModel.parseData(tmpData)
-                
-                //json解析
-                self.funView?.model = model.RecommendValue0
-                self.funView?.adModel = model.RecommendValue1
-                
-                //点击事件
-                self.funView?.jumpClosure = {  jumpUrl in
-                    print(jumpUrl)
-                    
-                    //跳转到详情页
-                    if jumpUrl.characters.count == 65 {
-                        let vc = AdDetailViewController()
-                        vc.urlString = jumpUrl
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }else{
-                        let vc = CellDetailViewController()
-                        vc.urlString = jumpUrl
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-            }
-        }
+        
+        let downloader = KTCDownloader()
+        downloader.delegate = self
+        downloader.downloadType = .RecommendFun
+        downloader.postWithUrl(aurlLimitList)
     }
     
     //创建首页视图
@@ -144,7 +108,7 @@ class RecommendViewController: UIViewController {
             make.width.equalTo(screenW)
         })
         
-        //2.时尚视图
+        //2.Fun视图
         funView = RecommendView()
         containerView.addSubview(funView!)
         funView?.snp_makeConstraints(closure: { (make) in
@@ -193,10 +157,66 @@ extension RecommendViewController:UIScrollViewDelegate {
         
         let index = scrollView.contentOffset.x/scrollView.bounds.width
         segCtrl?.selectIndex = Int(index)
+        
     }
+    
 }
 
-
+//MARK:KTCDownloader的代理方法
+extension RecommendViewController:KTCDownloaderProtocol {
+    
+    //下载失败
+    func downloader(downloader: KTCDownloader, didFailWithError error: NSError) {
+        print(error)
+    }
+    
+    //下载成功
+    func downloader(downloader: KTCDownloader, didFinishWithData data: NSData?) {
+        
+        if downloader.downloadType == .RecommendScience {
+            
+            if let tmpData = data {
+                //1.json解析
+                let scienceModel = RecommendModel.parseData(tmpData)
+                
+                //2.显示UI
+                //2.1 头部滚动视图
+                scienceView?.adModel = scienceModel.RecommendValue1
+                //2.2 Cell视图
+                scienceView?.model = scienceModel.RecommendValue0
+                
+                //3.点击科技页面的某一个部分，跳转到后面的界面
+                self.scienceView?.jumpClosure = {  jumpUrl in
+                    
+                    KTCService.handleEvent(jumpUrl, onViewController: self)
+                }
+                
+            }
+            
+        }else if downloader.downloadType == .RecommendFun {
+            
+            if let tmpData = data {
+                //1.json解析
+                let funModel = RecommendModel.parseData(tmpData)
+                
+                //2.显示UI
+                //2.1 头部滚动视图
+                funView?.adModel = funModel.RecommendValue1
+                //2.2 Cell视图
+                funView?.model = funModel.RecommendValue0
+                
+                //3.点击科技页面的某一个部分，跳转到后面的界面
+                self.funView?.jumpClosure = {  jumpUrl in
+                    
+                    KTCService.handleEvent(jumpUrl, onViewController: self)
+                }
+                
+            }
+            
+        }
+        
+    }
+}
 
 
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class RecommendView: UIView {
     
@@ -30,7 +31,7 @@ class RecommendView: UIView {
     }
     
     //表格
-    private var tableView:UITableView?
+    var tableView:UITableView?
 
     //重新实现初始化方法
     override init(frame: CGRect) {
@@ -41,11 +42,20 @@ class RecommendView: UIView {
         tableView?.delegate = self
         tableView?.dataSource = self
         addSubview(tableView!)
-        
+    
         //约束
         tableView?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self)
         })
+        
+    }
+ 
+    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+        if scrollView == self.tableView {
+            return true
+        }else{
+            return false
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -39,6 +39,9 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     
     func configUI() {
         
+        //点击状态栏回到列表头部
+        tableView.scrollsToTop = true
+        
         //注册头部轮播页
         tableView.registerClass(HeaderScrollViewCell.classForCoder(), forCellReuseIdentifier: "advertisementCellId")
         
@@ -202,6 +205,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
                 let url = NSURL(string: model.image!)
                 cell.DescImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
             }
+            
             return cell
         }
     }
@@ -211,29 +215,24 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
         //详情页面
         let vc = DetailView()
         
-        if indexPath.row == 0 && headerUrlString != nil {
-            //广告详情
-            let model = headerDataArray[0]
-            
-            print(model.link)
-            
-            if model.link != nil {
-                
-                vc.url = NSURL(string: headerDetailUrl+"\(model.link!)")
-                navigationController?.pushViewController(vc, animated: true)
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        }
-        
         if headerUrlString != nil {
-            //界面详情
-            let model = dataArray[indexPath.row-1]
             
-            if model.url != nil {
-                vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
-                navigationController?.pushViewController(vc, animated: true)
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            if indexPath.row == 0 {
+               //广告详情
+                let model = headerDataArray[indexPath.row]
+                print(model)
+                
+            }else{
+                //界面详情
+                let model = dataArray[indexPath.row-1]
+                
+                if model.url != nil {
+                    vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
+                    navigationController?.pushViewController(vc, animated: true)
+                    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                }
             }
+            
         }else{
             //界面详情
             let model = dataArray[indexPath.row]

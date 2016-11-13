@@ -72,10 +72,10 @@ let cellDetailUrl = "http:www.ithome.com"
  =============================推荐===============================*/
 
 //科技
-let scienceUrl = "http://api.iclient.ifeng.com/ClientNews?id=KJ123,FOCUSKJ123&gv=5.3.0&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
+let scienceUrl = "http://api.iclient.ifeng.com/ClientNews?id=KJ123,FOCUSKJ123&page=%ld&gv=5.3.1&av=0&proid=ifengnews&os=ios_10.1&vt=5&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
 //FUN
-let funUrl = "http://api.iclient.ifeng.com/ClientNews?id=DZPD,FOCUSDZPD&gv=5.3.1&av=0&proid=ifengnews&os=ios_10.1&vt=%ld&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
+let funUrl = "http://api.iclient.ifeng.com/ClientNews?id=DZPD,FOCUSDZPD&page=%ld&gv=5.3.1&av=0&proid=ifengnews&os=ios_10.1&vt=5&screen=1242x2208&publishid=4002&uid=ce69499a577243aeb94eebf8a115f84b&nw=wifi"
 
 //详情页面 "id"+"documentId"
 /*例如id ＝ http://api.iclient.ifeng.com/ipadtestdoc?aid=cmpp_040620044484900&channelKey=Y21wcF8xNzAwN183MTlfOSA=
@@ -86,4 +86,24 @@ let scienceDetailUrl = "http://api.iclient.ifeng.com/ipadtestdoc?aid=cmpp_040620
 
 /*
  =============================精选===============================*/
-let collectUrl = "http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=20&platformType=iPhone&protocol=1.0.0&requireTime="
+
+let collectPlayUrl = "http://api.3g.tudou.com/v5/channel/home?pid=35a871d7c541ba6b&network=WIFI&operator=CMCC_46002&cid=21"
+
+
+
+let collectDiscoverUrl = "http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=40&platformType=iPhone&protocol=1.0.0&requireTime="
+
+//http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=20&platformType=iPhone&positionId=40&protocol=1.0.0
+
+//http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=20&platformType=iPhone&positionId=60&protocol=1.0.0
+
+
+
+
+
+
+
+
+
+
+

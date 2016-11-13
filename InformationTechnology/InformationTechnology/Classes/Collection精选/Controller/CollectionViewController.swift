@@ -14,58 +14,117 @@ class CollectionViewController: UIViewController {
     //定义数据刷新页码
     var currentPage = 1
     
-    //精选视图
-    private var colView:CollectionView?
+    //精选的Discover视图
+    private var discoverView:CollectionDiscoverView?
+    
+    //精选的CoolPlay视图
+    private var coolPlayView:CollectCoolPlayView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //下载数据
-        downloadData()
+        automaticallyAdjustsScrollViewInsets = false
         
-        //创建视图
-        createView()
+        //下载界面的数据
+        downloadCollectionData()
+        
+        //构造segment视图控制器
+        configUI()
+        
     }
     
-    //创建视图
-    func createView() {
+    //下载精选界面的数据
+    func downloadCollectionData() {
         
-        automaticallyAdjustsScrollViewInsets = false
-        colView = CollectionView(frame: CGRectZero)
-        view.addSubview(colView!)
+        //下载discover页面数据
+        downloadDiscoverData(collectDiscoverUrl)
         
-        colView?.snp_makeConstraints(closure: { (make) in
+        //下载CoolPlay页面的数据
+        downloadCoolPlayData(collectPlayUrl)
+    }
+    
+    //下载CoolPlay页面的数据
+    func downloadCoolPlayData(urlString:String?) {
+        
+        let aurlLimitList = String(format: urlString!, currentPage)
+        let downloader = KTCDownloader()
+        downloader.delegate = self
+        downloader.downloadType = .CollectionCoolPlay
+        downloader.postWithUrl(aurlLimitList)
+    }
+    
+    //下载Discover页面的数据
+    func downloadDiscoverData(urlString:String?) {
+        
+        createDiscoverView()
+        
+        let aurlLimitList = String(format: urlString!, currentPage)
+        let downloader = KTCDownloader()
+        downloader.delegate = self
+        downloader.downloadType = .CollectionDiscover
+        downloader.postWithUrl(aurlLimitList)
+    }
+    
+    //构造segment视图控制器
+    func configUI() {
+        
+        //先创建数组用于设置分段控件标题
+        let viewArray = ["酷玩","发现"]
+        
+        //创建分段控件
+        let segment = UISegmentedControl(items: viewArray)
+        segment.frame = CGRectMake(0, 0, 100, 40)
+        segment.setWidth(100, forSegmentAtIndex: 0)
+        segment.setWidth(100, forSegmentAtIndex: 1)
+        segment.tintColor = UIColor.orangeColor()
+        segment.layer.masksToBounds = true
+        segment.layer.cornerRadius = 5
+
+        //默认选中下标为1的
+        segment.selectedSegmentIndex = 1
+        segment.addTarget(self, action: #selector(segmentChange(_:)), forControlEvents: .ValueChanged)
+        navigationItem.titleView = segment
+
+    }
+    
+    //segment点击事件
+    func segmentChange(segment:UISegmentedControl) {
+        
+         //segemnet选择改变事件
+        switch segment.selectedSegmentIndex {
+        case 0:
+            //创建CoolPlay视图
+            createCoolPlayView()
+            break
+        case 1:
+            //创建Discover视图
+            createDiscoverView()
+            break
+        default:
+            return
+        }
+    }
+    
+    //创建CoolPlay视图
+    func createCoolPlayView() {
+        
+        coolPlayView = CollectCoolPlayView(frame: CGRectZero)
+        view.addSubview(coolPlayView!)
+        
+        coolPlayView?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
         })
     }
     
-    //下载数据
-    func downloadData() {
+    //创建Discover视图
+    func createDiscoverView() {
         
-        let aurlLimitList = String(format: collectUrl, currentPage)
+        discoverView = CollectionDiscoverView(frame: CGRectZero)
+        view.addSubview(discoverView!)
         
-        Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
-            
-            if let tmpData = response.data {
-                let model = CollectionModel.parseData(tmpData)
-                
-//                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
-//                print(str!)
-                
-                //json解析
-                self.colView?.model = model
-                
-                //点击事件
-                self.colView?.jumpClosure = {
-                    mediaUrl in
-                    print(mediaUrl)
-                    let vc = DetailViewController()
-                    vc.urlString = mediaUrl
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            }
-        }
-        
+        discoverView?.snp_makeConstraints(closure: { (make) in
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,7 +133,50 @@ class CollectionViewController: UIViewController {
     }
 }
 
-
+//MARK:KTCDownloader的代理方法
+extension CollectionViewController:KTCDownloaderProtocol {
+    
+    //下载失败
+    func downloader(downloader: KTCDownloader, didFailWithError error: NSError) {
+        print(error)
+    }
+    
+    //下载成功
+    func downloader(downloader: KTCDownloader, didFinishWithData data: NSData?) {
+        
+        if downloader.downloadType == .CollectionDiscover {
+            
+            if let tmpData = data {
+                let model = CollectionModel.parseData(tmpData)
+                
+                //json解析
+                self.discoverView?.model = model
+                
+                //点击事件
+                self.discoverView?.jumpClosure = {
+                    mediaUrl in
+                    
+                    //播放video
+                    playVideoService.playVideo(mediaUrl, onViewController: self)
+                }
+            }
+        }else if downloader.downloadType == .CollectionCoolPlay {
+            if let tmpData = data {
+                let model = CoolPlayModel.parseData(tmpData)
+                
+                let str = NSString(data: tmpData, encoding: NSUTF8StringEncoding)
+                print(str)
+                
+                //json解析
+                self.coolPlayView?.model = model
+                
+            }
+          
+        }
+        
+    }
+    
+}
 
 
 

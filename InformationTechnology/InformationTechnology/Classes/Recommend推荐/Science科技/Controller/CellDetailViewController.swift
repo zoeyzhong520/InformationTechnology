@@ -24,13 +24,13 @@ class CellDetailViewController: KTCTabViewController {
     private var currentPage = 1
     
     //cell数据接口
-    var urlString:String?
+    var cellUrlString:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //下载视图的数据
-        downloadCellData()
+        //下载cell详情页面的数据
+        downloadData()
         
         //创建视图
         configUI()
@@ -46,7 +46,6 @@ class CellDetailViewController: KTCTabViewController {
         webView?.scalesPageToFit = true
         webView?.delegate = self
         self.view.addSubview(webView!)
-        webView!.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '100%'")
         
         //约束
         webView?.snp_makeConstraints(closure: { (make) in
@@ -54,23 +53,14 @@ class CellDetailViewController: KTCTabViewController {
         })
     }
     
-    //下载cell视图的数据
-    func downloadCellData() {
+    //下载cell详情页面的数据
+    func downloadData() {
         
-        let aurlLimitList = String(format: urlString!, currentPage)
-        Alamofire.request(.GET, aurlLimitList, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseData {(response) in
-            
-            if let tmpData = response.data {
-                let model = CellDetailModel.parseData(tmpData)
-                
-                //json解析
-                self.webModel = model
-                print(self.webModel?.body?.text)
-                if self.webModel?.body?.text != nil {
-                    self.webView?.loadHTMLString((self.webModel?.body?.text)!, baseURL: nil)
-                }
-            }
-        }
+        let aurlLimitList = String(format: cellUrlString!, currentPage)
+        
+        let downloader = KTCDownloader()
+        downloader.delegate = self
+        downloader.postWithUrl(aurlLimitList)
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,14 +74,34 @@ extension CellDetailViewController:UIWebViewDelegate {
     func webViewDidFinishLoad(webView: UIWebView) {
         
         //字体大小
-        webView.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '250%'")
-        
-        //图片大小
+        webView.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'")
         
     }
 }
 
-
+//MARK:KTCDownloader的代理方法
+extension CellDetailViewController:KTCDownloaderProtocol {
+    
+    //下载失败
+    func downloader(downloader: KTCDownloader, didFailWithError error: NSError) {
+        print(error)
+    }
+    
+    //下载成功
+    func downloader(downloader: KTCDownloader, didFinishWithData data: NSData?) {
+        
+        if let tmpData = data {
+            let model = CellDetailModel.parseData(tmpData)
+            
+            //json解析
+            self.webModel = model
+            if self.webModel?.body?.text != nil {
+                self.webView?.loadHTMLString((self.webModel?.body?.text)!, baseURL: nil)
+            }
+        }
+    }
+    
+}
 
 
 

@@ -39,6 +39,7 @@ class RecommendHeaderCell: UITableViewCell {
             //1.创建一个容器视图，作为滚动视图的子视图
             let containerView = UIView.createView()
             scrollView.delegate = self
+            
             scrollView.addSubview(containerView)
             containerView.snp_makeConstraints(closure: {
                 (make) in
@@ -144,6 +145,11 @@ extension RecommendHeaderCell:UIScrollViewDelegate {
         
         //显示title文字
         titleLabel.text = itemArray![pageControl.currentPage].title
+    }
+    
+    //点击状态栏返回顶部
+    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+        return false
     }
 }
 
