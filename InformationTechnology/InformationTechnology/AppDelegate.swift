@@ -17,7 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window?.rootViewController = CreateTabBarController()
+        
+        let ud = NSUserDefaults.standardUserDefaults()
+        let flag = ud.boolForKey("HasLaunched")
+        if flag == true {
+            
+            //不是第一次启动
+            self.window?.rootViewController = CreateTabBarController()
+        }else{
+            
+            //第一次启动
+            self.window?.rootViewController = GuideViewController()
+            ud.setBool(true, forKey: "HasLaunched")
+        }
+        
         return true
     }
 

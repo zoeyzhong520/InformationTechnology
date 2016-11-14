@@ -223,9 +223,9 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             
             if indexPath.row == 0 {
                //广告详情
-                let model = headerDataArray[indexPath.row]
-                print(model)
-                
+                //let model = headerDataArray[indexPath.row]
+                //print(model)
+                return
             }else{
                 //界面详情
                 let model = dataArray[indexPath.row-1]
