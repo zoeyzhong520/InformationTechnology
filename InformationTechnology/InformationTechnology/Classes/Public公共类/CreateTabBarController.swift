@@ -31,8 +31,9 @@ class CreateTabBarController: UITabBarController {
             vc.title = titles[i]
             let nav = UINavigationController(rootViewController: vc)
             nav.tabBarItem.image = UIImage(named: imageNames[i])
-            nav.tabBarItem.selectedImage = UIImage(named: selectImages[i])
+            nav.tabBarItem.selectedImage = UIImage(named: selectImages[i])?.imageWithRenderingMode(.AlwaysOriginal)
             nav.title = titles[i]
+            tabBar.tintColor = UIColor.redColor()
             ViewControllers.append(nav)
         }
         viewControllers = ViewControllers
