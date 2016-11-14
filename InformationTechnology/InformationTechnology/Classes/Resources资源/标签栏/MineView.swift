@@ -10,6 +10,9 @@ import UIKit
 
 class MineView: UIView {
 
+    //点击事件
+    var jumpClosure:(()->(Void))?
+    
     //表格
     private var tableView:UITableView?
     
@@ -22,10 +25,6 @@ class MineView: UIView {
         tableView?.delegate = self
         tableView?.dataSource = self
         addSubview(tableView!)
-        
-        //注册nib
-        let nib = UINib(nibName: "downCell", bundle: nil)
-        tableView?.registerNib(nib, forCellReuseIdentifier: "downCellId")
         
         //约束
         tableView?.snp_makeConstraints(closure: { (make) in
@@ -73,6 +72,18 @@ extension MineView:UITableViewDelegate,UITableViewDataSource {
             let cell = hasSwitchCell.createSwitchCellFor(tableView, atIndexPath: indexPath)
             
             //图片
+            cell.leftImg.image = UIImage(named: "userCenter_NightMode")
+            
+            //文字
+            cell.nameLabel.text = "夜间"
+            
+            return cell
+            
+        }else{
+            
+            let cell = downCell.createSwitchCellFor(tableView, atIndexPath: indexPath)
+            
+            //图片
             let picArray = ["userCenter_mall","userCenter_financial","userCenter_activity","userCeneter_subscribe","userCenter_NightMode","userCenter_setting","userCenter_OffLine","userCenter_FeedBack"]
             cell.leftImg.image = UIImage(named: picArray[indexPath.row-1])
             
@@ -81,25 +92,16 @@ extension MineView:UITableViewDelegate,UITableViewDataSource {
             cell.nameLabel.text = titleArray[indexPath.row-1]
             
             return cell
-            
-        }else{
-            
-            var cell = tableView.dequeueReusableCellWithIdentifier("downCellId") as? downCell
-            if cell == nil {
-                cell = tableView.dequeueReusableCellWithIdentifier("downCellId", forIndexPath: indexPath) as? downCell
-            }
-            
-            //图片
-            let picArray = ["userCenter_mall","userCenter_financial","userCenter_activity","userCeneter_subscribe","userCenter_NightMode","userCenter_setting","userCenter_OffLine","userCenter_FeedBack"]
-            cell?.leftImg.image = UIImage(named: picArray[indexPath.row-1])
-            
-            //文字
-            let titleArray = ["商城","理财","活动","订阅","夜间","设置","离线","反馈"]
-            cell?.nameLabel.text = titleArray[indexPath.row-1]
-            
-            return cell!
         }
         
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == 0 {
+            //点击事件
+            jumpClosure!()
+        }
     }
 }
 

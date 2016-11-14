@@ -29,7 +29,7 @@ extension navigationBarProtocol where Self:UIViewController {
     }
     
     func addButton(title: String?=nil,imageName:String?=nil,position:BarButtonPosition?=nil,selector:Selector) {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         if title != nil {
             button.setTitle(title, forState: .Normal)
         }

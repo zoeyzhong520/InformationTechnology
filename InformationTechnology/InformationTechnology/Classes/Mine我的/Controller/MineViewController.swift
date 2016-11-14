@@ -32,6 +32,13 @@ class MineViewController: UIViewController {
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
         })
         
+        //点击事件
+        mineView?.jumpClosure = {
+            
+            let vc = LoginViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

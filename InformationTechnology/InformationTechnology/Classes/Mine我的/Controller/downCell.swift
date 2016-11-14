@@ -22,6 +22,17 @@ class downCell: UITableViewCell {
         
     }
 
+    //创建cell的方法
+    class func createSwitchCellFor(tableView:UITableView, atIndexPath indexPath:NSIndexPath) -> downCell {
+        
+        let cellId = "downCellId"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? downCell
+        if cell == nil {
+            cell = NSBundle.mainBundle().loadNibNamed("downCell", owner: nil, options: nil).last as? downCell
+        }
+        return cell!
+    }
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -12,10 +12,7 @@ class topCell: UITableViewCell {
 
     @IBOutlet weak var avatarImgView: UIImageView!
     
-    @IBAction func loginBtn() {
-        
-        
-    }
+    @IBOutlet weak var loginLabel: UILabel!
     
     //点击事件
     @IBAction func clickBtn(sender: UIButton) {
@@ -42,6 +39,7 @@ class topCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     //创建cell的方法

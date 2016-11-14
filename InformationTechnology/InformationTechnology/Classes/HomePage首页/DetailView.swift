@@ -21,9 +21,6 @@ class DetailView: UIViewController,navigationBarProtocol {
     
     func configUI() {
         
-        //点击状态栏回到列表头部
-        
-        
         //响应用户操作
         self.view.userInteractionEnabled = true
         
@@ -35,7 +32,7 @@ class DetailView: UIViewController,navigationBarProtocol {
         view.addSubview(webView!)
         
         //添加button
-        addButton(nil, imageName: "back@2x", position: .left, selector: #selector(leftBtnClick))
+        addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
     }
     
     func leftBtnClick() {

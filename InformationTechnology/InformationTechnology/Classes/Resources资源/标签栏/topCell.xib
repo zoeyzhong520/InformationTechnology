@@ -99,32 +99,31 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvD-aI-RI8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lr_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="hOq-vS-Tbe">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lr_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="hOq-vS-Tbe">
                                 <rect key="frame" x="160" y="50" width="94" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="CAE-6x-XR4"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5AT-xV-TXJ" userLabel="loginBtn">
-                                <rect key="frame" x="150" y="160" width="114" height="40"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVc-XV-74M">
+                                <rect key="frame" x="150" y="170" width="114" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="kBr-n0-VAV"/>
+                                    <constraint firstAttribute="height" constant="20" id="T7M-qn-wdc"/>
                                 </constraints>
-                                <state key="normal" title="点击登陆"/>
-                                <connections>
-                                    <action selector="loginBtn" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a08-ZW-c7r"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hOq-vS-Tbe" firstAttribute="leading" secondItem="XvD-aI-RI8" secondAttribute="leading" constant="160" id="FfG-n1-7R5"/>
+                            <constraint firstItem="yVc-XV-74M" firstAttribute="top" secondItem="hOq-vS-Tbe" secondAttribute="bottom" constant="30" id="GfV-hc-8i7"/>
+                            <constraint firstItem="yVc-XV-74M" firstAttribute="leading" secondItem="XvD-aI-RI8" secondAttribute="leading" constant="150" id="IaA-Jv-rfo"/>
+                            <constraint firstAttribute="trailing" secondItem="yVc-XV-74M" secondAttribute="trailing" constant="150" id="JC4-Vj-k9a"/>
                             <constraint firstItem="hOq-vS-Tbe" firstAttribute="top" secondItem="XvD-aI-RI8" secondAttribute="top" constant="50" id="KNh-X9-Z5R"/>
                             <constraint firstAttribute="trailing" secondItem="hOq-vS-Tbe" secondAttribute="trailing" constant="160" id="Lyo-9b-wcZ"/>
-                            <constraint firstAttribute="trailing" secondItem="5AT-xV-TXJ" secondAttribute="trailing" constant="150" id="Tna-vN-Ltr"/>
                             <constraint firstAttribute="height" constant="230" id="Ueb-jK-2h8"/>
-                            <constraint firstItem="5AT-xV-TXJ" firstAttribute="leading" secondItem="XvD-aI-RI8" secondAttribute="leading" constant="150" id="fqu-mo-0d7"/>
-                            <constraint firstItem="5AT-xV-TXJ" firstAttribute="top" secondItem="hOq-vS-Tbe" secondAttribute="bottom" constant="20" id="uCB-I5-Njc"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -180,6 +179,7 @@
                 <outlet property="commentLabel" destination="9oz-al-4X2" id="J9n-dY-chU"/>
                 <outlet property="historyImg" destination="dZs-hT-6A6" id="h0R-Ig-GSA"/>
                 <outlet property="historyLabel" destination="hvs-N7-frB" id="KlV-J5-FIQ"/>
+                <outlet property="loginLabel" destination="yVc-XV-74M" id="47o-ml-cPu"/>
                 <outlet property="messageImg" destination="6wZ-9d-fDh" id="4JT-qV-1ru"/>
                 <outlet property="messageLabel" destination="QQu-w9-1ha" id="NhT-P8-tpG"/>
             </connections>
