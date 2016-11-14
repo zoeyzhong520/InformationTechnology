@@ -128,6 +128,12 @@
 		BCD94D311DCB50D1002CDF5A /* clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD94D2D1DCB50D1002CDF5A /* clock@3x.png */; };
 		BCD94D321DCB50D1002CDF5A /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD94D2E1DCB50D1002CDF5A /* like@2x.png */; };
 		BCD94D331DCB50D1002CDF5A /* like@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD94D2F1DCB50D1002CDF5A /* like@3x.png */; };
+		BCE43A6D1DD94C5400AA0355 /* downCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE43A6B1DD94C5400AA0355 /* downCell.swift */; };
+		BCE43A6E1DD94C5400AA0355 /* downCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE43A6C1DD94C5400AA0355 /* downCell.xib */; };
+		BCE43A711DD94FD600AA0355 /* userCenter_cell_rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE43A6F1DD94FD600AA0355 /* userCenter_cell_rightArrow.png */; };
+		BCE43A721DD94FD600AA0355 /* userCenter_cell_rightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE43A701DD94FD600AA0355 /* userCenter_cell_rightArrow@3x.png */; };
+		BCE43A751DD9557C00AA0355 /* hasSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE43A731DD9557C00AA0355 /* hasSwitchCell.swift */; };
+		BCE43A761DD9557C00AA0355 /* hasSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE43A741DD9557C00AA0355 /* hasSwitchCell.xib */; };
 		BCF2547E1DBE31F200ABD6A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2547D1DBE31F200ABD6A7 /* AppDelegate.swift */; };
 		BCF254801DBE31F200ABD6A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF2547F1DBE31F200ABD6A7 /* ViewController.swift */; };
 		BCF254831DBE31F200ABD6A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCF254811DBE31F200ABD6A7 /* Main.storyboard */; };
@@ -285,6 +291,12 @@
 		BCD94D2D1DCB50D1002CDF5A /* clock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@3x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/clock@3x.png"; sourceTree = SOURCE_ROOT; };
 		BCD94D2E1DCB50D1002CDF5A /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "like@2x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/like@2x.png"; sourceTree = SOURCE_ROOT; };
 		BCD94D2F1DCB50D1002CDF5A /* like@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "like@3x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/like@3x.png"; sourceTree = SOURCE_ROOT; };
+		BCE43A6B1DD94C5400AA0355 /* downCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = downCell.swift; path = "InformationTechnology/Classes/Mine我的/Controller/downCell.swift"; sourceTree = SOURCE_ROOT; };
+		BCE43A6C1DD94C5400AA0355 /* downCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = downCell.xib; path = "InformationTechnology/Classes/Mine我的/Controller/downCell.xib"; sourceTree = SOURCE_ROOT; };
+		BCE43A6F1DD94FD600AA0355 /* userCenter_cell_rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userCenter_cell_rightArrow.png; sourceTree = "<group>"; };
+		BCE43A701DD94FD600AA0355 /* userCenter_cell_rightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userCenter_cell_rightArrow@3x.png"; sourceTree = "<group>"; };
+		BCE43A731DD9557C00AA0355 /* hasSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hasSwitchCell.swift; path = "InformationTechnology/Classes/Resources资源/hasSwitchCell.swift"; sourceTree = SOURCE_ROOT; };
+		BCE43A741DD9557C00AA0355 /* hasSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = hasSwitchCell.xib; path = "InformationTechnology/Classes/Resources资源/hasSwitchCell.xib"; sourceTree = SOURCE_ROOT; };
 		BCF2547A1DBE31F200ABD6A7 /* InformationTechnology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InformationTechnology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF2547D1DBE31F200ABD6A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF2547F1DBE31F200ABD6A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +350,8 @@
 		1EEDFD7F1DD8AB7500987EE7 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				BCE43A6F1DD94FD600AA0355 /* userCenter_cell_rightArrow.png */,
+				BCE43A701DD94FD600AA0355 /* userCenter_cell_rightArrow@3x.png */,
 				1EEDFD801DD8AB9100987EE7 /* lr_avatar.png */,
 				1EEDFD811DD8AB9100987EE7 /* lr_avatar@3x.png */,
 				1EEDFD821DD8AB9100987EE7 /* us_loginBg.png */,
@@ -710,6 +724,10 @@
 				1EEDFD771DD8962A00987EE7 /* MineView.swift */,
 				1EEDFD791DD8985900987EE7 /* topCell.swift */,
 				1EEDFD7A1DD8985900987EE7 /* topCell.xib */,
+				BCE43A6B1DD94C5400AA0355 /* downCell.swift */,
+				BCE43A6C1DD94C5400AA0355 /* downCell.xib */,
+				BCE43A731DD9557C00AA0355 /* hasSwitchCell.swift */,
+				BCE43A741DD9557C00AA0355 /* hasSwitchCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -737,7 +755,6 @@
 				BCF254C01DBE363200ABD6A7 /* 推荐 */,
 				BCF254C11DBE363200ABD6A7 /* 图标和启动界面 */,
 				BCF254C21DBE363200ABD6A7 /* 导航 */,
-				BCF254C31DBE363200ABD6A7 /* 我的 */,
 				BCF254C41DBE363200ABD6A7 /* 标签栏 */,
 				BCF254C51DBE363200ABD6A7 /* 精选 */,
 				BCF254C61DBE363200ABD6A7 /* 首页 */,
@@ -779,13 +796,6 @@
 			children = (
 			);
 			path = "导航";
-			sourceTree = "<group>";
-		};
-		BCF254C31DBE363200ABD6A7 /* 我的 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "我的";
 			sourceTree = "<group>";
 		};
 		BCF254C41DBE363200ABD6A7 /* 标签栏 */ = {
@@ -955,6 +965,7 @@
 			files = (
 				1EEDFD501DD8430D00987EE7 /* CoolPlayCell.xib in Resources */,
 				1EEDFDAF1DD8AB9100987EE7 /* userCenter_setting@3x.png in Resources */,
+				BCE43A721DD94FD600AA0355 /* userCenter_cell_rightArrow@3x.png in Resources */,
 				1EEDFDB11DD8AB9100987EE7 /* userCenterCollect@3x.png in Resources */,
 				1EEDFDA71DD8AB9100987EE7 /* userCenter_financial@3x.png in Resources */,
 				BCD94D311DCB50D1002CDF5A /* clock@3x.png in Resources */,
@@ -978,6 +989,7 @@
 				BCF254E51DBE57DE00ABD6A7 /* dog house@2x.png in Resources */,
 				BC1011A11DC73427000D0394 /* replay1@3x.png in Resources */,
 				BC512A881DCCD6150018F0BA /* RecommendScienceCell.xib in Resources */,
+				BCE43A6E1DD94C5400AA0355 /* downCell.xib in Resources */,
 				BC512A861DCCD6150018F0BA /* RecommendHeaderCell.xib in Resources */,
 				BCD94D331DCB50D1002CDF5A /* like@3x.png in Resources */,
 				1EEDFDA01DD8AB9100987EE7 /* userCenter_activity.png in Resources */,
@@ -1010,6 +1022,7 @@
 				BC1011A71DC75D9B000D0394 /* message empty@3x.png in Resources */,
 				1EEDFDA41DD8AB9100987EE7 /* userCenter_FeedBack.png in Resources */,
 				1EEDFDAA1DD8AB9100987EE7 /* userCenter_NightMode.png in Resources */,
+				BCE43A761DD9557C00AA0355 /* hasSwitchCell.xib in Resources */,
 				1EEDFDA51DD8AB9100987EE7 /* userCenter_FeedBack@3x.png in Resources */,
 				BCB26E611DCC2F2C0067380F /* bookmarks@3x.png in Resources */,
 				BCF254E61DBE57DE00ABD6A7 /* dog house@3x.png in Resources */,
@@ -1018,6 +1031,7 @@
 				BC1011C21DC77E2A000D0394 /* back@2x.png in Resources */,
 				1EEDFD6F1DD8869300987EE7 /* tabbar_news_selected.png in Resources */,
 				BCF254851DBE31F200ABD6A7 /* Assets.xcassets in Resources */,
+				BCE43A711DD94FD600AA0355 /* userCenter_cell_rightArrow.png in Resources */,
 				BCF254E71DBE57DE00ABD6A7 /* Neutron@2x.png in Resources */,
 				1EEDFD681DD8869300987EE7 /* tabbar_discover_selected@3x.png in Resources */,
 				1EEDFD721DD8869300987EE7 /* tabbar_news@3x.png in Resources */,
@@ -1151,10 +1165,12 @@
 				BC94BAAD1DC1FBD10096EEAD /* NewestCell.swift in Sources */,
 				BC1DFA881DD0A7A400A0F602 /* KTCTabViewController.swift in Sources */,
 				BC10116B1DC6CFFA000D0394 /* SKScNavViewController.swift in Sources */,
+				BCE43A6D1DD94C5400AA0355 /* downCell.swift in Sources */,
 				BC1011771DC6D052000D0394 /* HomepageViewController.swift in Sources */,
 				BC1011751DC6D009000D0394 /* SKLaunchMenuItem.swift in Sources */,
 				BCD1F7871DD49F43003E6288 /* KTCService.swift in Sources */,
 				BC512A7D1DCCD6150018F0BA /* AdDetailViewController.swift in Sources */,
+				BCE43A751DD9557C00AA0355 /* hasSwitchCell.swift in Sources */,
 				BCC45F611DC0F27E009BC6EC /* HeaderScrollViewCell.swift in Sources */,
 				BC512A7C1DCCD6150018F0BA /* RecommendView.swift in Sources */,
 				1EEDFD7B1DD8985900987EE7 /* topCell.swift in Sources */,

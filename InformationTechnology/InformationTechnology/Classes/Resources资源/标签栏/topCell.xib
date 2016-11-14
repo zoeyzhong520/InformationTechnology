@@ -183,7 +183,7 @@
                 <outlet property="messageImg" destination="6wZ-9d-fDh" id="4JT-qV-1ru"/>
                 <outlet property="messageLabel" destination="QQu-w9-1ha" id="NhT-P8-tpG"/>
             </connections>
-            <point key="canvasLocation" x="529" y="381"/>
+            <point key="canvasLocation" x="559" y="313"/>
         </tableViewCell>
     </objects>
     <resources>
