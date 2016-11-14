@@ -76,6 +76,22 @@ extension CellDetailViewController:UIWebViewDelegate {
         //字体大小
         webView.stringByEvaluatingJavaScriptFromString("document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'")
         
+        //图片大小
+        var js = "var script = document.createElement('script');script.type = 'text/javascript';"
+        "script.text = \"function ResizeImages() { "
+        "var myimg,oldwidth;"
+        "var maxwidth = %f;"
+        "for(i=0;i <document.images.length;i++){"
+        "myimg = document.images[i];"
+        "if(myimg.width > maxwidth){"
+        "oldwidth = myimg.width;"
+        "myimg.width = %f;"
+        "}"
+        "}"
+        "}\";"
+        "document.getElementsByTagName('head')[0].appendChild(script);"
+        js = String(format: js, kScreenWidth,kScreenWidth-15)
+        webView.stringByEvaluatingJavaScriptFromString(js)
     }
 }
 

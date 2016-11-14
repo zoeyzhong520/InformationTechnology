@@ -19,7 +19,10 @@ class AdDetailCell: UITableViewCell {
     @IBOutlet weak var pageLabel: UILabel!
     
     @IBOutlet weak var pageControl: UIPageControl!
-        
+    
+    //缩放比例
+    var scale:CGFloat = 1.0
+    
     //显示数据
     var slideArray:Array<AdDetailBodySlides>? {
         didSet {
@@ -74,6 +77,11 @@ class AdDetailCell: UITableViewCell {
                 
                 lastView = tmpImageView
                 
+                //添加pinch缩放手势
+                tmpImageView.userInteractionEnabled = true
+                let pinch = UIPinchGestureRecognizer(target: self, action: #selector(bigOrSmall(_:)))
+                tmpImageView.addGestureRecognizer(pinch)
+                
                 //显示标题
                 if model.title != nil {
                     titleLabel.text = slideArray![pageControl.currentPage].title
@@ -97,6 +105,15 @@ class AdDetailCell: UITableViewCell {
             
             //分页控件
             pageControl.numberOfPages = cnt!
+        }
+    }
+    
+    func bigOrSmall(pinch:UIPinchGestureRecognizer) {
+        
+        pinch.view?.transform = CGAffineTransformMakeScale(pinch.scale*scale, pinch.scale*scale)
+        if pinch.state == .Ended {
+            //记录每次手势结束后，缩放的比例
+            scale *= pinch.scale
         }
     }
     

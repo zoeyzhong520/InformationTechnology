@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,29 +10,29 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="adDetailCellId" id="KGk-i7-Jjw" customClass="AdDetailCell" customModule="InformationTechnology" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="799"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwN-sh-ZNM">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwN-sh-ZNM">
                         <rect key="frame" x="0.0" y="524" width="414" height="275"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oq-Th-Ge3" userLabel="pageLabel">
-                                <rect key="frame" x="314" y="37" width="50" height="20"/>
+                                <rect key="frame" x="314" y="37" width="50" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="EDM-pq-NKF"/>
+                                    <constraint firstAttribute="height" constant="40" id="EDM-pq-NKF"/>
                                     <constraint firstAttribute="width" constant="50" id="H3L-zp-fID"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqL-6v-LEp" userLabel="titleLabel">
-                                <rect key="frame" x="8" y="37" width="256" height="40"/>
+                                <rect key="frame" x="8" y="37" width="266" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7Sr-YE-Rg3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -45,7 +45,7 @@
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MV9-CW-5Kf" userLabel="descLabel">
-                                <rect key="frame" x="8" y="77" width="256" height="190"/>
+                                <rect key="frame" x="8" y="77" width="398" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -54,17 +54,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1Oq-Th-Ge3" secondAttribute="trailing" constant="50" id="7aU-6j-lsK"/>
+                            <constraint firstItem="MV9-CW-5Kf" firstAttribute="top" secondItem="BqL-6v-LEp" secondAttribute="bottom" id="I2q-hO-GHO"/>
                             <constraint firstItem="CYe-dy-WjU" firstAttribute="top" secondItem="xwN-sh-ZNM" secondAttribute="top" id="OI2-xJ-Vbp"/>
-                            <constraint firstAttribute="bottom" secondItem="MV9-CW-5Kf" secondAttribute="bottom" constant="8" id="Pet-5F-KPa"/>
-                            <constraint firstItem="MV9-CW-5Kf" firstAttribute="leading" secondItem="xwN-sh-ZNM" secondAttribute="leading" constant="8" id="T76-s0-XxH"/>
                             <constraint firstItem="1Oq-Th-Ge3" firstAttribute="top" secondItem="CYe-dy-WjU" secondAttribute="bottom" id="U1N-yg-gL1"/>
-                            <constraint firstItem="1Oq-Th-Ge3" firstAttribute="leading" secondItem="BqL-6v-LEp" secondAttribute="trailing" constant="50" id="VP5-r6-SRO"/>
+                            <constraint firstItem="1Oq-Th-Ge3" firstAttribute="leading" secondItem="BqL-6v-LEp" secondAttribute="trailing" constant="40" id="VP5-r6-SRO"/>
                             <constraint firstItem="BqL-6v-LEp" firstAttribute="top" secondItem="CYe-dy-WjU" secondAttribute="bottom" id="hRr-v2-oCN"/>
                             <constraint firstAttribute="trailing" secondItem="CYe-dy-WjU" secondAttribute="trailing" constant="8" id="lbV-93-hIX"/>
-                            <constraint firstItem="MV9-CW-5Kf" firstAttribute="trailing" secondItem="BqL-6v-LEp" secondAttribute="trailing" id="pBj-cD-XmL"/>
                             <constraint firstItem="CYe-dy-WjU" firstAttribute="leading" secondItem="xwN-sh-ZNM" secondAttribute="leading" id="qiY-CI-1ei"/>
+                            <constraint firstItem="MV9-CW-5Kf" firstAttribute="leading" secondItem="xwN-sh-ZNM" secondAttribute="leading" constant="8" id="uwK-BE-vWa"/>
+                            <constraint firstAttribute="trailing" secondItem="MV9-CW-5Kf" secondAttribute="trailing" constant="8" id="wuI-FW-DW7"/>
                             <constraint firstItem="BqL-6v-LEp" firstAttribute="leading" secondItem="xwN-sh-ZNM" secondAttribute="leading" constant="8" id="x8j-Cb-kGv"/>
-                            <constraint firstItem="MV9-CW-5Kf" firstAttribute="top" secondItem="BqL-6v-LEp" secondAttribute="bottom" id="zOC-ci-XpZ"/>
                         </constraints>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVA-dk-y8g" userLabel="scrollView">
