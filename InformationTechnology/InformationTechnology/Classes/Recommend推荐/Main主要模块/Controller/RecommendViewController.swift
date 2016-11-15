@@ -205,7 +205,7 @@ extension RecommendViewController:KTCDownloaderProtocol {
                 //2.2 Cell视图
                 funView?.model = funModel.RecommendValue0
                 
-                //3.点击科技页面的某一个部分，跳转到后面的界面
+                //3.点击Fun页面的某一个部分，跳转到后面的界面
                 self.funView?.jumpClosure = {  jumpUrl in
                     
                     KTCService.handleEvent(jumpUrl, onViewController: self)

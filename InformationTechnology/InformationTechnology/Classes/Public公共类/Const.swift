@@ -89,6 +89,8 @@ let scienceDetailUrl = "http://api.iclient.ifeng.com/ipadtestdoc?aid=cmpp_040620
 
 let collectPlayUrl = "http://api.3g.tudou.com/v5/channel/home?pid=35a871d7c541ba6b&network=WIFI&operator=CMCC_46002&cid=21"
 
+//详情页面 
+//http://www.tudou.com/programs/view/%ld
 
 
 let collectDiscoverUrl = "http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=40&platformType=iPhone&protocol=1.0.0&requireTime="

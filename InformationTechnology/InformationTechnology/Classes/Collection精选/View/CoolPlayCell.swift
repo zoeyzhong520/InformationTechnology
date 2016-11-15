@@ -43,6 +43,11 @@ class CoolPlayCell: UICollectionViewCell {
                     bgImageView.kf_setImageWithURL(url, placeholderImage: UIImage(named: model.image_448_252!), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
                 }
                 
+                //添加手势
+                contentView.tag = 200+i
+                let g = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+                contentView.addGestureRecognizer(g)
+                
                 //标题
                 if model.title != nil {
                     nameLabel.text = model.title
@@ -59,6 +64,18 @@ class CoolPlayCell: UICollectionViewCell {
                 }
                 
             }
+        }
+    }
+    
+    //手势点击事件
+    func tapAction(g:UIGestureRecognizer) {
+        
+        let index = (g.view?.tag)!-200
+        //获取点击的数据
+        let item = carsInfArray![index]
+        
+        if jumpClosure != nil && item.skip_inf?.video_id != nil {
+            jumpClosure!((item.skip_inf?.video_id)!)
         }
     }
     

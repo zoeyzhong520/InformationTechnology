@@ -69,7 +69,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
     //添加手势
     func tapAction(g:UIGestureRecognizer) {
         
-        let index = (g.view?.tag)!-100
+        //let index = (g.view?.tag)!-100
         print(index)
     }
     
@@ -127,6 +127,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
 
         //装载label、pageControl的view
         bottomView = UIView(frame: CGRect(x: 0, y: viewHeight-30, width: viewWidth, height: 30))
+        bottomView.userInteractionEnabled = false
         bottomView.backgroundColor = UIColor.blackColor()
         bottomView.layer.opacity = 0.6
         self.addSubview(bottomView)

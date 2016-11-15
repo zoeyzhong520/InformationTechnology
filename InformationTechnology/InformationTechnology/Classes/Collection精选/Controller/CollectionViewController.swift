@@ -152,6 +152,12 @@ extension CollectionViewController:KTCDownloaderProtocol {
                 //json解析
                 self.coolPlayView?.model = model
                 
+                //点击事件
+                self.coolPlayView?.jumpClosure = {
+                    jumpUrl in
+                    
+                    CoolPlayDetailService.handleCellDetail(jumpUrl, onViewController: self)
+                }
             }
             
         }else if downloader.downloadType == .CollectionDiscover {

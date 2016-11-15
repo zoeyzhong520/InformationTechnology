@@ -17,7 +17,7 @@
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oqr-IC-EWH" userLabel="ScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
                     </scrollView>
-                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-Nc-1Ar">
+                    <view userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-Nc-1Ar">
                         <rect key="frame" x="0.0" y="149" width="414" height="30"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="4PF-qK-d5X" userLabel="PageControl">

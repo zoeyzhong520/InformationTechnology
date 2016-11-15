@@ -97,13 +97,13 @@ class CoolPlaySlideCell: UICollectionViewCell {
     
     func tapImage(g: UIGestureRecognizer) {
         
-//        let index = (g.view?.tag)! - 200
-//        //获取点击的数据
-//        let item = slideArray![index]
-//        
-//        if jumpClosure != nil  && item.id != nil {
-//            jumpClosure!(item.id!)
-//        }
+        let index = (g.view?.tag)! - 200
+        //获取点击的数据
+        let item = slideArray![index]
+        
+        if jumpClosure != nil  && item.skip_inf?.video_id != nil {
+            jumpClosure!((item.skip_inf?.video_id)!)
+        }
     }
     
     //创建cell的方法

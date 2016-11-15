@@ -1,17 +1,17 @@
 //
-//  AdDetailView.swift
+//  CellDetailView.swift
 //  InformationTechnology
 //
-//  Created by qianfeng on 16/11/4.
+//  Created by qianfeng on 16/11/15.
 //  Copyright © 2016年 zzj. All rights reserved.
 //
 
 import UIKit
 
-class AdDetailView: UIView {
-    
+class CellDetailView: UIView {
+
     //数据
-    var model:AdDetailModel? {
+    var model:CellDetailModel? {
         didSet {
             tableView?.reloadData()
         }
@@ -34,35 +34,34 @@ class AdDetailView: UIView {
         tableView?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self)
         })
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 }
 
 //MARK:UITableView的代理方法
-extension AdDetailView:UITableViewDataSource,UITableViewDelegate {
+extension CellDetailView:UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var row = 0
-        if model?.body?.slides?.count > 0 {
+        if model?.body != nil {
             row = 1
         }
         return row
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
         return kScreenHeight
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cell = AdDetailCell.createAdSlidesForCell(tableView, atIndexPath: indexPath, slideArray: model?.body?.slides)
+            let cell = DetailCell.ceateCellFor(tableView, atIndexPath: indexPath, bodyModel: model?.body)
             
             //设置选中样式
             cell.selectionStyle = .None
@@ -71,6 +70,11 @@ extension AdDetailView:UITableViewDataSource,UITableViewDelegate {
         return UITableViewCell()
     }
 }
+
+
+
+
+
 
 
 

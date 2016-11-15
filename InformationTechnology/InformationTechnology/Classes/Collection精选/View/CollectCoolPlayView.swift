@@ -136,12 +136,20 @@ extension CollectCoolPlayView:UICollectionViewDataSource,UICollectionViewDelegat
             
             if indexPath.row == 0 {
                 let cell = CoolPlaySlideCell.createHeaderCellFor(collectionView, atIndexPath: indexPath, slideArray: model?.top_slide_area?.cards_inf)
+                
+                //点击事件
+                cell.jumpClosure = jumpClosure
+                
                 return cell
             }
             
         }else if indexPath.section > 0 {
             let cfmodel = model?.channel_page_modules?[indexPath.section-1].cards_inf![indexPath.row]
             let cell = CoolPlayCell.createCellFor(collectionView, atIndexPath: indexPath, carsInfArray: [cfmodel!])
+            
+            //点击事件
+            cell.jumpClosure = jumpClosure
+            
             return cell
         }
         

@@ -122,6 +122,11 @@
 		BC94BAB01DC233980096EEAD /* addReFreshProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */; };
 		BCB26E601DCC2F2C0067380F /* bookmarks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB26E5E1DCC2F2C0067380F /* bookmarks@2x.png */; };
 		BCB26E611DCC2F2C0067380F /* bookmarks@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB26E5F1DCC2F2C0067380F /* bookmarks@3x.png */; };
+		BCB300E51DDAA9F300E2C0F5 /* CoolPlayDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB300E41DDAA9F300E2C0F5 /* CoolPlayDetailService.swift */; };
+		BCB300E71DDAAC2D00E2C0F5 /* CoolPlayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB300E61DDAAC2D00E2C0F5 /* CoolPlayDetailViewController.swift */; };
+		BCB300EE1DDB123A00E2C0F5 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB300ED1DDB123A00E2C0F5 /* CellDetailView.swift */; };
+		BCB300F31DDB13A100E2C0F5 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB300F11DDB13A100E2C0F5 /* DetailCell.swift */; };
+		BCB300F41DDB13A100E2C0F5 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB300F21DDB13A100E2C0F5 /* DetailCell.xib */; };
 		BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */; };
 		BCC45F511DC0CC0C009BC6EC /* NewestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F501DC0CC0C009BC6EC /* NewestModel.swift */; };
 		BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */; };
@@ -305,6 +310,11 @@
 		BC94BAAF1DC233980096EEAD /* addReFreshProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = addReFreshProtocol.swift; path = "../HomePage首页/addReFreshProtocol.swift"; sourceTree = "<group>"; };
 		BCB26E5E1DCC2F2C0067380F /* bookmarks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bookmarks@2x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/bookmarks@2x.png"; sourceTree = SOURCE_ROOT; };
 		BCB26E5F1DCC2F2C0067380F /* bookmarks@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bookmarks@3x.png"; path = "InformationTechnology/Classes/Resources资源/推荐/bookmarks@3x.png"; sourceTree = SOURCE_ROOT; };
+		BCB300E41DDAA9F300E2C0F5 /* CoolPlayDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolPlayDetailService.swift; sourceTree = "<group>"; };
+		BCB300E61DDAAC2D00E2C0F5 /* CoolPlayDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolPlayDetailViewController.swift; sourceTree = "<group>"; };
+		BCB300ED1DDB123A00E2C0F5 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
+		BCB300F11DDB13A100E2C0F5 /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		BCB300F21DDB13A100E2C0F5 /* DetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		BCC45F4A1DC0B12B009BC6EC /* HomePageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTableView.swift; sourceTree = "<group>"; };
 		BCC45F501DC0CC0C009BC6EC /* NewestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestModel.swift; sourceTree = "<group>"; };
 		BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestHeaderModel.swift; sourceTree = "<group>"; };
@@ -590,6 +600,9 @@
 				BC512A771DCCD6150018F0BA /* RecommendHeaderCell.xib */,
 				BC512A781DCCD6150018F0BA /* RecommendScienceCell.swift */,
 				BC512A791DCCD6150018F0BA /* RecommendScienceCell.xib */,
+				BCB300ED1DDB123A00E2C0F5 /* CellDetailView.swift */,
+				BCB300F11DDB13A100E2C0F5 /* DetailCell.swift */,
+				BCB300F21DDB13A100E2C0F5 /* DetailCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,6 +654,7 @@
 				BCD1F78E1DD4A063003E6288 /* RecommendAdService.swift */,
 				BCD1F7901DD4A107003E6288 /* RecommendCellDetailService.swift */,
 				BCD1F7921DD4A88A003E6288 /* playVideoService.swift */,
+				BCB300E41DDAA9F300E2C0F5 /* CoolPlayDetailService.swift */,
 			);
 			name = "Service处理公共点击事件";
 			sourceTree = "<group>";
@@ -796,6 +810,7 @@
 				1EEDFD4D1DD8430D00987EE7 /* CoolPlayCell.swift */,
 				1EEDFD4E1DD8430D00987EE7 /* CoolPlayCell.xib */,
 				1EEDFD511DD85E2A00987EE7 /* HeaderReusableView.swift */,
+				BCB300E61DDAAC2D00E2C0F5 /* CoolPlayDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1112,6 +1127,7 @@
 				1EEDFD671DD8869300987EE7 /* tabbar_discover_selected.png in Resources */,
 				BC1011C71DC785F1000D0394 /* arrow@3x.png in Resources */,
 				BC6A5FCB1DD35A7200D3FA6C /* Images.xcassets in Resources */,
+				BCB300F41DDB13A100E2C0F5 /* DetailCell.xib in Resources */,
 				1EEDFD731DD8869300987EE7 /* tabbar_vision_selected.png in Resources */,
 				BC2D41361DD9E81B00C7B76D /* guideView_3.png in Resources */,
 				1EEDFD761DD8869300987EE7 /* tabbar_vision@3x.png in Resources */,
@@ -1278,6 +1294,7 @@
 				BCF254D81DBE4F6300ABD6A7 /* MineViewController.swift in Sources */,
 				BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */,
 				BC6C13851DC8590400C744BD /* KTCSegCtrl.swift in Sources */,
+				BCB300E51DDAA9F300E2C0F5 /* CoolPlayDetailService.swift in Sources */,
 				BC1DFA8A1DD0BAE800A0F602 /* CollectionModel.swift in Sources */,
 				BCC45F511DC0CC0C009BC6EC /* NewestModel.swift in Sources */,
 				BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */,
@@ -1290,9 +1307,11 @@
 				BCD1F8E71DD5F1D4003E6288 /* CollectCoolPlayView.swift in Sources */,
 				BC512A811DCCD6150018F0BA /* AdDetailCell.swift in Sources */,
 				BC2D413C1DD9E85300C7B76D /* GuideViewController.swift in Sources */,
+				BCB300F31DDB13A100E2C0F5 /* DetailCell.swift in Sources */,
 				BCF254DA1DBE50CB00ABD6A7 /* CreateTabBarController.swift in Sources */,
 				BCD1F7841DD497D4003E6288 /* KTCDownloader.swift in Sources */,
 				BC512A871DCCD6150018F0BA /* RecommendScienceCell.swift in Sources */,
+				BCB300EE1DDB123A00E2C0F5 /* CellDetailView.swift in Sources */,
 				BCF2547E1DBE31F200ABD6A7 /* AppDelegate.swift in Sources */,
 				BC1011AB1DC76549000D0394 /* DetailView.swift in Sources */,
 				BC1DFA8C1DD0C80D00A0F602 /* CollectionDiscoverView.swift in Sources */,
@@ -1302,6 +1321,7 @@
 				BC10116E1DC6D002000D0394 /* SKMacros.swift in Sources */,
 				1EEDFD521DD85E2A00987EE7 /* HeaderReusableView.swift in Sources */,
 				BCF254CC1DBE49A700ABD6A7 /* Const.swift in Sources */,
+				BCB300E71DDAAC2D00E2C0F5 /* CoolPlayDetailViewController.swift in Sources */,
 				BC2D410A1DD9BA1100C7B76D /* UILabel+Commom.swift in Sources */,
 				BC512A7B1DCCD6150018F0BA /* RecommendModel.swift in Sources */,
 				BC94BAB01DC233980096EEAD /* addReFreshProtocol.swift in Sources */,
