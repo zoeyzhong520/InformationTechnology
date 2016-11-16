@@ -76,7 +76,6 @@
 		BC1011C21DC77E2A000D0394 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1011BE1DC77E2A000D0394 /* back@2x.png */; };
 		BC1011C31DC77E2A000D0394 /* back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1011BF1DC77E2A000D0394 /* back@3x.png */; };
 		BC1011C71DC785F1000D0394 /* arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1011C61DC785F1000D0394 /* arrow@3x.png */; };
-		BC1DFA881DD0A7A400A0F602 /* KTCTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DFA871DD0A7A400A0F602 /* KTCTabViewController.swift */; };
 		BC1DFA8A1DD0BAE800A0F602 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DFA891DD0BAE800A0F602 /* CollectionModel.swift */; };
 		BC1DFA8C1DD0C80D00A0F602 /* CollectionDiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1DFA8B1DD0C80D00A0F602 /* CollectionDiscoverView.swift */; };
 		BC2D40F71DD967CD00C7B76D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2D40F51DD967CD00C7B76D /* LoginViewController.swift */; };
@@ -264,7 +263,6 @@
 		BC1011BE1DC77E2A000D0394 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		BC1011BF1DC77E2A000D0394 /* back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@3x.png"; sourceTree = "<group>"; };
 		BC1011C61DC785F1000D0394 /* arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@3x.png"; sourceTree = "<group>"; };
-		BC1DFA871DD0A7A400A0F602 /* KTCTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCTabViewController.swift; sourceTree = "<group>"; };
 		BC1DFA891DD0BAE800A0F602 /* CollectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		BC1DFA8B1DD0C80D00A0F602 /* CollectionDiscoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDiscoverView.swift; sourceTree = "<group>"; };
 		BC2D40F51DD967CD00C7B76D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -867,7 +865,6 @@
 			children = (
 				BC2D41071DD9A3DD00C7B76D /* UIButton+Common.swift */,
 				BC2D41091DD9BA1100C7B76D /* UILabel+Commom.swift */,
-				BC1DFA871DD0A7A400A0F602 /* KTCTabViewController.swift */,
 				BCD1F7831DD497D4003E6288 /* KTCDownloader.swift */,
 				BC1011AC1DC7716C000D0394 /* navigationBarProtocol.swift */,
 				BCF254CB1DBE49A700ABD6A7 /* Const.swift */,
@@ -1335,7 +1332,6 @@
 				BC512A851DCCD6150018F0BA /* RecommendHeaderCell.swift in Sources */,
 				BCD1F8E31DD5CA11003E6288 /* CoolPlayModel.swift in Sources */,
 				BC94BAAD1DC1FBD10096EEAD /* NewestCell.swift in Sources */,
-				BC1DFA881DD0A7A400A0F602 /* KTCTabViewController.swift in Sources */,
 				BC10116B1DC6CFFA000D0394 /* SKScNavViewController.swift in Sources */,
 				BCE43A6D1DD94C5400AA0355 /* downCell.swift in Sources */,
 				BC1011771DC6D052000D0394 /* HomepageViewController.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class AdDetailViewController: KTCTabViewController {
+class AdDetailViewController: UIViewController {
     
     //定义数据刷新页码
     var currentPage = 1
@@ -41,7 +41,7 @@ class AdDetailViewController: KTCTabViewController {
         adDetailView = AdDetailView(frame: CGRectZero)
         view.addSubview(adDetailView!)
         adDetailView?.snp_makeConstraints(closure: { (make) in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 0, 0))
         })
     }
     

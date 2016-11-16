@@ -15,7 +15,6 @@ class MineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        
         automaticallyAdjustsScrollViewInsets = false
         
         //创建视图
@@ -36,6 +35,7 @@ class MineViewController: UIViewController {
         mineView?.jumpClosure = {
             
             let vc = LoginViewController()
+            vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

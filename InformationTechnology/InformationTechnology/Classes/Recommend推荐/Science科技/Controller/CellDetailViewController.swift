@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CellDetailViewController: KTCTabViewController {
+class CellDetailViewController: UIViewController {
     
     //创建视图
     private var detailView:CellDetailView?
@@ -38,7 +38,7 @@ class CellDetailViewController: KTCTabViewController {
         
         //约束
         detailView?.snp_makeConstraints(closure: { (make) in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 49, 0))
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(64, 0, 0, 0))
         })
     }
     

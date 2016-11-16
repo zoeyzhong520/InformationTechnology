@@ -218,6 +218,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
         
         //详情页面
         let vc = DetailView()
+        vc.hidesBottomBarWhenPushed = true
         
         if headerUrlString != nil {
             
@@ -242,7 +243,6 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             let model = dataArray[indexPath.row]
             if model.url != nil {
                 vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
-                navigationController?.pushViewController(vc, animated: true)
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
         }

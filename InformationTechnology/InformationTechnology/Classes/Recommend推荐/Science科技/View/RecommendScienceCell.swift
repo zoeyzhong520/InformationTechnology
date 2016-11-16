@@ -95,7 +95,7 @@ class RecommendScienceCell: UITableViewCell {
         
         if jumpClosure != nil  && item.documentId != nil && item.id != nil {
             jumpClosure!("\(item.id!)"+"\(item.documentId!)")
-            print("\(item.id!)"+"\(item.documentId!)")
+            //print("\(item.id!)"+"\(item.documentId!)")
         }
     }
 

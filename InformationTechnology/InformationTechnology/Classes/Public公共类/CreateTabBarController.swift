@@ -10,51 +10,45 @@ import UIKit
 
 class CreateTabBarController: UITabBarController {
     
-    //tabbar的背景
-    private var bgView:UIView?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //创建视图控制器
         createViewControllers()
     }
     
     func createViewControllers() {
-
-        var ViewControllers:[UIViewController] = []
-        let vcNames = ["InformationTechnology.HomepageViewController","InformationTechnology.RecommendViewController","InformationTechnology.CollectionViewController","InformationTechnology.MineViewController"]
-        let imageNames = ["tabbar_news","tabbar_discover","tabbar_vision","tabbar_my"]
-        let selectImages = ["tabbar_news_selected","tabbar_discover_selected","tabbar_vision_selected","tabbar_my_selected"]
-        let titles = ["首页","推荐","精选","我的"]
-        for i in 0..<vcNames.count {
-            let vcClasss = NSClassFromString(vcNames[i]) as! UIViewController.Type
-            let vc = vcClasss.init()
-            vc.title = titles[i]
-            let nav = UINavigationController(rootViewController: vc)
-            nav.tabBarItem.image = UIImage(named: imageNames[i])
-            nav.tabBarItem.selectedImage = UIImage(named: selectImages[i])?.imageWithRenderingMode(.AlwaysOriginal)
-            nav.title = titles[i]
-            tabBar.tintColor = UIColor.redColor()
-            ViewControllers.append(nav)
-        }
-        viewControllers = ViewControllers
-        navigationController?.toolbar.tintColor = UIColor.greenColor()
-        //自定制TabBar
-        //自定制
         
-    }
-    
-    //显示tabbar
-    func showTabBar() {
-        UIView.animateWithDuration(0.25) {
-            self.bgView?.hidden = false
+        //视图控制器的名字
+        let nameArray = ["HomepageViewController","RecommendViewController","CollectionViewController","MineViewController"]
+        
+        //图片的名字
+        let images = ["tabbar_news","tabbar_discover","tabbar_vision","tabbar_my"]
+        
+        //标题文字
+        let titles = ["首页","推荐","精选","我的"]
+        
+        //2.创建视图控制器
+        //视图控制器对象的数组
+        var ctrlArray = Array<UINavigationController>()
+        for i in 0..<nameArray.count {
+            
+            let name = "InformationTechnology." + nameArray[i]
+            
+            //使用类名创建类的对象
+            let ctrl = NSClassFromString(name) as! UIViewController.Type
+            let vc = ctrl.init()
+            
+            //导航
+            let navCtrl = UINavigationController(rootViewController: vc)
+            navCtrl.tabBarItem.image = UIImage(named: images[i])
+            navCtrl.tabBarItem.selectedImage = UIImage(named: images[i]+"_selected")?.imageWithRenderingMode(.AlwaysOriginal)
+            self.tabBar.tintColor = UIColor.redColor()
+            navCtrl.title = titles[i]
+            ctrlArray.append(navCtrl)
         }
-    }
-    
-    //隐藏tabbar
-    func hideTabBar() {
-        UIView.animateWithDuration(0.25) {
-            self.bgView?.hidden = true
-        }
+        viewControllers = ctrlArray
+
     }
     
     override func didReceiveMemoryWarning() {

@@ -22,37 +22,36 @@ class DetailCell: UITableViewCell {
     //创建视图
     func createView() {
         
-        webView.backgroundColor = UIColor.whiteColor()
         webView.scrollView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0)
         
         //创建头部View
-        let view = UIView.createView()
-        webView.scrollView.addSubview(view)
-        view.frame = CGRect(x: 0, y: -100, width: kScreenWidth, height: 100)
+        let topView = UIView.createView()
+        webView.scrollView.addSubview(topView)
+        topView.frame = CGRect(x: 0, y: -100, width: kScreenWidth, height: 100)
         
         //创建titleLabel
         if bodyModel?.title != nil && bodyModel?.editTime != nil && bodyModel?.source != nil {
             
-            let titleLabel = UILabel.createLabel(bodyModel?.title, textAlignment: .Left, font: UIFont.systemFontOfSize(22))
+            let titleLabel = UILabel.createLabel(bodyModel?.title, textAlignment: .Left, font: UIFont.systemFontOfSize(20))
             titleLabel.numberOfLines = 2
-            view.addSubview(titleLabel)
+            topView.addSubview(titleLabel)
             
             titleLabel.snp_makeConstraints { (make) in
-                make.left.equalTo(view).inset(5)
-                make.right.equalTo(view).inset(-5)
-                make.top.equalTo(view)
+                make.left.equalTo(topView).inset(5)
+                make.right.equalTo(topView).inset(-5)
+                make.top.equalTo(topView)
                 make.height.equalTo(60)
             }
             
             //创建文档编辑时间Label
-            let timeLabel = UILabel.createLabel("\(bodyModel!.editTime!)"+"\(bodyModel!.source!)", textAlignment: .Left, font: UIFont.systemFontOfSize(14))
+            let timeLabel = UILabel.createLabel("\(bodyModel!.editTime!)"+" "+"\( bodyModel!.source!)", textAlignment: .Left, font: UIFont.systemFontOfSize(14))
             timeLabel.textColor = UIColor.lightGrayColor()
-            view.addSubview(timeLabel)
+            topView.addSubview(timeLabel)
             
             timeLabel.snp_makeConstraints { (make) in
                 make.top.equalTo(titleLabel.snp_bottom).inset(-10)
-                make.left.equalTo(view).inset(5)
-                make.right.equalTo(view).inset(-5)
+                make.left.equalTo(topView).inset(5)
+                make.right.equalTo(topView).inset(-5)
                 make.height.equalTo(20)
             }
             
@@ -61,15 +60,34 @@ class DetailCell: UITableViewCell {
     
     //显示数据
     func showData() {
-        
+        //<style>img{width:400px !important;}</style>
         if bodyModel?.text != nil {
-            let htmlStr = "<head><style>img{width:400px !important;}</style></head>"+(bodyModel?.text)!
+            let htmlStr = "<head><style>img{width:100% !important;}</style></head>"+(bodyModel?.text)!
             webView.loadHTMLString(htmlStr, baseURL: nil)
             
+            //创建视图
+            createView()
+        }else{
+            
+            webView.scrollView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0)
+            let view = UIView.createView()
+            view.backgroundColor = UIColor.whiteColor()
+            webView.scrollView.addSubview(view)
+            view.frame = CGRect(x: 0, y: -200, width: kScreenWidth, height: 200)
+            
+            let label = UILabel.createLabel("真不巧，网页走失了......", textAlignment: .Center, font: UIFont.systemFontOfSize(20))
+            label.textColor = UIColor.grayColor()
+            view.addSubview(label)
+            
+            label.snp_makeConstraints(closure: { (make) in
+                make.left.equalTo(view).inset(5)
+                make.right.equalTo(view).inset(-5)
+                make.top.equalTo(view).inset(160)
+                make.height.equalTo(40)
+            })
         }
         
-        //创建视图
-        createView()
+        
     }
     
     //创建cell的方法
@@ -87,8 +105,8 @@ class DetailCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //创建视图
-        //createView()
+        webView.delegate = self
+        webView.backgroundColor = UIColor.whiteColor()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -103,6 +121,7 @@ class DetailCell: UITableViewCell {
 extension DetailCell:UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        
         
     }
 }

@@ -15,6 +15,7 @@ class RecommendCellDetailService: NSObject {
         //跳转到cell详情页面
         let ctrl = CellDetailViewController()
         ctrl.urlString = urlString
+        ctrl.hidesBottomBarWhenPushed = true
         vc.navigationController?.pushViewController(ctrl, animated: true)
     }
 }

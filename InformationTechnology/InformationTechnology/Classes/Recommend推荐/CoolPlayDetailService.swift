@@ -15,6 +15,7 @@ class CoolPlayDetailService: NSObject {
         //跳转到CoolPlay详情页面
         let ctrl = CoolPlayDetailViewController()
         ctrl.urlString = "http://www.tudou.com/programs/view/"+urlString!
+        ctrl.hidesBottomBarWhenPushed = true
         vc.navigationController?.pushViewController(ctrl, animated: true)
         
     }
