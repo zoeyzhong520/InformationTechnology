@@ -42,6 +42,32 @@ class RecommendViewController: UIViewController {
         
         //创建首页视图
         createHomePage()
+        
+        addRefresh({ 
+            self.currentPage = 1
+            self.downloadRecommendScience()
+            self.downloadRecommendFun()
+            }) { 
+                self.currentPage += 1
+                self.downloadRecommendScience()
+                self.downloadRecommendFun()
+        }
+    }
+    
+    //添加上下拉刷新
+    func addRefresh(header:(()->())?,footer:(()->())?) {
+        
+        if header != nil {
+            
+            self.scienceView?.tableView?.mj_header = MJRefreshNormalHeader(refreshingBlock: header)
+            self.funView?.tableView?.mj_header = MJRefreshNormalHeader(refreshingBlock: header)
+        }
+        
+        if footer != nil {
+            
+            self.scienceView?.tableView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: footer)
+            self.funView?.tableView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: footer)
+        }
     }
     
     //下载推荐页的数据

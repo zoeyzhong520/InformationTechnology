@@ -62,7 +62,7 @@ class DetailCell: UITableViewCell {
     func showData() {
         //<style>img{width:400px !important;}</style>
         if bodyModel?.text != nil {
-            let htmlStr = "<head><style>img{width:100% !important;}</style></head>"+(bodyModel?.text)!
+            let htmlStr = "<head><style>img{width:100% !important;}</style></head>"+(bodyModel?.text)!+"<br/><p>科技资讯</p>"
             webView.loadHTMLString(htmlStr, baseURL: nil)
             
             //创建视图
