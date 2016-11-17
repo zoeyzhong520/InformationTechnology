@@ -131,6 +131,12 @@
 		BCC45F531DC0D021009BC6EC /* NewestHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */; };
 		BCC45F611DC0F27E009BC6EC /* HeaderScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F601DC0F27E009BC6EC /* HeaderScrollViewCell.swift */; };
 		BCC45F631DC0F296009BC6EC /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC45F621DC0F296009BC6EC /* HeaderScrollView.swift */; };
+		BCCDA2791DDDCD2200FAEAFF /* HasTypeSlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDA2771DDDCD2200FAEAFF /* HasTypeSlideCell.swift */; };
+		BCCDA27A1DDDCD2200FAEAFF /* HasTypeSlideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCCDA2781DDDCD2200FAEAFF /* HasTypeSlideCell.xib */; };
+		BCCDA27D1DDDD7D400FAEAFF /* HasTypeLiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDA27B1DDDD7D400FAEAFF /* HasTypeLiveCell.swift */; };
+		BCCDA27E1DDDD7D400FAEAFF /* HasTypeLiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCCDA27C1DDDD7D400FAEAFF /* HasTypeLiveCell.xib */; };
+		BCCDA2801DDDFC2200FAEAFF /* RecommendTopicCellService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDA27F1DDDFC2200FAEAFF /* RecommendTopicCellService.swift */; };
+		BCCDA2821DDDFC4B00FAEAFF /* CellTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDA2811DDDFC4B00FAEAFF /* CellTopicViewController.swift */; };
 		BCD1F7841DD497D4003E6288 /* KTCDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F7831DD497D4003E6288 /* KTCDownloader.swift */; };
 		BCD1F7871DD49F43003E6288 /* KTCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F7861DD49F43003E6288 /* KTCService.swift */; };
 		BCD1F78F1DD4A063003E6288 /* RecommendAdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1F78E1DD4A063003E6288 /* RecommendAdService.swift */; };
@@ -318,6 +324,12 @@
 		BCC45F521DC0D021009BC6EC /* NewestHeaderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewestHeaderModel.swift; sourceTree = "<group>"; };
 		BCC45F601DC0F27E009BC6EC /* HeaderScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderScrollViewCell.swift; sourceTree = "<group>"; };
 		BCC45F621DC0F296009BC6EC /* HeaderScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderScrollView.swift; sourceTree = "<group>"; };
+		BCCDA2771DDDCD2200FAEAFF /* HasTypeSlideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasTypeSlideCell.swift; sourceTree = "<group>"; };
+		BCCDA2781DDDCD2200FAEAFF /* HasTypeSlideCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HasTypeSlideCell.xib; sourceTree = "<group>"; };
+		BCCDA27B1DDDD7D400FAEAFF /* HasTypeLiveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasTypeLiveCell.swift; sourceTree = "<group>"; };
+		BCCDA27C1DDDD7D400FAEAFF /* HasTypeLiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HasTypeLiveCell.xib; sourceTree = "<group>"; };
+		BCCDA27F1DDDFC2200FAEAFF /* RecommendTopicCellService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendTopicCellService.swift; sourceTree = "<group>"; };
+		BCCDA2811DDDFC4B00FAEAFF /* CellTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTopicViewController.swift; sourceTree = "<group>"; };
 		BCD1F7831DD497D4003E6288 /* KTCDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCDownloader.swift; sourceTree = "<group>"; };
 		BCD1F7861DD49F43003E6288 /* KTCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCService.swift; sourceTree = "<group>"; };
 		BCD1F78E1DD4A063003E6288 /* RecommendAdService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendAdService.swift; sourceTree = "<group>"; };
@@ -601,6 +613,11 @@
 				BCB300ED1DDB123A00E2C0F5 /* CellDetailView.swift */,
 				BCB300F11DDB13A100E2C0F5 /* DetailCell.swift */,
 				BCB300F21DDB13A100E2C0F5 /* DetailCell.xib */,
+				BCCDA2771DDDCD2200FAEAFF /* HasTypeSlideCell.swift */,
+				BCCDA2781DDDCD2200FAEAFF /* HasTypeSlideCell.xib */,
+				BCCDA27B1DDDD7D400FAEAFF /* HasTypeLiveCell.swift */,
+				BCCDA27C1DDDD7D400FAEAFF /* HasTypeLiveCell.xib */,
+				BCCDA2811DDDFC4B00FAEAFF /* CellTopicViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,6 +670,7 @@
 				BCD1F7901DD4A107003E6288 /* RecommendCellDetailService.swift */,
 				BCD1F7921DD4A88A003E6288 /* playVideoService.swift */,
 				BCB300E41DDAA9F300E2C0F5 /* CoolPlayDetailService.swift */,
+				BCCDA27F1DDDFC2200FAEAFF /* RecommendTopicCellService.swift */,
 			);
 			name = "Service处理公共点击事件";
 			sourceTree = "<group>";
@@ -1175,6 +1193,7 @@
 				1EEDFDA41DD8AB9100987EE7 /* userCenter_FeedBack.png in Resources */,
 				1EEDFDAA1DD8AB9100987EE7 /* userCenter_NightMode.png in Resources */,
 				BCE43A761DD9557C00AA0355 /* hasSwitchCell.xib in Resources */,
+				BCCDA27A1DDDCD2200FAEAFF /* HasTypeSlideCell.xib in Resources */,
 				BC2D41391DD9E81B00C7B76D /* guideView_4@2x.png in Resources */,
 				1EEDFDA51DD8AB9100987EE7 /* userCenter_FeedBack@3x.png in Resources */,
 				BCB26E611DCC2F2C0067380F /* bookmarks@3x.png in Resources */,
@@ -1209,6 +1228,7 @@
 				1EEDFDA31DD8AB9100987EE7 /* usercenter_btn_history@3x.png in Resources */,
 				BCD94D321DCB50D1002CDF5A /* like@2x.png in Resources */,
 				1EEDFD6E1DD8869300987EE7 /* tabbar_my@3x.png in Resources */,
+				BCCDA27E1DDDD7D400FAEAFF /* HasTypeLiveCell.xib in Resources */,
 				1EEDFDA81DD8AB9100987EE7 /* userCenter_mall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1284,6 +1304,7 @@
 			files = (
 				BCD1F7911DD4A107003E6288 /* RecommendCellDetailService.swift in Sources */,
 				BC2D41061DD9915E00C7B76D /* UITextField+Login.swift in Sources */,
+				BCCDA2791DDDCD2200FAEAFF /* HasTypeSlideCell.swift in Sources */,
 				1EEDFD4F1DD8430D00987EE7 /* CoolPlayCell.swift in Sources */,
 				BC512A831DCCD6150018F0BA /* AdDetailView.swift in Sources */,
 				BC2D41081DD9A3DD00C7B76D /* UIButton+Common.swift in Sources */,
@@ -1312,6 +1333,7 @@
 				BCF2547E1DBE31F200ABD6A7 /* AppDelegate.swift in Sources */,
 				BC1011AB1DC76549000D0394 /* DetailView.swift in Sources */,
 				BC1DFA8C1DD0C80D00A0F602 /* CollectionDiscoverView.swift in Sources */,
+				BCCDA2801DDDFC2200FAEAFF /* RecommendTopicCellService.swift in Sources */,
 				1EEDFD781DD8962A00987EE7 /* MineView.swift in Sources */,
 				BC2D40F71DD967CD00C7B76D /* LoginViewController.swift in Sources */,
 				BC512A7F1DCCD6150018F0BA /* AdDetailModel.swift in Sources */,
@@ -1329,10 +1351,12 @@
 				BCD1F7931DD4A88A003E6288 /* playVideoService.swift in Sources */,
 				BC1011AD1DC7716C000D0394 /* navigationBarProtocol.swift in Sources */,
 				BC512A801DCCD6150018F0BA /* CellDetailModel.swift in Sources */,
+				BCCDA27D1DDDD7D400FAEAFF /* HasTypeLiveCell.swift in Sources */,
 				BC512A851DCCD6150018F0BA /* RecommendHeaderCell.swift in Sources */,
 				BCD1F8E31DD5CA11003E6288 /* CoolPlayModel.swift in Sources */,
 				BC94BAAD1DC1FBD10096EEAD /* NewestCell.swift in Sources */,
 				BC10116B1DC6CFFA000D0394 /* SKScNavViewController.swift in Sources */,
+				BCCDA2821DDDFC4B00FAEAFF /* CellTopicViewController.swift in Sources */,
 				BCE43A6D1DD94C5400AA0355 /* downCell.swift in Sources */,
 				BC1011771DC6D052000D0394 /* HomepageViewController.swift in Sources */,
 				BC1011751DC6D009000D0394 /* SKLaunchMenuItem.swift in Sources */,

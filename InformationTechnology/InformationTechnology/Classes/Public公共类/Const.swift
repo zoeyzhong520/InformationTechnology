@@ -93,7 +93,7 @@ let collectPlayUrl = "http://api.3g.tudou.com/v5/channel/home?pid=35a871d7c541ba
 //http://www.tudou.com/programs/view/%ld
 
 
-let collectDiscoverUrl = "http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=40&platformType=iPhone&protocol=1.0.0&requireTime="
+let collectDiscoverUrl = "http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=20&platformType=iPhone&protocol=1.0.0&requireTime=%ld"
 
 //http://vcis.ifeng.com/api/homePageList?adapterNo=7.0.1&channelId=41&isNotModified=1&pageSize=20&platformType=iPhone&positionId=40&protocol=1.0.0
 

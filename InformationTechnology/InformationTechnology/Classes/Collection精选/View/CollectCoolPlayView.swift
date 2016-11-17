@@ -21,7 +21,7 @@ class CollectCoolPlayView: UIView {
     }
     
     //表格
-    private var collecView:UICollectionView?
+    var collecView:UICollectionView?
     
     private var flowLayout:UICollectionViewFlowLayout?
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MJRefresh
 
 class CollectionViewController: UIViewController {
     

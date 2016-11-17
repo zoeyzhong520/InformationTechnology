@@ -54,14 +54,14 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0U-r6-6ur">
-                        <rect key="frame" x="10" y="84" width="15" height="15"/>
+                        <rect key="frame" x="10" y="85" width="13" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="15" id="5KF-tc-5E5"/>
-                            <constraint firstAttribute="height" constant="15" id="Ux9-nL-3ii"/>
+                            <constraint firstAttribute="width" constant="13" id="5KF-tc-5E5"/>
+                            <constraint firstAttribute="height" constant="13" id="Ux9-nL-3ii"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPp-a3-IRn" userLabel="PostDataLabel">
-                        <rect key="frame" x="29" y="81" width="176" height="20"/>
+                        <rect key="frame" x="27" y="81" width="178" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="180" id="2GR-y1-Hwb"/>
                             <constraint firstAttribute="height" constant="20" id="Nf4-A3-BuQ"/>
@@ -87,7 +87,7 @@
                     <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" secondItem="rES-B2-UCe" secondAttribute="trailing" constant="10" id="avS-II-jTo"/>
                     <constraint firstItem="CYX-6h-UJS" firstAttribute="leading" secondItem="JVs-nz-rs3" secondAttribute="trailing" constant="4" id="fU7-PD-mCF"/>
                     <constraint firstAttribute="trailing" secondItem="oZZ-Dh-Mm9" secondAttribute="trailing" constant="10" id="jDd-ZY-x7m"/>
-                    <constraint firstAttribute="bottom" secondItem="g0U-r6-6ur" secondAttribute="bottom" constant="10" id="pR4-HS-wVl"/>
+                    <constraint firstAttribute="bottom" secondItem="g0U-r6-6ur" secondAttribute="bottom" constant="11" id="pR4-HS-wVl"/>
                     <constraint firstItem="oZZ-Dh-Mm9" firstAttribute="leading" secondItem="CYX-6h-UJS" secondAttribute="trailing" id="sX8-iZ-uMX"/>
                     <constraint firstItem="rES-B2-UCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vqb-9u-c9p"/>
                     <constraint firstAttribute="bottom" secondItem="GPp-a3-IRn" secondAttribute="bottom" constant="8" id="vur-J5-uiy"/>

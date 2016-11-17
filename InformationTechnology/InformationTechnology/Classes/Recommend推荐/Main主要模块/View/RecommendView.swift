@@ -7,9 +7,16 @@
 //
 
 import UIKit
-import MJRefresh
 
 class RecommendView: UIView {
+    
+    //定义科技页面cell的布局类型
+    enum ScienceCellType:String {
+        case topic2 = "topic2"
+        case doc = "doc"
+        case slide = "slide"
+        case text_live = "text_live"
+    }
     
     //点击事件
     var jumpClosure:RecommendJumpClosure?
@@ -50,14 +57,6 @@ class RecommendView: UIView {
         
     }
  
-    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
-        if scrollView == self.tableView {
-            return true
-        }else{
-            return false
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -82,7 +81,13 @@ extension RecommendView:UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             height = 180
         }else{
-            height = 110
+            let itemModel = model?.item![indexPath.row-1]
+            if itemModel?.type == ScienceCellType.doc.rawValue || itemModel?.type == ScienceCellType.topic2.rawValue {
+                height = 110
+            }else if itemModel?.type == ScienceCellType.slide.rawValue || itemModel?.type == ScienceCellType.text_live.rawValue {
+                height = 180
+            }
+            
         }
         return height
     }
@@ -99,14 +104,36 @@ extension RecommendView:UITableViewDelegate,UITableViewDataSource {
             return cell
         }else{
             //新闻部分
-            let itemModel = model?.item![indexPath.row-1]
-            let cell = RecommendScienceCell.createScienceCellFor(tableView, atIndexPath: indexPath, itemArray: [itemModel!])
+            let itemModel = model?.item?[indexPath.row-1]
+            if itemModel?.type == ScienceCellType.doc.rawValue || itemModel?.type == ScienceCellType.topic2.rawValue {
+                
+                let cell = RecommendScienceCell.createScienceCellFor(tableView, atIndexPath: indexPath, itemArray: [itemModel!])
+                
+                //点击事件的响应代码
+                cell.jumpClosure = jumpClosure
+                
+                return cell
+            }else if itemModel?.type == ScienceCellType.slide.rawValue {
+                
+                let slideModel = adModel?.item
+                let cell = HasTypeSlideCell.createHasTypeSlideCellFor(tableView, atIndexPath: indexPath, itemArray: slideModel)
+                
+                //点击事件的响应代码
+                cell.jumpClosure = jumpClosure
+                
+                return cell
+            }else if itemModel?.type == ScienceCellType.text_live.rawValue {
+                
+                let cell = HasTypeLiveCell.createHasTypeLiveCellFor(tableView, atIndexPath: indexPath, itemArray: [itemModel!])
+                
+                //点击事件的响应代码
+                cell.jumpClosure = jumpClosure
+                
+                return cell
+            }
             
-            //点击事件的响应代码
-            cell.jumpClosure = jumpClosure
-            
-            return cell
         }
+        return UITableViewCell()
     }
 }
 

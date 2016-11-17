@@ -43,14 +43,12 @@ class RecommendViewController: UIViewController {
         //创建首页视图
         createHomePage()
         
-        addRefresh({ 
+        addRefresh({
             self.currentPage = 1
-            self.downloadRecommendScience()
-            self.downloadRecommendFun()
-            }) { 
-                self.currentPage += 1
-                self.downloadRecommendScience()
-                self.downloadRecommendFun()
+            self.downloadRecommendData()
+        }) {
+            self.currentPage += 1
+            self.downloadRecommendData()
         }
     }
     
@@ -205,6 +203,9 @@ extension RecommendViewController:KTCDownloaderProtocol {
                 //1.json解析
                 let scienceModel = RecommendModel.parseData(tmpData)
                 
+                scienceView?.tableView?.mj_header.endRefreshing()
+                scienceView?.tableView?.mj_footer.endRefreshing()
+                
                 //2.显示UI
                 //2.1 头部滚动视图
                 scienceView?.adModel = scienceModel.RecommendValue1
@@ -213,7 +214,8 @@ extension RecommendViewController:KTCDownloaderProtocol {
                 
                 //3.点击科技页面的某一个部分，跳转到后面的界面
                 self.scienceView?.jumpClosure = {  jumpUrl in
-                   
+                    print(jumpUrl)
+                    print(jumpUrl.characters.count)
                     KTCService.handleEvent(jumpUrl, onViewController: self)
                 }
                 
@@ -224,6 +226,9 @@ extension RecommendViewController:KTCDownloaderProtocol {
             if let tmpData = data {
                 //1.json解析
                 let funModel = RecommendModel.parseData(tmpData)
+                
+                funView?.tableView?.mj_header.endRefreshing()
+                funView?.tableView?.mj_footer.endRefreshing()
                 
                 //2.显示UI
                 //2.1 头部滚动视图

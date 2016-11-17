@@ -144,7 +144,10 @@ extension RecommendHeaderCell:UIScrollViewDelegate {
         pageControl.currentPage = Int(index)
         
         //显示title文字
-        titleLabel.text = itemArray![pageControl.currentPage].title
+        if itemArray?[pageControl.currentPage].title != nil {
+            titleLabel.text = itemArray![pageControl.currentPage].title
+        }
+        
     }
     
     //点击状态栏返回顶部
