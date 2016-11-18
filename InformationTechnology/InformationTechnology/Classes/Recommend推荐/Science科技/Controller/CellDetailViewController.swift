@@ -46,7 +46,7 @@ class CellDetailViewController: UIViewController {
     func downloadData() {
         
         let aurlLimitList = String(format: urlString!, currentPage)
-        print(aurlLimitList)
+        
         let downloader = KTCDownloader()
         downloader.delegate = self
         downloader.postWithUrl(aurlLimitList)

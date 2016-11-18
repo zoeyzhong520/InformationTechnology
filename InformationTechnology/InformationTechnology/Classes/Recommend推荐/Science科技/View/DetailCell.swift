@@ -68,7 +68,7 @@ class DetailCell: UITableViewCell {
             //创建视图
             createView()
         }else{
-            print(bodyModel?.content?.wwwUrl)
+            
             let url = NSURL(string: (bodyModel?.content?.wwwUrl)!)
             let request = NSURLRequest(URL: url!)
             webView.loadRequest(request)
