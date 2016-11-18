@@ -239,6 +239,7 @@ extension RecommendViewController:KTCDownloaderProtocol {
                 self.funView?.jumpClosure = {  jumpUrl in
                     
                     KTCService.handleEvent(jumpUrl, onViewController: self)
+                    
                 }
                 
             }

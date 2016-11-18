@@ -39,7 +39,7 @@ class CellDetailViewController: UIViewController,navigationBarProtocol {
         addTitle("推荐")
         
         //添加button
-        addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
+        //addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
         
         automaticallyAdjustsScrollViewInsets = false
         detailView = CellDetailView(frame: CGRectZero)

@@ -94,7 +94,7 @@ class CollectionViewController: UIViewController {
         segment.frame = CGRectMake(0, 0, 100, 40)
         segment.setWidth(100, forSegmentAtIndex: 0)
         segment.setWidth(100, forSegmentAtIndex: 1)
-        segment.tintColor = UIColor.orangeColor()
+        segment.tintColor = UIColor.redColor()
         segment.layer.masksToBounds = true
         segment.layer.cornerRadius = 5
         

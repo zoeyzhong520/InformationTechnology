@@ -85,7 +85,7 @@ extension RecommendView:UITableViewDelegate,UITableViewDataSource {
             if itemModel?.type == ScienceCellType.doc.rawValue || itemModel?.type == ScienceCellType.topic2.rawValue {
                 height = 110
             }else if itemModel?.type == ScienceCellType.slide.rawValue || itemModel?.type == ScienceCellType.text_live.rawValue {
-                height = 180
+                height = 160
             }
             
         }

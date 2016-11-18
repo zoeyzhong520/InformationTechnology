@@ -41,7 +41,7 @@ class AdDetailViewController: UIViewController,navigationBarProtocol {
         addTitle("推荐")
         
         //添加button
-        addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
+        //addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
         
         //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距,我们要取消这个间距
         automaticallyAdjustsScrollViewInsets = false

@@ -109,6 +109,7 @@ class HasTypeSlideCell: UITableViewCell {
             jumpClosure!((item?.id)!)
             //print("\(item.id!)"+"\(item.documentId!)")
         }
+        
     }
     
     //创建cell的方法

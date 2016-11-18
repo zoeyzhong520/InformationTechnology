@@ -68,10 +68,11 @@ class HasTypeLiveCell: UITableViewCell {
         //获取点击的数据
         let item = itemArray![index]
         
-        if jumpClosure != nil  && item.commentsUrl != nil && item.id != nil {
+        if jumpClosure != nil  && item.commentsUrl != nil {
             jumpClosure!(item.commentsUrl!)
             //print("\(item.id!)"+"\(item.documentId!)")
         }
+        
     }
     
     //创建cell的方法

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,10 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hasTypeSlideCellId" id="KGk-i7-Jjw" customClass="HasTypeSlideCell" customModule="InformationTechnology" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USY-HU-QML" userLabel="titleLabel">
@@ -24,20 +24,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="37Z-UK-Ame" userLabel="leftImg">
-                        <rect key="frame" x="10" y="40" width="127" height="100"/>
+                        <rect key="frame" x="10" y="40" width="127" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="127" id="6at-VE-u8Q"/>
-                            <constraint firstAttribute="height" constant="100" id="La7-7T-YyN"/>
+                            <constraint firstAttribute="height" constant="80" id="La7-7T-YyN"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j0l-XJ-Y24" userLabel="middleImg">
-                        <rect key="frame" x="143" y="40" width="127" height="100"/>
+                        <rect key="frame" x="143" y="40" width="127" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="Yv6-t1-sUf"/>
+                            <constraint firstAttribute="height" constant="80" id="Yv6-t1-sUf"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEJ-pD-oup" userLabel="timeLabel">
-                        <rect key="frame" x="10" y="149" width="284" height="20"/>
+                        <rect key="frame" x="10" y="129" width="284" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="8iD-HB-gza"/>
                         </constraints>
@@ -46,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZz-B2-bFM" userLabel="countLabel">
-                        <rect key="frame" x="321" y="149" width="30" height="20"/>
+                        <rect key="frame" x="321" y="129" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="ANU-x1-CZx"/>
                             <constraint firstAttribute="width" constant="30" id="Uck-CF-VL6"/>
@@ -56,7 +56,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnI-5S-tb5" userLabel="commentSallLabel">
-                        <rect key="frame" x="374" y="149" width="30" height="20"/>
+                        <rect key="frame" x="374" y="129" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Esa-11-6TC"/>
                             <constraint firstAttribute="height" constant="20" id="kaE-hD-OM9"/>
@@ -66,23 +66,23 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="replay.png" translatesAutoresizingMaskIntoConstraints="NO" id="k30-aI-4V4" userLabel="commentImg">
-                        <rect key="frame" x="304" y="154" width="13" height="13"/>
+                        <rect key="frame" x="304" y="134" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="uux-ae-P7p"/>
                             <constraint firstAttribute="width" constant="13" id="zUA-XX-wQF"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like.png" translatesAutoresizingMaskIntoConstraints="NO" id="G2T-OY-ZVN" userLabel="countImg">
-                        <rect key="frame" x="355" y="152" width="15" height="15"/>
+                        <rect key="frame" x="355" y="132" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="Q6f-e6-NDa"/>
                             <constraint firstAttribute="height" constant="15" id="rax-Wr-H69"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cgj-oP-8MC" userLabel="rightImg">
-                        <rect key="frame" x="276" y="40" width="127" height="100"/>
+                        <rect key="frame" x="276" y="40" width="127" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="EEv-V9-kKe"/>
+                            <constraint firstAttribute="height" constant="80" id="EEv-V9-kKe"/>
                         </constraints>
                     </imageView>
                 </subviews>
