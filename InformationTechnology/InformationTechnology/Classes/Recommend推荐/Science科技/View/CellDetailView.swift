@@ -10,6 +10,13 @@ import UIKit
 
 class CellDetailView: UIView {
 
+    //定义Cell详情页面的布局类型
+    enum ScienceDetailCellType:String {
+        case doc = "doc"
+        case slide = "slides"
+
+    }
+    
     //数据
     var model:CellDetailModel? {
         didSet {
@@ -61,11 +68,23 @@ extension CellDetailView:UITableViewDataSource,UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cell = DetailCell.ceateCellFor(tableView, atIndexPath: indexPath, bodyModel: model?.body)
             
-            //设置选中样式
-            cell.selectionStyle = .None
-            return cell
+            if model?.meta?.type == ScienceDetailCellType.slide.rawValue {
+                
+                let cell = HasSlideDetailCell.createSlidesForCell(tableView, atIndexPath: indexPath, slideArray: model?.body?.slides)
+                
+                cell.selectionStyle = .None
+                return cell
+                
+            }else{
+                
+                let cell = DetailCell.ceateCellFor(tableView, atIndexPath: indexPath, bodyModel: model?.body)
+                
+                //设置选中样式
+                cell.selectionStyle = .None
+                return cell
+            }
+            
         }
         return UITableViewCell()
     }

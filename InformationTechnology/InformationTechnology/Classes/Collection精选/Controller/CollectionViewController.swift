@@ -15,11 +15,11 @@ class CollectionViewController: UIViewController {
     //定义数据刷新页码
     var currentPage = 1
     
-    //精选的Discover视图
-    private var discoverView:CollectionDiscoverView?
-    
     //精选的CoolPlay视图
     private var coolPlayView:CollectCoolPlayView?
+    
+    //精选的Discover视图
+    private var discoverView:CollectionDiscoverView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,22 @@ class CollectionViewController: UIViewController {
         
         //构造segment视图控制器
         configUI()
+    }
+    
+    //添加上下拉刷新
+    func addRefresh(header:(()->())?,footer:(()->())?) {
         
+        if header != nil {
+            
+            self.coolPlayView?.collecView?.mj_header = MJRefreshNormalHeader(refreshingBlock: header)
+            self.discoverView?.collecView?.mj_header = MJRefreshNormalHeader(refreshingBlock: header)
+        }
+        
+        if footer != nil {
+            
+            self.coolPlayView?.collecView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: footer)
+            self.discoverView?.collecView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: footer)
+        }
     }
     
     //下载精选界面的数据

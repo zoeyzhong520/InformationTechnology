@@ -68,23 +68,10 @@ class DetailCell: UITableViewCell {
             //创建视图
             createView()
         }else{
-            
-            webView.scrollView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0)
-            let view = UIView.createView()
-            view.backgroundColor = UIColor.whiteColor()
-            webView.scrollView.addSubview(view)
-            view.frame = CGRect(x: 0, y: -200, width: kScreenWidth, height: 200)
-            
-            let label = UILabel.createLabel("真不巧，网页走失了......", textAlignment: .Center, font: UIFont.systemFontOfSize(20))
-            label.textColor = UIColor.grayColor()
-            view.addSubview(label)
-            
-            label.snp_makeConstraints(closure: { (make) in
-                make.left.equalTo(view).inset(5)
-                make.right.equalTo(view).inset(-5)
-                make.top.equalTo(view).inset(160)
-                make.height.equalTo(40)
-            })
+            print(bodyModel?.content?.wwwUrl)
+            let url = NSURL(string: (bodyModel?.content?.wwwUrl)!)
+            let request = NSURLRequest(URL: url!)
+            webView.loadRequest(request)
         }
         
         

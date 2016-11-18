@@ -49,9 +49,18 @@ class RecommendScienceCell: UITableViewCell {
                 
                 //更新时间
                 let tmpTimeLabel = itemArray![i]
-                timeLabel.text = tmpTimeLabel.updateTime
+                if tmpTimeLabel.type == "topic2" {
+                    timeLabel.text = "专题"
+                    timeLabel.textColor = UIColor.redColor()
+                }else if tmpTimeLabel.type == "doc" {
+                    timeLabel.text = tmpTimeLabel.updateTime
+                    timeLabel.textColor = UIColor.lightGrayColor()
+                }
                 
                 //图片
+                commentImage.image = UIImage(named: "like.png")
+                sourceImage.image = UIImage(named: "bookmarks.png")
+                
                 let model = itemArray![i]
                 //创建图片
                 if model.thumbnail != nil {
@@ -69,18 +78,21 @@ class RecommendScienceCell: UITableViewCell {
                 
                 //阅读数
                 let tmpSallLabel = itemArray![i]
-                if tmpSallLabel.commentsall == nil {
-                    commentSallLabel.text = "0"
-                }else{
+                if tmpSallLabel.commentsall != nil {
                     commentSallLabel.text = tmpSallLabel.commentsall
                 }
                 
                 //来源
                 let tmpSourceLabel = itemArray![i]
-                if tmpSourceLabel.source == nil {
-                    sourceLabel.text = "敬请期待"
+                if tmpSourceLabel.type == "topic2" {
+                    sourceLabel.text = "专题推荐"
                 }else{
-                    sourceLabel.text = tmpSourceLabel.source
+                    if tmpSourceLabel.source == nil {
+                        sourceLabel.text = "Other"
+                    }else{
+                        sourceLabel.text = tmpSourceLabel.source
+                    }
+                    
                 }
             }
         }
@@ -94,11 +106,11 @@ class RecommendScienceCell: UITableViewCell {
         let item = itemArray![index]
         
         if jumpClosure != nil  && item.documentId != nil && item.id != nil {
-            jumpClosure!("\(item.id!)"+"\(item.documentId!)")
+            jumpClosure!("\(item.id!)")
             //print("\(item.id!)"+"\(item.documentId!)")
         }
     }
-
+    
     
     //创建cell的方法
     class func createScienceCellFor(tableView:UITableView, atIndexPath indexPath:NSIndexPath, itemArray:Array<RecommendValueZeroItem>?) -> RecommendScienceCell {

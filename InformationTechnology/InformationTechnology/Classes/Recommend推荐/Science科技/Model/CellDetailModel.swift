@@ -36,6 +36,9 @@ class  CellDetailBody:NSObject {
     var docAdClose:NSNumber?
     var documentId:String?
     
+    var slides:Array<CellDetailBodySlides>?
+    var content:CellDetailBodyContent?
+    
     var editorcode:String?
     var editTime:String?
     var img:Array<CellDetailImg>?
@@ -59,9 +62,20 @@ class  CellDetailBody:NSObject {
         model.author = json["author"].string
         model.commentCount = json["commentCount"].number
         model.commentsUrl = json["commentsUrl"].string
+        
         model.commentType = json["commentType"].string
         model.docAdClose = json["docAdClose"].number
         model.documentId = json["documentId"].string
+        
+        var array1 = Array<CellDetailBodySlides>()
+        for (_,subjson) in json["slides"] {
+            let slidesModel = CellDetailBodySlides.parse(subjson)
+            array1.append(slidesModel)
+        }
+        model.slides = array1
+        
+        model.content = CellDetailBodyContent.parse(json["content"])
+        
         model.editorcode = json["editorcode"].string
         model.editTime = json["editTime"].string
         
@@ -85,6 +99,52 @@ class  CellDetailBody:NSObject {
         
         return model
     }
+}
+
+class CellDetailBodySlides:NSObject {
+    
+    var description1:String?
+    var image:String?
+    var title:String?
+    
+    class func parse(json:JSON) -> CellDetailBodySlides {
+        
+        let model = CellDetailBodySlides()
+        model.description1 = json["description"].string
+        model.image = json["image"].string
+        model.title = json["title"].string
+        
+        return model
+    }
+}
+
+class CellDetailBodyContent:NSObject {
+    
+    var color:String?
+    var createTime:NSNumber?
+    var nightColor:String?
+    
+    var shareurl:String?
+    var slideAdId:String?
+    var style:String?
+    var wwwUrl:String?
+    
+    class func parse(json:JSON) -> CellDetailBodyContent {
+        
+        let model = CellDetailBodyContent()
+        model.color = json["color"].string
+        model.createTime = json["createTime"].number
+        model.nightColor = json["nightColor"].string
+        
+        model.shareurl = json["shareurl"].string
+        model.slideAdId = json["slideAdId"].string
+        model.style = json["style"].string
+        model.wwwUrl = json["wwwUrl"].string
+        
+        return model
+    }
+    
+    
 }
 
 class CellDetailImg:NSObject {

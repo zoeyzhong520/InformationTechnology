@@ -28,7 +28,7 @@ class HasTypeSlideCell: UITableViewCell {
     @IBOutlet weak var commentSallLabel: UILabel!
     
     //数据
-    var itemArray:Array<RecommendValueOneItem>? {
+    var itemArray:Array<RecommendValueZeroItem>? {
         didSet {
             //显示数据
             showData()
@@ -52,23 +52,32 @@ class HasTypeSlideCell: UITableViewCell {
                 
                 //图片
                 let model = itemArray![i]
-                //创建图片
-                if model.style?.images?.count > 0 {
+                if model.hasSlide == true {
                     
-                    let url1 = NSURL(string: (model.style?.images![0])!)
+                    //创建图片
+                    if model.style?.images?.count > 0 {
+                        
+                        let url1 = NSURL(string: (model.style?.images![0])!)
+                        
+                        leftImg.kf_setImageWithURL(url1!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+                        
+                        
+                        let url2 = NSURL(string: (model.style?.images![1])!)
+                        
+                        middleImg.kf_setImageWithURL(url2!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+                        
+                        
+                        let url3 = NSURL(string: (model.style?.images![2])!)
+                        
+                        rightImg.kf_setImageWithURL(url3!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+                        
+                    }
                     
-                    leftImg.kf_setImageWithURL(url1!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
-                    
-                    
-                    let url2 = NSURL(string: (model.style?.images![1])!)
-                    
-                    middleImg.kf_setImageWithURL(url2!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
-                    
-                    
-                    let url3 = NSURL(string: (model.style?.images![2])!)
-                    
-                    rightImg.kf_setImageWithURL(url3!, placeholderImage: UIImage(named: "sdefaultImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
-                    
+                    //点击数
+                    let tmpCountLabel = itemArray![i]
+                    if tmpCountLabel.style?.slideCount != nil {
+                        countLabel.text = "\(tmpCountLabel.style!.slideCount!)"
+                    }
                 }
                 
                 //添加点击事件
@@ -84,11 +93,7 @@ class HasTypeSlideCell: UITableViewCell {
                     commentSallLabel.text = tmpSallLabel.commentsall!
                 }
                 
-                //点击数
-                let tmpCountLabel = itemArray![i]
-                if tmpCountLabel.style?.slideCount != nil {
-                    countLabel.text = "\(tmpCountLabel.style!.slideCount!)"
-                }
+                
             }
         }
         
@@ -107,7 +112,7 @@ class HasTypeSlideCell: UITableViewCell {
     }
     
     //创建cell的方法
-    class func createHasTypeSlideCellFor(tableView:UITableView, atIndexPath indexPath:NSIndexPath, itemArray:Array<RecommendValueOneItem>?) -> HasTypeSlideCell {
+    class func createHasTypeSlideCellFor(tableView:UITableView, atIndexPath indexPath:NSIndexPath, itemArray:Array<RecommendValueZeroItem>?) -> HasTypeSlideCell {
         
         let cellId = "hasTypeSlideCellId"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? HasTypeSlideCell

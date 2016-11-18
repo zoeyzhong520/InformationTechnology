@@ -103,11 +103,12 @@ class RecommendHeaderCell: UITableViewCell {
         
         let index = (g.view?.tag)! - 200
         //获取点击的数据
-        let item = itemArray![index]
+        let item = itemArray?[index]
         
-        if jumpClosure != nil  && item.id != nil {
-            jumpClosure!(item.id!)
+        if jumpClosure != nil  && item!.id != nil {
+            jumpClosure!(item!.id!)
         }
+        
     }
     
     //创建cell的方法

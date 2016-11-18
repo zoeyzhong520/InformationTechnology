@@ -1,30 +1,30 @@
 //
-//  AdDetailCell.swift
+//  HasSlideDetailCell.swift
 //  InformationTechnology
 //
-//  Created by qianfeng on 16/11/4.
+//  Created by qianfeng on 16/11/18.
 //  Copyright © 2016年 zzj. All rights reserved.
 //
 
 import UIKit
 
-class AdDetailCell: UITableViewCell {
+class HasSlideDetailCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var pageCtrl: UIPageControl!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var pageLabel: UILabel!
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var descLabel: UILabel!
     
     //缩放比例
     var scale:CGFloat = 1.0
     
     //显示数据
-    var slideArray:Array<AdDetailBodySlides>? {
+    var slideArray:Array<CellDetailBodySlides>? {
         didSet {
             showData()
         }
@@ -84,16 +84,16 @@ class AdDetailCell: UITableViewCell {
                 
                 //显示标题
                 if model.title != nil {
-                    titleLabel.text = slideArray![pageControl.currentPage].title
+                    titleLabel.text = slideArray![pageCtrl.currentPage].title
                 }
                 
                 //显示描述内容
                 if model.description1 != nil {
-                    descLabel.text = slideArray![pageControl.currentPage].description1
+                    descLabel.text = slideArray![pageCtrl.currentPage].description1
                 }
                 
                 //显示图片页数
-                pageLabel.text = "\(pageControl.currentPage+1)∕\(slideArray!.count)"
+                pageLabel.text = "\(pageCtrl.currentPage+1)∕\(slideArray!.count)"
                 
             }
             
@@ -104,7 +104,7 @@ class AdDetailCell: UITableViewCell {
             })
             
             //分页控件
-            pageControl.numberOfPages = cnt!
+            pageCtrl.numberOfPages = cnt!
         }
     }
     
@@ -118,12 +118,12 @@ class AdDetailCell: UITableViewCell {
     }
     
     //创建cell的方法
-    class func createAdSlidesForCell(tableView:UITableView, atIndexPath:NSIndexPath, slideArray:Array<AdDetailBodySlides>?) -> AdDetailCell {
+    class func createSlidesForCell(tableView:UITableView, atIndexPath:NSIndexPath, slideArray:Array<CellDetailBodySlides>?) -> HasSlideDetailCell {
         
-        let cellId = "adDetailCellId"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? AdDetailCell
+        let cellId = "hasSlideDetailCellId"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? HasSlideDetailCell
         if cell == nil {
-            cell = NSBundle.mainBundle().loadNibNamed("AdDetailCell", owner: nil, options: nil).last as? AdDetailCell
+            cell = NSBundle.mainBundle().loadNibNamed("AdDetailCell", owner: nil, options: nil).last as? HasSlideDetailCell
         }
         cell?.slideArray = slideArray
         return cell!
@@ -143,23 +143,26 @@ class AdDetailCell: UITableViewCell {
 }
 
 //MARK: UIScrollView代理方法
-extension AdDetailCell:UIScrollViewDelegate {
+extension HasSlideDetailCell:UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
         let index = scrollView.contentOffset.x/scrollView.bounds.size.width
-        pageControl!.currentPage = Int(index)
+        pageCtrl!.currentPage = Int(index)
         
         //显示标题
-        titleLabel.text = slideArray![pageControl.currentPage].title
+        titleLabel.text = slideArray![pageCtrl.currentPage].title
         
         //显示描述内容
-        descLabel.text = slideArray![pageControl.currentPage].description1
+        descLabel.text = slideArray![pageCtrl.currentPage].description1
         
         //显示图片页数
-        pageLabel.text = "\(pageControl.currentPage+1)∕\(slideArray!.count)"
+        pageLabel.text = "\(pageCtrl.currentPage+1)∕\(slideArray!.count)"
     }
 }
+
+
+
 
 
 

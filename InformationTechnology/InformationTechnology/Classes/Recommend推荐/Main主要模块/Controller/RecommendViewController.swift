@@ -47,7 +47,7 @@ class RecommendViewController: UIViewController {
             self.currentPage = 1
             self.downloadRecommendData()
         }) {
-            self.currentPage += 1
+            //self.currentPage += 1
             self.downloadRecommendData()
         }
     }
@@ -214,8 +214,7 @@ extension RecommendViewController:KTCDownloaderProtocol {
                 
                 //3.点击科技页面的某一个部分，跳转到后面的界面
                 self.scienceView?.jumpClosure = {  jumpUrl in
-                    print(jumpUrl)
-                    print(jumpUrl.characters.count)
+        
                     KTCService.handleEvent(jumpUrl, onViewController: self)
                 }
                 

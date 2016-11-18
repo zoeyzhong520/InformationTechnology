@@ -60,26 +60,36 @@ class RecommendValueZero:NSObject {
 
 class RecommendValueZeroItem:NSObject {
     
+    var hasSlide:Bool?
+    var style:RecommendValueZeroStyle?
+    
     var comments:String?
     var commentsall:String?
     var commentsUrl:String?
+    
     var documentId:String?
     var id:String?
-    
     var link:RecommendValueZeroLink?
     var online:String?
+    
     var source:String?
     var thumbnail:String?
     var title:String?
+    
     var type:String?
     var updateTime:String?
     
     class func parse(json:JSON) -> RecommendValueZeroItem {
         
         let model = RecommendValueZeroItem()
+        
+        model.hasSlide = json["hasSlide"].bool
+        model.style = RecommendValueZeroStyle.parse(json["style"])
+        
         model.comments = json["comments"].string
         model.commentsall = json["commentsall"].string
         model.commentsUrl = json["commentsUrl"].string
+        
         model.documentId = json["documentId"].string
         model.id = json["id"].string
         
@@ -88,10 +98,30 @@ class RecommendValueZeroItem:NSObject {
         model.online = json["online"].string
         model.source = json["source"].string
         model.thumbnail = json["thumbnail"].string
+        
         model.title = json["title"].string
         model.type = json["type"].string
         model.updateTime = json["updateTime"].string
 
+        return model
+    }
+}
+
+class RecommendValueZeroStyle:NSObject {
+    
+    var images:Array<String>?
+    var slideCount:NSNumber?
+    var type:String?
+    
+    class func parse(json:JSON) -> RecommendValueZeroStyle {
+        
+        let model = RecommendValueZeroStyle()
+        
+        model.images = json["images"].object as? Array<String>
+        
+        model.slideCount = json["slideCount"].number
+        model.type = json["type"].string
+        
         return model
     }
 }
@@ -149,15 +179,19 @@ class RecommendValueOneItem:NSObject {
     var comments:String?
     var commentsall:String?
     var commentsUrl:String?
+    
     var documentId:String?
-    var hasSlide:Bool? = true
+    var hasSlide:Bool?
     var id:String?
+    
     var link:RecommendValueOneLink?
     var online:String?
     var source:String?
+    
     var style:RecommendValueOneStyle?
     var thumbnail:String?
     var title:String?
+    
     var type:String?
     var updateTime:String?
     
@@ -167,7 +201,9 @@ class RecommendValueOneItem:NSObject {
         model.comments = json["comments"].string
         model.commentsall = json["commentsall"].string
         model.commentsUrl = json["commentsUrl"].string
+        
         model.documentId = json["documentId"].string
+        model.hasSlide = json["hasSlide"].bool
         model.id = json["id"].string
         
         model.link = RecommendValueOneLink.parse(json["link"])
@@ -177,6 +213,7 @@ class RecommendValueOneItem:NSObject {
         model.online = json["online"].string
         model.source = json["source"].string
         model.thumbnail = json["thumbnail"].string
+        
         model.title = json["title"].string
         model.type = json["type"].string
         model.updateTime = json["updateTime"].string

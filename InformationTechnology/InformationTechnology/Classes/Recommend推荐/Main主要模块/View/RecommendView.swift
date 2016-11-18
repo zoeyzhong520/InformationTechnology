@@ -115,8 +115,7 @@ extension RecommendView:UITableViewDelegate,UITableViewDataSource {
                 return cell
             }else if itemModel?.type == ScienceCellType.slide.rawValue {
                 
-                let slideModel = adModel?.item
-                let cell = HasTypeSlideCell.createHasTypeSlideCellFor(tableView, atIndexPath: indexPath, itemArray: slideModel)
+                let cell = HasTypeSlideCell.createHasTypeSlideCellFor(tableView, atIndexPath: indexPath, itemArray: [itemModel!])
                 
                 //点击事件的响应代码
                 cell.jumpClosure = jumpClosure

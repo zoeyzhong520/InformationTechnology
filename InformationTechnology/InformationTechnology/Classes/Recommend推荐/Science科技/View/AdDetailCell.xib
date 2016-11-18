@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CYe-dy-WjU" userLabel="pageControl">
-                                <rect key="frame" x="0.0" y="0.0" width="406" height="37"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="5y5-cc-uod"/>
                                 </constraints>
@@ -59,7 +59,7 @@
                             <constraint firstItem="1Oq-Th-Ge3" firstAttribute="top" secondItem="CYe-dy-WjU" secondAttribute="bottom" id="U1N-yg-gL1"/>
                             <constraint firstItem="1Oq-Th-Ge3" firstAttribute="leading" secondItem="BqL-6v-LEp" secondAttribute="trailing" constant="40" id="VP5-r6-SRO"/>
                             <constraint firstItem="BqL-6v-LEp" firstAttribute="top" secondItem="CYe-dy-WjU" secondAttribute="bottom" id="hRr-v2-oCN"/>
-                            <constraint firstAttribute="trailing" secondItem="CYe-dy-WjU" secondAttribute="trailing" constant="8" id="lbV-93-hIX"/>
+                            <constraint firstAttribute="trailing" secondItem="CYe-dy-WjU" secondAttribute="trailing" id="lbV-93-hIX"/>
                             <constraint firstItem="CYe-dy-WjU" firstAttribute="leading" secondItem="xwN-sh-ZNM" secondAttribute="leading" id="qiY-CI-1ei"/>
                             <constraint firstItem="MV9-CW-5Kf" firstAttribute="leading" secondItem="xwN-sh-ZNM" secondAttribute="leading" constant="8" id="uwK-BE-vWa"/>
                             <constraint firstAttribute="trailing" secondItem="MV9-CW-5Kf" secondAttribute="trailing" constant="8" id="wuI-FW-DW7"/>
