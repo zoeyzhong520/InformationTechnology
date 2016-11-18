@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CellDetailViewController: UIViewController {
+class CellDetailViewController: UIViewController,navigationBarProtocol {
     
     //创建视图
     private var detailView:CellDetailView?
@@ -30,7 +30,16 @@ class CellDetailViewController: UIViewController {
         configUI()
     }
     
+    func leftBtnClick() {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     func configUI() {
+        
+        addTitle("推荐")
+        
+        //添加button
+        addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
         
         automaticallyAdjustsScrollViewInsets = false
         detailView = CellDetailView(frame: CGRectZero)

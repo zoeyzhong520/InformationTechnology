@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyXMLParser
 import MBProgressHUD
 
-class HomePageTableView: UITableViewController,AddReFreshProtocol {
+class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarProtocol {
     
     //定义界面数据数组
     var dataArray:[NewestModel] = []
@@ -33,7 +33,6 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        
         configUI()//搭建界面
         
         DownloadData()//下载界面数据
@@ -167,7 +166,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
             //广告高度为180
             return 180
         }
-        return 110
+        return 90
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -231,6 +230,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
                 //界面详情
                 let model = dataArray[indexPath.row-1]
                 
+                vc.title = model.title
+                
                 if model.url != nil {
                     vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
                     navigationController?.pushViewController(vc, animated: true)
@@ -241,6 +242,9 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol {
         }else{
             //界面详情
             let model = dataArray[indexPath.row]
+            
+            vc.title = model.title
+            
             if model.url != nil {
                 vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
                 navigationController?.pushViewController(vc, animated: true)

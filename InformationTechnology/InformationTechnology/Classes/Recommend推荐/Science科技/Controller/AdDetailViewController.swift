@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class AdDetailViewController: UIViewController {
+class AdDetailViewController: UIViewController,navigationBarProtocol {
     
     //定义数据刷新页码
     var currentPage = 1
@@ -31,8 +31,17 @@ class AdDetailViewController: UIViewController {
         createAdView()
     }
     
+    func leftBtnClick() {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     //创建广告详情视图
     func createAdView() {
+        
+        addTitle("推荐")
+        
+        //添加button
+        addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))
         
         //滚动视图或者其子视图放在导航下面，会自动加一个上面的间距,我们要取消这个间距
         automaticallyAdjustsScrollViewInsets = false

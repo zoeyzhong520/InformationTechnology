@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomepageViewController: UIViewController {
+class HomepageViewController: UIViewController,navigationBarProtocol {
 
     
     /*
@@ -37,6 +37,8 @@ class HomepageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.whiteColor()
+        addTitle("科技之窗")
         
         //更新界面数据接口，并reloadData()
         v1.title = "最新"

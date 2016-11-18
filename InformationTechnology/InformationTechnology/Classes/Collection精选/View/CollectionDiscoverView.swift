@@ -129,6 +129,7 @@ extension CollectionDiscoverView:UICollectionViewDataSource,UICollectionViewDele
             jumpClosure!(mediaUrl!)
             
         }
+        
     }
     
 }

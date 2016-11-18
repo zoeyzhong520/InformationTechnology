@@ -25,6 +25,8 @@ class CoolPlayDetailViewController: UIViewController,navigationBarProtocol {
     //搭建界面
     func configUI() {
         
+        addTitle("酷玩")
+        
         //响应用户操作
         self.view.userInteractionEnabled = true
         

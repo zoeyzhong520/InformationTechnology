@@ -69,8 +69,7 @@ class HeaderScrollView: UIView,UIScrollViewDelegate{
     //添加手势
     func tapAction(g:UIGestureRecognizer) {
         
-        //let index = (g.view?.tag)!-100
-        print(index)
+        
     }
     
     //搭建界面
