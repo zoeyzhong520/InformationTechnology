@@ -21,7 +21,7 @@ protocol navigationBarProtocol:NSObjectProtocol {
 
 extension navigationBarProtocol where Self:UIViewController {
     func addTitle(title:String) {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), forBarMetrics: .Default)
+        //navigationController?.navigationBar.setBackgroundImage(UIImage(named: ""), forBarMetrics: .Default)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         label.textAlignment = .Center
         label.text = title

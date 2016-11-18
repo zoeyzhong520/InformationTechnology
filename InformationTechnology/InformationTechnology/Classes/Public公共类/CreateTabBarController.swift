@@ -20,13 +20,13 @@ class CreateTabBarController: UITabBarController {
     func createViewControllers() {
         
         //视图控制器的名字
-        let nameArray = ["HomepageViewController","RecommendViewController","CollectionViewController","MineViewController"]
+        let nameArray = ["HomepageViewController","RecommendViewController","CollectionViewController"]
         
         //图片的名字
         let images = ["tabbar_news","tabbar_discover","tabbar_vision","tabbar_my"]
         
         //标题文字
-        let titles = ["首页","推荐","精选","我的"]
+        let titles = ["首页","推荐","精选"]
         
         //2.创建视图控制器
         //视图控制器对象的数组
