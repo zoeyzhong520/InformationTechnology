@@ -214,7 +214,7 @@ extension RecommendViewController:KTCDownloaderProtocol {
                 
                 //3.点击科技页面的某一个部分，跳转到后面的界面
                 self.scienceView?.jumpClosure = {  jumpUrl in
-        
+                    
                     KTCService.handleEvent(jumpUrl, onViewController: self)
                 }
                 

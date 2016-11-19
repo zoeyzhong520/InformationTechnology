@@ -29,7 +29,7 @@ let kScNavBarHeight = kArrowButtonWidth
 /*
 自定义导航栏的颜色
 */
-let kNavColor = UIColor.whiteColor()   //这个是在不设置自定义导航栏的颜色时的默认颜色
+let kNavColor = UIColor.clearColor()   //这个是在不设置自定义导航栏的颜色时的默认颜色
 
 class SKMacros: NSObject {
 

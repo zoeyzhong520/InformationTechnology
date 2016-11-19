@@ -42,8 +42,8 @@ class CreateTabBarController: UITabBarController {
             //导航
             let navCtrl = UINavigationController(rootViewController: vc)
             navCtrl.tabBarItem.image = UIImage(named: images[i])
-            navCtrl.tabBarItem.selectedImage = UIImage(named: images[i]+"_selected")?.imageWithRenderingMode(.AlwaysOriginal)
-            self.tabBar.tintColor = UIColor.redColor()
+            navCtrl.tabBarItem.selectedImage = UIImage(named: images[i]+"_selected")?.imageWithRenderingMode(.Automatic)
+            self.tabBar.tintColor = UIColor(red: 209/255.0, green: 49/255.0, blue: 92/255.0, alpha: 1.0)
             navCtrl.title = titles[i]
             ctrlArray.append(navCtrl)
         }

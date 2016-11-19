@@ -67,10 +67,8 @@ class HasTypeLiveCell: UITableViewCell {
         let index = (g.view?.tag)! - 200
         //获取点击的数据
         let item = itemArray![index]
-        
         if jumpClosure != nil  && item.commentsUrl != nil {
             jumpClosure!(item.commentsUrl!)
-            //print("\(item.id!)"+"\(item.documentId!)")
         }
         
     }

@@ -131,7 +131,7 @@ class SKScNavViewController: UIViewController, SKScNavBarDelegate, UIScrollViewD
             showArrowButton = true
         }
         if lineColor == nil {
-            lineColor = UIColor.redColor()
+            lineColor = UIColor(red: 209/255.0, green: 49/255.0, blue: 92/255.0, alpha: 1.0)
         }
         //获取所有子视图控制器上的title
         titles = NSMutableArray(capacity: subViewControllers.count)

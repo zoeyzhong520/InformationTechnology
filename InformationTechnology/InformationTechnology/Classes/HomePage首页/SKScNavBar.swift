@@ -73,7 +73,7 @@ class SKScNavBar: UIView, SKLaunchMenuDelegate {
                     tempBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
                     tempBtn.titleLabel?.font = UIFont.systemFontOfSize(14)
                 }
-                itemBtn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+                itemBtn.setTitleColor(UIColor(red: 209/255.0, green: 49/255.0, blue: 92/255.0, alpha: 1.0), forState: UIControlState.Normal)
                 itemBtn.titleLabel?.font = UIFont.systemFontOfSize(16)
             }
         }
@@ -179,7 +179,7 @@ class SKScNavBar: UIView, SKLaunchMenuDelegate {
             buttonX += widths[index] as! CGFloat
         }
         let btn = items[0] as! UIButton
-        btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+        btn.setTitleColor(lineColor, forState: UIControlState.Normal)
         btn.titleLabel?.font = UIFont.systemFontOfSize(16)
         self.setLineWithItensWidth(widths[0] as! CGFloat)
         

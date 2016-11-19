@@ -39,6 +39,7 @@ class AdDetailViewController: UIViewController,navigationBarProtocol {
     func createAdView() {
         
         addTitle("推荐")
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 209/255.0, green: 49/255.0, blue: 92/255.0, alpha: 1.0)
         
         //添加button
         //addButton(nil, imageName: "userdetails_back_unselected_night", position: .left, selector: #selector(leftBtnClick))

@@ -86,7 +86,7 @@ class KTCSegCtrl: UIView {
         
         //下划线
         lineView = UIImageView(frame: CGRectMake(0, bounds.size.height-2, w, 2))
-        lineView?.backgroundColor = UIColor.redColor()
+        lineView?.backgroundColor = UIColor(red: 209/255.0, green: 49/255.0, blue: 92/255.0, alpha: 1.0)
         addSubview(lineView!)
     }
     
@@ -115,10 +115,10 @@ class KTCSegBtn:UIControl {
         didSet {
             if clicked == true {
                 //选中
-                titleLabel?.textColor = UIColor.blackColor()
+                titleLabel?.textColor = UIColor(red: 209/255.0, green: 49/255.0, blue: 92/255.0, alpha: 1.0)
             }else{
                 //取消
-                titleLabel?.textColor = UIColor.lightGrayColor()
+                titleLabel?.textColor = UIColor.blackColor()
             }
         }
     }
@@ -133,7 +133,7 @@ class KTCSegBtn:UIControl {
         
         titleLabel = UILabel()
         titleLabel?.textAlignment = .Center
-        titleLabel?.font = UIFont.systemFontOfSize(20)
+        titleLabel?.font = UIFont.systemFontOfSize(17)
         titleLabel?.frame = bounds
         addSubview(titleLabel!)
     }
