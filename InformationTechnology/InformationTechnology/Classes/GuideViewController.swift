@@ -10,6 +10,9 @@ import UIKit
 
 class GuideViewController: UIViewController {
 
+    //创建分页控件
+    var pageCtrl:UIPageControl?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -23,11 +26,12 @@ class GuideViewController: UIViewController {
         
         //添加滚动视图
         let scrollView = UIScrollView(frame: self.view.bounds)
+        scrollView.delegate = self
         scrollView.pagingEnabled = true
         view.addSubview(scrollView)
         
         //循环添加图片
-        let imgArray = ["IMG_0168.jpg","IMG_0166.jpg","IMG_0167.jpg","IMG_0164.jpg"]
+        let imgArray = ["IMG_0169_New.jpg","IMG_0172_New.jpg","IMG_0170.jpg"]
         for i in 0..<imgArray.count {
             
             //背景图片
@@ -44,11 +48,22 @@ class GuideViewController: UIViewController {
             if i == imgArray.count-1 {
                 imageView.userInteractionEnabled = true
                 //按钮
-                let btn = UIButton(frame: CGRect(x: 110, y: kScreenHeight-180, width: kScreenWidth-2*110, height: 100))
-                //btn.backgroundColor = UIColor.redColor()
+                let btn = UIButton(frame: CGRect(x: 110, y: kScreenHeight-120, width: kScreenWidth-2*110, height: 40))
+                btn.setTitle("进入应用", forState: .Normal)
+                btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+                btn.layer.masksToBounds = true
+                btn.layer.cornerRadius = 20
+                btn.backgroundColor = UIColor.whiteColor()
                 btn.addTarget(self, action: #selector(clickBtn), forControlEvents: .TouchUpInside)
                 imageView.addSubview(btn)
             }
+            
+            //分页控件
+            pageCtrl = UIPageControl(frame: CGRect(x: 50, y: kScreenHeight-60, width: kScreenWidth-2*50, height: 30))
+            pageCtrl?.numberOfPages = imgArray.count
+            pageCtrl?.currentPageIndicatorTintColor = UIColor.whiteColor()
+            pageCtrl?.pageIndicatorTintColor = UIColor.lightGrayColor()
+            view.addSubview(pageCtrl!)
         }
         scrollView.contentSize = CGSizeMake(kScreenWidth*CGFloat(imgArray.count), 0)
     }
@@ -75,3 +90,29 @@ class GuideViewController: UIViewController {
     */
 
 }
+
+//MARK: UIScrollView代理方法
+extension GuideViewController:UIScrollViewDelegate {
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        let index = scrollView.contentOffset.x/scrollView.bounds.size.width
+        pageCtrl?.currentPage = Int(index)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

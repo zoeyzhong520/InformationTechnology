@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwN-sh-ZNM">
-                        <rect key="frame" x="0.0" y="524" width="414" height="275"/>
+                        <rect key="frame" x="0.0" y="525" width="414" height="274"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Oq-Th-Ge3" userLabel="pageLabel">
                                 <rect key="frame" x="314" y="37" width="50" height="40"/>
@@ -45,8 +45,8 @@
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MV9-CW-5Kf" userLabel="descLabel">
-                                <rect key="frame" x="8" y="77" width="398" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="8" y="77" width="398" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -67,7 +67,7 @@
                         </constraints>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVA-dk-y8g" userLabel="scrollView">
-                        <rect key="frame" x="0.0" y="274" width="414" height="250"/>
+                        <rect key="frame" x="0.0" y="275" width="414" height="250"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="9nh-Zm-syC"/>
                             <constraint firstAttribute="width" constant="414" id="Nes-I7-87M"/>
