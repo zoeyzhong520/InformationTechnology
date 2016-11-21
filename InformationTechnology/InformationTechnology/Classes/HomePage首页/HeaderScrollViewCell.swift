@@ -9,6 +9,7 @@
 import UIKit
 
 class HeaderScrollViewCell: UITableViewCell {
+    
     var scrollView:HeaderScrollView!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

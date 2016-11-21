@@ -47,7 +47,7 @@ class RecommendViewController: UIViewController {
             self.currentPage = 1
             self.downloadRecommendData()
         }) {
-            //self.currentPage += 1
+           // self.currentPage += 1
             self.downloadRecommendData()
         }
     }

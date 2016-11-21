@@ -49,7 +49,7 @@ class RecommendView: UIView {
         tableView?.delegate = self
         tableView?.dataSource = self
         addSubview(tableView!)
-    
+        
         //约束
         tableView?.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(self)

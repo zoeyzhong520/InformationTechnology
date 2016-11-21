@@ -19,6 +19,7 @@ public let screenH = UIScreen.mainScreen().bounds.size.height
 //最新
 let newestHeaderUrl = "http://api.ithome.com/xml/slide/slide.xml?r="
 let newestUrl = "http://api.ithome.com/xml/newslist/news.xml?r="
+let newestHeaderDetail = "http://www.ithome.com/html/it/%ld.htm"
 
 //手机
 let mobileUrl = "http://api.ithome.com/xml/newslist/phone.xml?r="
@@ -29,6 +30,7 @@ let vrUrl = "http://api.ithome.com/xml/newslist/vr.xml?r="
 //Windows
 let winHeaderUrl = "http://api.ithome.com/xml/slide/windows.xml?r="
 let winUrl = "http://api.ithome.com/xml/newslist/windows.xml?r="
+let winHeaderDertail = "http://www.ithome.com/html/win10/%ld.htm"
 
 //智能汽车
 let autoCarUrl = "http://api.ithome.com/xml/newslist/auto.xml?r="
@@ -36,6 +38,7 @@ let autoCarUrl = "http://api.ithome.com/xml/newslist/auto.xml?r="
 //苹果
 let appleUrl = "http://api.ithome.com/xml/newslist/ios.xml?r="
 let appleHeaderUrl = "http://api.ithome.com/xml/slide/ios.xml?r="
+let appHeaderDetail = "http://www.ithome.com/html/mac/%ld.htm"
 
 //游戏电竞
 let gameUrl = "http://api.ithome.com/xml/newslist/game.xml?r="
@@ -43,6 +46,7 @@ let gameUrl = "http://api.ithome.com/xml/newslist/game.xml?r="
 //安卓
 let androidHeaderUrl = "http://api.ithome.com/xml/slide/android.xml?r="
 let androidUrl = "http://api.ithome.com/xml/newslist/android.xml?r="
+let androidHeaderDetail = "http://www.ithome.com/html/digi/%ld.htm"
 
 //电脑
 let pcUrl = "http://api.ithome.com/xml/newslist/pc.xml?r="

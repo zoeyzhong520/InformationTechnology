@@ -113,6 +113,8 @@
 		BC512A861DCCD6150018F0BA /* RecommendHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC512A771DCCD6150018F0BA /* RecommendHeaderCell.xib */; };
 		BC512A871DCCD6150018F0BA /* RecommendScienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC512A781DCCD6150018F0BA /* RecommendScienceCell.swift */; };
 		BC512A881DCCD6150018F0BA /* RecommendScienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC512A791DCCD6150018F0BA /* RecommendScienceCell.xib */; };
+		BC6595151DE3346B00AA2D19 /* KTCHomePageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6595141DE3346B00AA2D19 /* KTCHomePageService.swift */; };
+		BC6595171DE3348100AA2D19 /* TopScrollViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6595161DE3348100AA2D19 /* TopScrollViewService.swift */; };
 		BC6A5FCB1DD35A7200D3FA6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC6A5FCA1DD35A7200D3FA6C /* Images.xcassets */; };
 		BC6C13851DC8590400C744BD /* KTCSegCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C13841DC8590400C744BD /* KTCSegCtrl.swift */; };
 		BC6C13871DC85B0C00C744BD /* UIView+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6C13861DC85B0C00C744BD /* UIView+Common.swift */; };
@@ -311,6 +313,8 @@
 		BC512A771DCCD6150018F0BA /* RecommendHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeaderCell.xib; sourceTree = "<group>"; };
 		BC512A781DCCD6150018F0BA /* RecommendScienceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendScienceCell.swift; sourceTree = "<group>"; };
 		BC512A791DCCD6150018F0BA /* RecommendScienceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendScienceCell.xib; sourceTree = "<group>"; };
+		BC6595141DE3346B00AA2D19 /* KTCHomePageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCHomePageService.swift; sourceTree = "<group>"; };
+		BC6595161DE3348100AA2D19 /* TopScrollViewService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollViewService.swift; sourceTree = "<group>"; };
 		BC6A5FCA1DD35A7200D3FA6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BC6C13841DC8590400C744BD /* KTCSegCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCSegCtrl.swift; sourceTree = "<group>"; };
 		BC6C13861DC85B0C00C744BD /* UIView+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Common.swift"; sourceTree = "<group>"; };
@@ -633,6 +637,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC6595131DE3341600AA2D19 /* Service处理点击事件 */ = {
+			isa = PBXGroup;
+			children = (
+				BC6595141DE3346B00AA2D19 /* KTCHomePageService.swift */,
+				BC6595161DE3348100AA2D19 /* TopScrollViewService.swift */,
+			);
+			name = "Service处理点击事件";
+			sourceTree = "<group>";
+		};
 		BCC45F3D1DC0AEDC009BC6EC /* Main主要模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -846,6 +859,7 @@
 		BCF254B41DBE355600ABD6A7 /* HomePage首页 */ = {
 			isa = PBXGroup;
 			children = (
+				BC6595131DE3341600AA2D19 /* Service处理点击事件 */,
 				BC1011661DC6CFA2000D0394 /* 顶部滑动导航栏 */,
 				BCC45F3D1DC0AEDC009BC6EC /* Main主要模块 */,
 			);
@@ -1104,6 +1118,7 @@
 				TargetAttributes = {
 					BCF254791DBE31F200ABD6A7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = UC4NK3U5ML;
 					};
 					BCF2548D1DBE31F200ABD6A7 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1296,7 +1311,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EEE889AC51E74027EC0A6909 /* [CP] Copy Pods Resources */ = {
@@ -1329,6 +1344,7 @@
 				BC2D41081DD9A3DD00C7B76D /* UIButton+Common.swift in Sources */,
 				BCF254D41DBE4F3000ABD6A7 /* CollectionViewController.swift in Sources */,
 				BCF254D81DBE4F6300ABD6A7 /* MineViewController.swift in Sources */,
+				BC6595151DE3346B00AA2D19 /* KTCHomePageService.swift in Sources */,
 				BCC45F4B1DC0B12B009BC6EC /* HomePageTableView.swift in Sources */,
 				BC6C13851DC8590400C744BD /* KTCSegCtrl.swift in Sources */,
 				BC6C3C241DDE9AF500E2A8AA /* HasSlideDetailCell.swift in Sources */,
@@ -1367,6 +1383,7 @@
 				BC6C7F601DD0CF0A00CBA5EF /* CollectionCell.swift in Sources */,
 				BCC45F631DC0F296009BC6EC /* HeaderScrollView.swift in Sources */,
 				BC512A7A1DCCD6150018F0BA /* RecommendViewController.swift in Sources */,
+				BC6595171DE3348100AA2D19 /* TopScrollViewService.swift in Sources */,
 				BC512A7E1DCCD6150018F0BA /* CellDetailViewController.swift in Sources */,
 				BCD1F7931DD4A88A003E6288 /* playVideoService.swift in Sources */,
 				BC1011AD1DC7716C000D0394 /* navigationBarProtocol.swift in Sources */,
@@ -1458,6 +1475,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: 3076964159@qq.com (WRJV5WEKQX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1480,6 +1498,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "b6e323f1-e308-4703-a1a0-a5476ac96da9";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1504,7 +1523,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 3076964159@qq.com (WRJV5WEKQX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1519,6 +1538,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "b6e323f1-e308-4703-a1a0-a5476ac96da9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1531,10 +1551,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InformationTechnology/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zzj.InformationTechnology;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codery.InformationTechnology;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1544,10 +1567,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InformationTechnology/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zzj.InformationTechnology;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codery.InformationTechnology;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -1559,6 +1585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zzj.InformationTechnologyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InformationTechnology.app/InformationTechnology";
 			};
 			name = Debug;
@@ -1567,10 +1594,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InformationTechnologyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zzj.InformationTechnologyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InformationTechnology.app/InformationTechnology";
 			};
 			name = Release;
@@ -1582,6 +1611,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zzj.InformationTechnologyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = InformationTechnology;
 			};
 			name = Debug;
@@ -1589,10 +1619,12 @@
 		BCF254AA1DBE31F200ABD6A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = InformationTechnologyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zzj.InformationTechnologyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = InformationTechnology;
 			};
 			name = Release;

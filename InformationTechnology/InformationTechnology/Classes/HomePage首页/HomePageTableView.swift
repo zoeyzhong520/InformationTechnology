@@ -13,19 +13,22 @@ import MBProgressHUD
 
 class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarProtocol {
     
-    //定义界面数据数组
+    //定义界面数据
     var dataArray:[NewestModel] = []
     
-    //slide头部数据数组
+    //slide头部数据
     var headerDataArray:[NewestHeaderModel] = []
     
-    //定义头部图片数组
+    //定义头部图片
     var newestHeaderImageArray:[String] = []
     
-    //定义头部图片标题数组
+    //定义头部图片标题
     var newestTitleArray:[String] = []
     
-    //设置网络接口刷新页
+    //定义头部详情链接
+    var newestJumpArray:[String] = []
+    
+    //刷新页
     var currentPage:Int = 1
     var headerUrlString:String?
     var UrlString:String?
@@ -41,6 +44,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
     }
     
     func configUI() {
+        
+        
         
         //点击状态栏回到列表头部
         tableView.scrollsToTop = true
@@ -74,18 +79,26 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
                 if response.result.value != nil {
                     let xml = XML.parse(response.result.value!)
                     if response.result.error == nil {
+                        
                         let items = xml["rss"]["channel"]["item"]
                         for item in items {
                             let model = NewestHeaderModel()
                             model.title = item["title"].text
                             model.image = item["image"].text
                             model.link = item["link"].text
+                            
                             if model.link != "262983" {
-                                //头部图片数组
+                                
+                                //头部图片
                                 self.newestHeaderImageArray.append(model.image!)
-                                //头部图片标题数组
+                            
+                                //头部图片标题
                                 self.newestTitleArray.append(model.title!)
-                                //头部数据数组
+                                
+                                //定义头部详情链接
+                                self.newestJumpArray.append(model.link!)
+                                
+                                //轮播页数据
                                 self.headerDataArray.append(model)
                             }
                         }
@@ -174,7 +187,16 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
         if headerUrlString != nil && indexPath.row == 0 {
             //广告
             let cell = tableView.dequeueReusableCellWithIdentifier("advertisementCellId", forIndexPath: indexPath) as? HeaderScrollViewCell
-            cell?.scrollView.NameArray(newestHeaderImageArray, array2: newestTitleArray)
+            
+            cell?.scrollView.NameArray(newestHeaderImageArray, titleArray: newestTitleArray, linksArray: newestJumpArray)
+        
+            //点击事件
+            cell?.scrollView.jumpClosure = {
+                jumpUrl in
+                
+                KTCHomePageService.handleEvent(jumpUrl, onViewController: self)
+            }
+            
             return cell!
         }
         
@@ -223,9 +245,8 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
             
             if indexPath.row == 0 {
                //广告详情
-                //let model = headerDataArray[indexPath.row]
-                
-                return
+               return
+
             }else{
                 //界面详情
                 let model = dataArray[indexPath.row-1]
@@ -253,7 +274,6 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
         }
     }
 }
-
 
 
 
