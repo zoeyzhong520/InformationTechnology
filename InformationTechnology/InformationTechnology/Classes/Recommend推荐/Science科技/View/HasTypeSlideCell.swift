@@ -55,7 +55,7 @@ class HasTypeSlideCell: UITableViewCell {
                 if model.hasSlide == true {
                     
                     //创建图片
-                    if model.style?.images?.count > 0 {
+                    if model.style?.images?.count > 2 {
                         
                         let url1 = NSURL(string: (model.style?.images![0])!)
                         
