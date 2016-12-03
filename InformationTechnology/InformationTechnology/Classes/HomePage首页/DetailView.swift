@@ -21,6 +21,8 @@ class DetailView: UIViewController,navigationBarProtocol {
     
     func configUI() {
         
+        addTitle("科技之窗")
+        
         //响应用户操作
         self.view.userInteractionEnabled = true
         

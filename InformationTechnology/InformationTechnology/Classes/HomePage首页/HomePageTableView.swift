@@ -45,8 +45,6 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
     
     func configUI() {
         
-        
-        
         //点击状态栏回到列表头部
         tableView.scrollsToTop = true
         
@@ -109,19 +107,6 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
         }
     }
     
-    //添加提示等待加载功能
-    func addHud() {
-        let hud = MBProgressHUD .showHUDAddedTo(self.view, animated: true)
-        hud.mode = .DeterminateHorizontalBar
-        hud.label.text = "一会就好"
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)) {
-            sleep(1)
-            self.DownloadData()
-            dispatch_async(dispatch_get_main_queue(), {
-                MBProgressHUD .hideHUDForView(self.view, animated: true)
-            })
-        }
-    }
     
     //界面
     func DownloadData() {
@@ -251,7 +236,7 @@ class HomePageTableView: UITableViewController,AddReFreshProtocol,navigationBarP
                 //界面详情
                 let model = dataArray[indexPath.row-1]
                 
-                vc.title = model.title
+                //vc.title = model.title
                 
                 if model.url != nil {
                     vc.url = NSURL(string: cellDetailUrl+"\(model.url!)")
